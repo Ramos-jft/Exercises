@@ -1,6 +1,6 @@
-﻿using Basic;
+﻿using BasicExercises;
 
-namespace Basic
+namespace BasicExercises
 {
     internal class Program
     {
