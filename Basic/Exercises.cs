@@ -307,7 +307,7 @@ namespace BasicExercises
                 number++;
             }
 
-            return sum; 
+            return sum;
         }
 
         public static string GetPrimeSumResult()
@@ -329,7 +329,7 @@ namespace BasicExercises
 
             while (number > 0)
             {
-                sum += number % 10; 
+                sum += number % 10;
                 number /= 10;
             }
 
@@ -701,5 +701,299 @@ namespace BasicExercises
                    $"After rotating array becomes: [{string.Join(", ", rotated)}]";
         }
 
+        // Exercise 51 - Max of First and Last in Array
+        public int GetMaxOfFirstAndLast(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                throw new ArgumentException("Array cannot be null or empty");
+            }
+
+            int first = array[0];
+            int last = array[array.Length - 1];
+
+            return Math.Max(first, last);
+        }
+
+        // Exercise 52 - Middle Elements of Three Arrays
+        public int[] GetMiddleElements(int[] array1, int[] array2, int[] array3)
+        {
+            if (array1 == null || array2 == null || array3 == null)
+            {
+                throw new ArgumentException("Arrays cannot be null");
+            }
+
+            if (array1.Length != 3 || array2.Length != 3 || array3.Length != 3)
+            {
+                throw new ArgumentException("All arrays must have length 3");
+            }
+
+            int middle1 = array1[1];
+            int middle2 = array2[1];
+            int middle3 = array3[1];
+
+            return new int[] { middle1, middle2, middle3 };
+        }
+
+        // Exercise 53 - Check Odd Number in Array
+        public bool ContainsOddNumber(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                return false;
+            }
+
+            foreach (int number in array)
+            {
+                if (number % 2 != 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 54 - Find Century of Year
+        public int GetCentury(int year)
+        {
+            if (year <= 0)
+            {
+                throw new ArgumentException("Year must be greater than 0");
+            }
+
+            int century = (year - 1) / 100 + 1;
+
+            return century;
+        }
+
+        // Exercise 55 - Max Product of Adjacent Elements
+        public int MaxAdjacentProduct(int[] array)
+        {
+            if (array == null)
+            {
+                throw new ArgumentException("Array cannot be null");
+            }
+
+            if (array.Length < 2)
+            {
+                throw new ArgumentException("Array must have at least 2 elements");
+            }
+
+            int maxProduct = int.MinValue;
+
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                int product = array[i] * array[i + 1];
+
+                if (product > maxProduct)
+                {
+                    maxProduct = product;
+                }
+            }
+
+            return maxProduct;
+        }
+
+        // Exercise 56 - Check Palindrome String
+        public bool IsPalindrome(string input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+
+            if (input.Length <= 1)
+            {
+                return true;
+            }
+
+            int left = 0;
+            int right = input.Length - 1;
+
+            while (left < right)
+            {
+                if (input[left] != input[right])
+                {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+
+            return true;
+        }
+
+        // Exercise 57 - Max Product of Adjacent Integers
+        public static int ArrayAdjacentElementsProduct(int[] inputArray)
+        {
+            int arrayIndex = 0;
+
+            int product = inputArray[arrayIndex] * inputArray[arrayIndex + 1];
+
+            arrayIndex++;
+
+            while (arrayIndex + 1 < inputArray.Length)
+            {
+                product = ((inputArray[arrayIndex] * inputArray[arrayIndex + 1]) > product) ?
+                            (inputArray[arrayIndex] * inputArray[arrayIndex + 1]) :
+                            product;
+
+                arrayIndex++;
+            }
+
+            return product;
+        }
+
+        // Exercise 58 - Complete Missing Numbers in Range
+        public static int CountMissingNumbersInRange(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return 0;
+
+            if (numbers.Length == 1)
+                return 0;
+
+            int min = numbers.Min();
+            int max = numbers.Max();
+
+            HashSet<int> existingNumbers = new HashSet<int>(numbers);
+            int missingCount = 0;
+
+            for (int i = min + 1; i < max; i++)
+            {
+                if (!existingNumbers.Contains(i))
+                {
+                    missingCount++;
+                }
+            }
+
+            return missingCount;
+        }
+
+        public static List<int> GetMissingNumbersInRange(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return new List<int>();
+
+            if (numbers.Length == 1)
+                return new List<int>();
+
+            int min = numbers.Min();
+            int max = numbers.Max();
+
+            HashSet<int> existingNumbers = new HashSet<int>(numbers);
+            List<int> missingNumbers = new List<int>();
+
+            for (int i = min + 1; i < max; i++)
+            {
+                if (!existingNumbers.Contains(i))
+                {
+                    missingNumbers.Add(i);
+                }
+            }
+
+            return missingNumbers;
+        }
+
+        public static string GetMissingNumbersResult(int[] numbers)
+        {
+
+            int missingCount = CountMissingNumbersInRange(numbers);
+            List<int> missingNumbers = GetMissingNumbersInRange(numbers);
+
+            return $"Input: [{string.Join(", ", numbers)}]\n" +
+                   $"Range: {numbers.Min()} to {numbers.Max()}\n" +
+                   $"Missing numbers: [{string.Join(", ", missingNumbers)}]\n" +
+                   $"Count of missing numbers: {missingCount}";
+        }
+
+        // Exercise 59 - Check Strictly Increasing Sequence
+        public static bool CanBecomeStrictlyIncreasing(int[] sequence)
+        {
+            if (sequence == null || sequence.Length <= 1)
+                return true;
+
+            int removalsNeeded = 0;
+            int last = sequence[0];
+            int prev = int.MinValue;
+
+            for (int i = 1; i < sequence.Length; i++)
+            {
+                if (sequence[i] <= last)
+                {
+                    removalsNeeded++;
+
+                    if (removalsNeeded > 1)
+                        return false;
+
+                    if (sequence[i] > prev)
+                    {
+                        last = sequence[i];
+                    }
+                }
+                else
+                {
+                    prev = last;
+                    last = sequence[i];
+                }
+            }
+
+            return true;
+        }
+
+        public static string GetStrictlyIncreasingResult(int[] sequence)
+        {
+            bool result = CanBecomeStrictlyIncreasing(sequence);
+
+            return $"Sequence: [{string.Join(", ", sequence)}]\n" +
+                   $"Can become strictly increasing: {result}";
+        }
+
+        // Exercise 60 - Sum of Matrix with Zero Condition
+        public static int SumMatrixWithZeroCondition(int[][] matrix)
+        {
+            if (matrix == null || matrix.Length == 0)
+                return 0;
+
+            int rows = matrix.Length;
+            int cols = matrix[0].Length;
+            int sum = 0;
+
+            // Track which columns have zeros above
+            bool[] columnHasZeroAbove = new bool[cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i][j] == 0)
+                    {
+                        columnHasZeroAbove[j] = true;
+                    }
+                    else if (!columnHasZeroAbove[j])
+                    {
+                        sum += matrix[i][j];
+                    }
+                }
+            }
+
+            return sum;
+        }
+
+        public static string GetMatrixSumResult(int[][] matrix)
+        {
+            int sum = SumMatrixWithZeroCondition(matrix);
+            string matrixStr = MatrixToString(matrix);
+
+            return $"Matrix:\n{matrixStr}\nSum: {sum}";
+        }
+
+        private static string MatrixToString(int[][] matrix)
+        {
+            if (matrix == null) return "null";
+
+            return string.Join("\n", matrix
+                .Select(row => $"[{string.Join(", ", row)}]"));
+        }
     }
 }

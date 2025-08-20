@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BasicExercises;
 using System;
 using System.IO;
@@ -965,14 +965,14 @@ namespace BasicExercisesTests
         [TestMethod]
         public void IsPrime_ShouldIdentifyPrimesCorrectly()
         {
-            // N�meros primos
+            // Números primos
             Assert.IsTrue(Exercises.IsPrime(2));
             Assert.IsTrue(Exercises.IsPrime(3));
             Assert.IsTrue(Exercises.IsPrime(5));
             Assert.IsTrue(Exercises.IsPrime(7));
             Assert.IsTrue(Exercises.IsPrime(11));
 
-            // N�o primos
+            // Não primos
             Assert.IsFalse(Exercises.IsPrime(1));
             Assert.IsFalse(Exercises.IsPrime(4));
             Assert.IsFalse(Exercises.IsPrime(9));
@@ -2620,6 +2620,1385 @@ namespace BasicExercisesTests
 
             // Assert
             Assert.AreEqual(expected, result);
+        }
+
+        // Exercise 51 - Max of First and Last in Array
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_ArrayWithFirstMax_ReturnsFirstElement()
+        {
+            // Arrange
+            int[] array = { 10, 2, 5, 7, 8 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_ArrayWithLastMax_ReturnsLastElement()
+        {
+            // Arrange
+            int[] array = { 1, 2, 5, 7, 15 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(15);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_ArrayWithEqualFirstAndLast_ReturnsSameValue()
+        {
+            // Arrange
+            int[] array = { 5, 2, 3, 4, 5 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_ArrayWithNegativeNumbers_ReturnsCorrectMax()
+        {
+            // Arrange
+            int[] array = { -10, 2, 5, 7, -5 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(-5);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_ArrayWithSingleElement_ReturnsElement()
+        {
+            // Arrange
+            int[] array = { 42 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(42);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_TestDataFromExample_Returns8()
+        {
+            // Arrange
+            int[] array = { 1, 2, 5, 7, 8 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            result.Should().Be(8);
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_NullArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array = null;
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Array cannot be null or empty");
+        }
+
+        [TestMethod]
+        public void GetMaxOfFirstAndLast_EmptyArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array = new int[0];
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetMaxOfFirstAndLast(array);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Array cannot be null or empty");
+        }
+
+        // Exercise 52 - Middle Elements of Three Arrays
+
+        [TestMethod]
+        public void GetMiddleElements_ThreeArrays_ReturnsMiddleElements()
+        {
+            // Arrange
+            int[] array1 = { 1, 2, 5 };
+            int[] array2 = { 0, 3, 8 };
+            int[] array3 = { -1, 0, 2 };
+            var exercises = new Exercises();
+
+            // Act
+            int[] result = exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Should().HaveCount(3);
+            result.Should().Equal(2, 3, 0);
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_ArraysWithNegativeNumbers_ReturnsCorrectMiddleElements()
+        {
+            // Arrange
+            int[] array1 = { -5, -2, -1 };
+            int[] array2 = { 10, 20, 30 };
+            int[] array3 = { 0, -10, 5 };
+            var exercises = new Exercises();
+
+            // Act
+            int[] result = exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            result.Should().Equal(-2, 20, -10);
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_ArraysWithSameValues_ReturnsMiddleElements()
+        {
+            // Arrange
+            int[] array1 = { 5, 5, 5 };
+            int[] array2 = { 10, 10, 10 };
+            int[] array3 = { 1, 1, 1 };
+            var exercises = new Exercises();
+
+            // Act
+            int[] result = exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            result.Should().Equal(5, 10, 1);
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_ArraysWithZero_ReturnsCorrectMiddleElements()
+        {
+            // Arrange
+            int[] array1 = { 0, 0, 0 };
+            int[] array2 = { 1, 0, 2 };
+            int[] array3 = { 0, 5, 0 };
+            var exercises = new Exercises();
+
+            // Act
+            int[] result = exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            result.Should().Equal(0, 0, 5);
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_NullArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array1 = { 1, 2, 3 };
+            int[] array2 = null;
+            int[] array3 = { 4, 5, 6 };
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Arrays cannot be null");
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_ArrayNotLength3_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array1 = { 1, 2, 3 };
+            int[] array2 = { 4, 5 }; // Length 2
+            int[] array3 = { 7, 8, 9 };
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("All arrays must have length 3");
+        }
+
+        [TestMethod]
+        public void GetMiddleElements_EmptyArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array1 = { 1, 2, 3 };
+            int[] array2 = new int[0]; // Empty
+            int[] array3 = { 7, 8, 9 };
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetMiddleElements(array1, array2, array3);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("All arrays must have length 3");
+        }
+
+        // Exercise 53 - Check Odd Number in Array
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithOddNumber_ReturnsTrue()
+        {
+            // Arrange
+            int[] array = { 2, 4, 7, 8, 6 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithOnlyEvenNumbers_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = { 2, 4, 8, 6, 10 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithMultipleOddNumbers_ReturnsTrue()
+        {
+            // Arrange
+            int[] array = { 1, 3, 5, 7, 9 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithNegativeOddNumbers_ReturnsTrue()
+        {
+            // Arrange
+            int[] array = { -1, -2, -3, -4, -5 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithNegativeEvenNumbers_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = { -2, -4, -6, -8, -10 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_ArrayWithZero_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = { 0, 2, 4, 6, 8 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_EmptyArray_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = new int[0];
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_NullArray_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = null;
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_SingleOddElement_ReturnsTrue()
+        {
+            // Arrange
+            int[] array = { 7 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ContainsOddNumber_SingleEvenElement_ReturnsFalse()
+        {
+            // Arrange
+            int[] array = { 4 };
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.ContainsOddNumber(array);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        // Exercise 54 - Find Century of Year
+
+        [TestMethod]
+        public void GetCentury_Year1()
+        {
+            // Arrange
+            int year = 1;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year100()
+        {
+            // Arrange
+            int year = 100;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year101()
+        {
+            // Arrange
+            int year = 101;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year200()
+        {
+            // Arrange
+            int year = 200;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year2023()
+        {
+            // Arrange
+            int year = 2023;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(21);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year2000()
+        {
+            // Arrange
+            int year = 2000;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(20);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year2001()
+        {
+            // Arrange
+            int year = 2001;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(21);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year1900()
+        {
+            // Arrange
+            int year = 1900;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(19);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year1901()
+        {
+            // Arrange
+            int year = 1901;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(20);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year0()
+        {
+            // Arrange
+            int year = 0;
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetCentury(year);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Year must be greater than 0");
+        }
+
+        [TestMethod]
+        public void GetCentury_NegativeYear()
+        {
+            // Arrange
+            int year = -100;
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.GetCentury(year);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Year must be greater than 0");
+        }
+
+        [TestMethod]
+        public void GetCentury_Year9999()
+        {
+            // Arrange
+            int year = 9999;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(100);
+        }
+
+        [TestMethod]
+        public void GetCentury_Year10000()
+        {
+            // Arrange
+            int year = 10000;
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.GetCentury(year);
+
+            // Assert
+            result.Should().Be(100);
+        }
+
+        // Exercise 55 - Max Product of Adjacent Elements
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithPositiveNumbers_ReturnsCorrectProduct()
+        {
+            // Arrange
+            int[] array = { 1, 2, 3, 4, 5 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(20); // 4 * 5 = 20
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithMixedNumbers_ReturnsCorrectProduct()
+        {
+            // Arrange
+            int[] array = { 3, 6, -2, -5, 7, 3 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(21); // 7 * 3 = 21
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithTwoElements_ReturnsTheirProduct()
+        {
+            // Arrange
+            int[] array = { 9, 5 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(45); // 9 * 5 = 45
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithNegativeNumbers_Returns12()
+        {
+            // Arrange
+            int[] array = { -5, -2, -1, -4, -3 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(12); // (-4) * (-3) = 12
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithLargeNegativeProduct_Returns10000()
+        {
+            // Arrange
+            int[] array = { -100, -100, 5, 10 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(10000); // (-100) * (-100) = 10000
+        }
+
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithZeros_ReturnsZero()
+        {
+            // Arrange
+            int[] array = { 0, 0, 0, 0 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithSingleElement_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array = { 5 };
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Array must have at least 2 elements");
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_EmptyArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array = new int[0];
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Array must have at least 2 elements");
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_NullArray_ThrowsArgumentException()
+        {
+            // Arrange
+            int[] array = null;
+            var exercises = new Exercises();
+
+            // Act
+            Action act = () => exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            act.Should().Throw<ArgumentException>()
+                .WithMessage("Array cannot be null");
+        }
+
+        [TestMethod]
+        public void MaxAdjacentProduct_ArrayWithSpecificPattern_ReturnsCorrectProduct()
+        {
+            // Arrange
+            int[] array = { 1, 0, 1, 0, 1000 };
+            var exercises = new Exercises();
+
+            // Act
+            int result = exercises.MaxAdjacentProduct(array);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        // Exercise 56 - Check Palindrome String
+
+        [TestMethod]
+        public void IsPalindrome_SimplePalindrome_ReturnsTrue()
+        {
+            // Arrange
+            string input = "aaa";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_NonPalindrome_ReturnsFalse()
+        {
+            // Arrange
+            string input = "abcd";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_SingleCharacter_ReturnsTrue()
+        {
+            // Arrange
+            string input = "a";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_EmptyString_ReturnsTrue()
+        {
+            // Arrange
+            string input = "";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_EvenLengthPalindrome_ReturnsTrue()
+        {
+            // Arrange
+            string input = "abba";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_OddLengthPalindrome_ReturnsTrue()
+        {
+            // Arrange
+            string input = "radar";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_WithSpacesAndCase_ReturnsFalseByDefault()
+        {
+            // Arrange
+            string input = "A man a plan a canal Panama";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_MixedCasePalindrome_ReturnsFalseByDefault()
+        {
+            // Arrange
+            string input = "Racecar";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_NullString_ReturnsFalse()
+        {
+            // Arrange
+            string input = null;
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_WithSpecialCharacters_ReturnsCorrectResult()
+        {
+            // Arrange
+            string input = "a!b@b#a";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_NumericPalindrome_ReturnsTrue()
+        {
+            // Arrange
+            string input = "12321";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPalindrome_NumericNonPalindrome_ReturnsFalse()
+        {
+            // Arrange
+            string input = "12345";
+            var exercises = new Exercises();
+
+            // Act
+            bool result = exercises.IsPalindrome(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        // Exercise 57 - Max Product of Adjacent Integers
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithPositiveNumbers_ReturnsMaxProduct()
+        {
+            // Arrange
+            int[] inputArray = { 3, 6, -2, -5, 7, 3 };
+            int expected = 21;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithNegativeNumbers_ReturnsMaxProduct()
+        {
+            // Arrange
+            int[] inputArray = { -5, -2, -3, -1, -4 };
+            int expected = 10;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithMixedNumbers_ReturnsMaxProduct()
+        {
+            // Arrange
+            int[] inputArray = { 1, -2, 3, -4, 5 };
+            int expected = 12;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(-2);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithTwoElements_ReturnsTheirProduct()
+        {
+            // Arrange
+            int[] inputArray = { 5, 8 };
+            int expected = 40;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithAllSameNumbers_ReturnsSquare()
+        {
+            // Arrange
+            int[] inputArray = { 4, 4, 4, 4 };
+            int expected = 16;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithLargeNumbers_ReturnsCorrectProduct()
+        {
+            // Arrange
+            int[] inputArray = { 1000, 2, 500, 3 };
+            int expected = 500000;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(2000);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_WithZeroInArray_HandlesZeroCorrectly()
+        {
+            // Arrange
+            int[] inputArray = { 5, 0, 3, 4 };
+            int expected = 12;
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ArrayAdjacentElementsProduct_EdgeCaseWithMinimumValues_ReturnsCorrectProduct()
+        {
+            // Arrange
+            int[] inputArray = { int.MinValue, int.MaxValue, 1 };
+
+            // Act
+            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+
+            // Assert
+            result.Should().Be(int.MaxValue);
+        }
+
+        // Exercise 58 - Complete Missing Numbers in Range
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_SampleInput_ReturnsCorrectCount()
+        {
+            // Arrange
+            int[] numbers = { 1, 3, 4, 7, 9 };
+            int expected = 4; // Missing: 2, 5, 6, 8
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetMissingNumbersInRange_SampleInput_ReturnsCorrectNumbers()
+        {
+            // Arrange
+            int[] numbers = { 1, 3, 4, 7, 9 };
+            List<int> expected = new List<int> { 2, 5, 6, 8 };
+
+            // Act
+            var result = Exercises.GetMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_ConsecutiveNumbers_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_SingleNumber_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = { 5 };
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_NegativeNumbers_ReturnsCorrectCount()
+        {
+            // Arrange
+            int[] numbers = { -3, 0, 2 };
+            int expected = 3;
+            // Range: -3 to 2, missing: -2, -1, 1
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(expected); // -2, -1, 1
+        }
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_DuplicateNumbers_ReturnsCorrectCount()
+        {
+            // Arrange
+            int[] numbers = { 1, 1, 3, 3, 5, 5 };
+            // Range: 1 to 5, missing: 2, 4
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void GetMissingNumbersResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            int[] numbers = { 1, 3, 4, 7, 9 };
+            string expectedStart = "Input: [1, 3, 4, 7, 9]";
+            string expectedRange = "Range: 1 to 9";
+            string expectedMissing = "Missing numbers: [2, 5, 6, 8]";
+            string expectedCount = "Count of missing numbers: 4";
+
+            // Act
+            string result = Exercises.GetMissingNumbersResult(numbers);
+
+            // Assert
+            result.Should().Contain(expectedStart)
+                  .And.Contain(expectedRange)
+                  .And.Contain(expectedMissing)
+                  .And.Contain(expectedCount);
+        }
+
+        [TestMethod]
+        public void CountMissingNumbersInRange_LargeRange_ReturnsCorrectCount()
+        {
+            // Arrange
+            int[] numbers = { 10, 50 };
+            // Missing numbers from 11 to 49 = 39 numbers
+
+            // Act
+            int result = Exercises.CountMissingNumbersInRange(numbers);
+
+            // Assert
+            result.Should().Be(39);
+        }
+
+        // Exercise 59 - Check Strictly Increasing Sequence
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_AlreadyStrictlyIncreasing_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = { 1, 2, 3, 4, 5 };
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_RemoveOneElement_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = { 1, 3, 2, 4 }; // Remove 3 → [1, 2, 4]
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_NeedMultipleRemovals_ReturnsFalse()
+        {
+            // Arrange
+            int[] sequence = { 1, 1, 1, 1 }; // Need to remove 3 elements
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_ComplexCase_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = { 10, 1, 2, 3, 4, 5 }; // Remove 10 → [1, 2, 3, 4, 5]
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_ComplexCase2_ReturnsFalse()
+        {
+            // Arrange
+            int[] sequence = { 1, 2, 1, 2, 1 }; // Multiple violations
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_SingleElement_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = { 5 };
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_EmptyArray_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = Array.Empty<int>();
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_NullArray_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = null;
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_EdgeCase_ReturnsTrue()
+        {
+            // Arrange
+            int[] sequence = { 1, 2, 3, 4, 3, 6 }; // Remove 4 → [1, 2, 3, 3, 6] → Remove second 3 → [1, 2, 3, 6]
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CanBecomeStrictlyIncreasing_EdgeCase2_ReturnsFalse()
+        {
+            // Arrange
+            int[] sequence = { 1, 2, 3, 4, 3, 2, 5 }; // Multiple violations
+
+            // Act
+            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void GetStrictlyIncreasingResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            int[] sequence = { 1, 3, 2, 4 };
+            string expected = "Sequence: [1, 3, 2, 4]\n" +
+                            "Can become strictly increasing: True";
+
+            // Act
+            string result = Exercises.GetStrictlyIncreasingResult(sequence);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        // Exercise 60 - Sum of Matrix with Zero Condition
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_SampleMatrix_Returns14()
+        {
+            // Arrange
+            int[][] matrix = new int[][]
+            {
+                new int[] { 0, 2, 3, 2 },
+                new int[] { 0, 6, 0, 1 },
+                new int[] { 4, 0, 3, 0 }
+            };
+            int expected = 14;
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_NoZeros_ReturnsTotalSum()
+        {
+            // Arrange
+            int[][] matrix = new int[][]
+            {
+                new int[] { 1, 2, 3 },
+                new int[] { 4, 5, 6 }
+            };
+            int expected = 21;
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_AllZeros_ReturnsZero()
+        {
+            // Arrange
+            int[][] matrix = new int[][]
+            {
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 }
+            };
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_ZeroInMiddle_ExcludesBelow()
+        {
+            // Arrange
+            int[][] matrix = new int[][]
+            {
+                new int[] { 1, 2, 3 },
+                new int[] { 4, 0, 6 },
+                new int[] { 7, 8, 9 }
+            };
+            int expected = 1 + 2 + 3 + 4 + 0 + 6 + 7 + 9;
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_EmptyMatrix_ReturnsZero()
+        {
+            // Arrange
+            int[][] matrix = new int[0][];
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void SumMatrixWithZeroCondition_NullMatrix_ReturnsZero()
+        {
+            // Arrange
+            int[][] matrix = null;
+
+            // Act
+            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void GetMatrixSumResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            int[][] matrix = new int[][]
+            {
+                new int[] { 0, 2, 3, 2 },
+                new int[] { 0, 6, 0, 1 }
+            };
+
+            // Act
+            string result = Exercises.GetMatrixSumResult(matrix);
+
+            // Assert
+            result.Should().Contain("Matrix:")
+                  .And.Contain("[0, 2, 3, 2]")
+                  .And.Contain("[0, 6, 0, 1]")
+                  .And.Contain("Sum: 14");
         }
     }
 }
