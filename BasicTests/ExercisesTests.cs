@@ -7667,6 +7667,1913 @@ namespace BasicExercisesTests
             result.ones.Should().Be(1);
             result.zeros.Should().Be(4);
         }
+
+        // Exercise 91 - Remove Non-Integer Values from Array
+
+        [TestMethod]
+        public void RemoveNonIntegers_SampleArray_ReturnsOnlyIntegers()
+        {
+            // Arrange
+            object[] array = { 25, "Anna", false, DateTime.Parse("24/04/2021 11:43:11"), -112, -34.67 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(25, -112);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_OnlyIntegers_ReturnsAll()
+        {
+            // Arrange
+            object[] array = { 1, 2, 3, -4, 5 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(1, 2, 3, -4, 5);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_NoIntegers_ReturnsEmpty()
+        {
+            // Arrange
+            object[] array = { "Hello", 3.14, true, DateTime.Now };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_EmptyArray_ReturnsEmpty()
+        {
+            // Arrange
+            object[] array = Array.Empty<object>();
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_NullArray_ReturnsEmpty()
+        {
+            // Arrange
+            object[] array = null;
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_MixedWithNulls_ReturnsOnlyIntegers()
+        {
+            // Arrange
+            object[] array = { 1, null, "test", 2, 3.5, 3 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(1, 2, 3);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_WithDoubleValues_IgnoresDoubles()
+        {
+            // Arrange
+            object[] array = { 1.5, 2.7, 3, 4.0, 5 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(3, 5);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_WithFloatValues_IgnoresFloats()
+        {
+            // Arrange
+            object[] array = { 1.5f, 2.7f, 3, 4.0f, 5 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(3, 5);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_WithDecimalValues_IgnoresDecimals()
+        {
+            // Arrange
+            object[] array = { 1.5m, 2.7m, 3, 4.0m, 5 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(3, 5);
+        }
+
+        [TestMethod]
+        public void RemoveNonIntegers_WithBooleanValues_IgnoresBooleans()
+        {
+            // Arrange
+            object[] array = { true, false, 1, 0, -1 };
+
+            // Act
+            int[] result = Exercises.RemoveNonIntegers(array);
+
+            // Assert
+            result.Should().Equal(1, 0, -1);
+        }
+
+        // Exercise 92 - Find Next Prime Number
+
+        [TestMethod]
+        public void FindNextPrime_Number120_Returns127()
+        {
+            // Arrange
+            int input = 120;
+            int expected = 127;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_Number321_Returns331()
+        {
+            // Arrange
+            int input = 321;
+            int expected = 331;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_PrimeNumber43_ReturnsSameNumber()
+        {
+            // Arrange
+            int input = 43;
+            int expected = 43;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_Number4433_Returns4441()
+        {
+            // Arrange
+            int input = 4433;
+            int expected = 4441;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_NumberLessThan2_Returns2()
+        {
+            // Arrange
+            int input = 1;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_Number0_Returns2()
+        {
+            // Arrange
+            int input = 0;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void FindNextPrime_NegativeNumber_Returns2()
+        {
+            // Arrange
+            int input = -10;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.FindNextPrime(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 93 - Square Root Without Built-In Functions
+
+        [TestMethod]
+        public void SquareRoot_Number120_Returns10()
+        {
+            // Arrange
+            int input = 120;
+            int expected = 10;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number225_Returns15()
+        {
+            // Arrange
+            int input = 225;
+            int expected = 15;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number335_Returns18()
+        {
+            // Arrange
+            int input = 335;
+            int expected = 18;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number0_Returns0()
+        {
+            // Arrange
+            int input = 0;
+            int expected = 0;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number1_Returns1()
+        {
+            // Arrange
+            int input = 1;
+            int expected = 1;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number4_Returns2()
+        {
+            // Arrange
+            int input = 4;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number16_Returns4()
+        {
+            // Arrange
+            int input = 16;
+            int expected = 4;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number100_Returns10()
+        {
+            // Arrange
+            int input = 100;
+            int expected = 10;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SquareRoot_Number99_Returns9()
+        {
+            // Arrange
+            int input = 99;
+            int expected = 9;
+
+            // Act
+            int actual = Exercises.SquareRoot(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 94 - Find Longest Common Prefix
+
+        [TestMethod]
+        public void LongestCommonPrefix_StringsWithPaPrefix_ReturnsPa()
+        {
+            // Arrange
+            string[] input = { "Padas", "Packed", "Pace", "Pacha" };
+            string expected = "Pa";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_StringsWithJPrefix_ReturnsJ()
+        {
+            // Arrange
+            string[] input = { "Jacket", "Joint", "Junky", "Jet" };
+            string expected = "J";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_StringsWithNoCommonPrefix_ReturnsEmptyString()
+        {
+            // Arrange
+            string[] input = { "Bort", "Whang", "Yarder", "Zoonic" };
+            string expected = "";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_EmptyArray_ReturnsEmptyString()
+        {
+            // Arrange
+            string[] input = { };
+            string expected = "";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_SingleString_ReturnsFullString()
+        {
+            // Arrange
+            string[] input = { "Hello" };
+            string expected = "Hello";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_IdenticalStrings_ReturnsFullString()
+        {
+            // Arrange
+            string[] input = { "Test", "Test", "Test" };
+            string expected = "Test";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_StringsWithCommonPrefix_ReturnsCommonPrefix()
+        {
+            // Arrange
+            string[] input = { "Flower", "Flow", "Flight" };
+            string expected = "Fl";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void LongestCommonPrefix_StringsWithEmptyString_ReturnsEmptyString()
+        {
+            // Arrange
+            string[] input = { "Hello", "", "World" };
+            string expected = "";
+
+            // Act
+            string actual = Exercises.LongestCommonPrefix(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 95 - Validate Brackets in String
+
+        [TestMethod]
+        public void ValidateBrackets_SinglePairAngleBrackets_ReturnsTrue()
+        {
+            // Arrange
+            string input = "<>";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_MultipleValidBracketTypes_ReturnsTrue()
+        {
+            // Arrange
+            string input = "<>()[]{}";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_UnclosedParenthesis_ReturnsFalse()
+        {
+            // Arrange
+            string input = "(<>";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_NestedValidBrackets_ReturnsTrue()
+        {
+            // Arrange
+            string input = "[<>()[]{}]";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_EmptyString_ReturnsTrue()
+        {
+            // Arrange
+            string input = "";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_OnlyOpeningBrackets_ReturnsFalse()
+        {
+            // Arrange
+            string input = "([{<";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_OnlyClosingBrackets_ReturnsFalse()
+        {
+            // Arrange
+            string input = ")]}>";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_MismatchedBrackets_ReturnsFalse()
+        {
+            // Arrange
+            string input = "([)]";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateBrackets_ValidNestedBracketsWithText_ReturnsTrue()
+        {
+            // Arrange
+            string input = "hello[world{test<data>}end]";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.ValidateBrackets(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 96 - Check All Characters Same in String
+
+        [TestMethod]
+        public void AllCharactersSame_AllSameCharacters_ReturnsTrue()
+        {
+            // Arrange
+            string input = "aaa";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_DifferentCharacters_ReturnsFalse()
+        {
+            // Arrange
+            string input = "abcd";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_AllSameNumbers_ReturnsTrue()
+        {
+            // Arrange
+            string input = "3333";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_MixedNumbers_ReturnsFalse()
+        {
+            // Arrange
+            string input = "2342342";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_EmptyString_ReturnsTrue()
+        {
+            // Arrange
+            string input = "";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_SingleCharacter_ReturnsTrue()
+        {
+            // Arrange
+            string input = "a";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_SingleNumber_ReturnsTrue()
+        {
+            // Arrange
+            string input = "7";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_AllSameSpecialCharacters_ReturnsTrue()
+        {
+            // Arrange
+            string input = "####";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AllCharactersSame_MixedCaseLetters_ReturnsFalse()
+        {
+            // Arrange
+            string input = "AAAaaa";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AllCharactersSame(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 97 - Check Numeric String
+
+        [TestMethod]
+        public void IsNumeric_IntegerString_ReturnsTrue()
+        {
+            // Arrange
+            string input = "123";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_DecimalString_ReturnsTrue()
+        {
+            // Arrange
+            string input = "123.33";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_FractionString_ReturnsFalse()
+        {
+            // Arrange
+            string input = "33/33";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_StringWithLetter_ReturnsFalse()
+        {
+            // Arrange
+            string input = "234234d2";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_NegativeInteger_ReturnsTrue()
+        {
+            // Arrange
+            string input = "-123";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_NegativeDecimal_ReturnsTrue()
+        {
+            // Arrange
+            string input = "-123.45";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_PositiveWithPlusSign_ReturnsTrue()
+        {
+            // Arrange
+            string input = "+456";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_EmptyString_ReturnsFalse()
+        {
+            // Arrange
+            string input = "";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_OnlyDecimalPoint_ReturnsFalse()
+        {
+            // Arrange
+            string input = ".";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_MultipleDecimalPoints_ReturnsFalse()
+        {
+            // Arrange
+            string input = "12.34.56";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_DecimalPointAtStart_ReturnsFalse()
+        {
+            // Arrange
+            string input = ".123";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_DecimalPointAtEnd_ReturnsFalse()
+        {
+            // Arrange
+            string input = "123.";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void IsNumeric_OnlySignCharacter_ReturnsFalse()
+        {
+            // Arrange
+            string input = "-";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.IsNumeric(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 98 - Primes in Descending Order
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit100_ReturnsCorrectPrimes()
+        {
+            // Arrange
+            int limit = 100;
+            List<int> expected = new List<int> { 2, 3, 5, 7, 31, 41, 43, 53, 61, 71, 73, 83, 97 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit500_Includes421And431()
+        {
+            // Arrange
+            int limit = 500;
+            List<int> expectedPrimes = new List<int> { 421, 431 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            Assert.IsTrue(expectedPrimes.All(p => actual.Contains(p)));
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_SingleDigitPrimes_AllIncluded()
+        {
+            // Arrange
+            int limit = 10;
+            List<int> expected = new List<int> { 2, 3, 5, 7 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_PrimeWithNonDescendingDigits_Excluded()
+        {
+            // Arrange
+            int limit = 100;
+            List<int> nonDescendingPrimes = new List<int> { 11, 13, 17, 19, 23, 29, 37, 47, 59, 67, 79, 89 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            Assert.IsFalse(nonDescendingPrimes.Any(p => actual.Contains(p)));
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit10_ReturnsCorrectCount()
+        {
+            // Arrange
+            int limit = 10;
+            int expectedCount = 4;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit50_ReturnsCorrectPrimes()
+        {
+            // Arrange
+            int limit = 50;
+            List<int> expected = new List<int> { 2, 3, 5, 7, 31, 41, 43 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit0_ReturnsEmptyList()
+        {
+            // Arrange
+            int limit = 0;
+            int expectedCount = 0;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void GetPrimesDescendingDigits_Limit1_ReturnsEmptyList()
+        {
+            // Arrange
+            int limit = 1;
+            int expectedCount = 0;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void HasDescendingDigits_SingleDigit_ReturnsTrue()
+        {
+            // Arrange
+            int number = 7;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.GetPrimesDescendingDigits(10).Contains(number);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void HasDescendingDigits_DescendingDigits_ReturnsTrue()
+        {
+            // Arrange
+            int number = 421;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.GetPrimesDescendingDigits(500).Contains(number);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void HasDescendingDigits_NonDescendingDigits_ReturnsFalse()
+        {
+            // Arrange
+            int number = 123;
+
+            // Act
+            bool actual = Exercises.GetPrimesDescendingDigits(200).Contains(number);
+
+            // Assert
+            Assert.IsFalse(actual);
+        }
+
+        // Exercise 99 - Primes in Ascending Order
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_Limit100_ReturnsCorrectPrimes()
+        {
+            // Arrange
+            int limit = 100;
+            List<int> expected = new List<int> { 2, 3, 5, 7, 13, 17, 19, 23, 29, 37, 47, 59, 67, 79, 89 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_SingleDigitPrimes_AllIncluded()
+        {
+            // Arrange
+            int limit = 10;
+            List<int> expected = new List<int> { 2, 3, 5, 7 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_PrimeWithNonAscendingDigits_Excluded()
+        {
+            // Arrange
+            int limit = 100;
+            List<int> nonAscendingPrimes = new List<int> { 11, 31, 41, 43, 53, 61, 71, 73, 83, 97 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            Assert.IsFalse(nonAscendingPrimes.Any(p => actual.Contains(p)));
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_Limit10_ReturnsCorrectCount()
+        {
+            // Arrange
+            int limit = 10;
+            int expectedCount = 4;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_Limit50_ReturnsCorrectPrimes()
+        {
+            // Arrange
+            int limit = 50;
+            List<int> expected = new List<int> { 2, 3, 5, 7, 13, 17, 19, 23, 29, 37, 47 };
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_Limit0_ReturnsEmptyList()
+        {
+            // Arrange
+            int limit = 0;
+            int expectedCount = 0;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void GetPrimesAscendingDigits_Limit1_ReturnsEmptyList()
+        {
+            // Arrange
+            int limit = 1;
+            int expectedCount = 0;
+
+            // Act
+            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+
+            // Assert
+            Assert.AreEqual(expectedCount, actual.Count);
+        }
+
+        [TestMethod]
+        public void HasAscendingDigits_SingleDigit_ReturnsTrue()
+        {
+            // Arrange
+            int number = 7;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.GetPrimesAscendingDigits(10).Contains(number);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void HasAscendingDigits_AscendingDigits_ReturnsTrue()
+        {
+            // Arrange
+            int number = 13;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void HasAscendingDigits_NonAscendingDigits_ReturnsFalse()
+        {
+            // Arrange
+            int number = 31;
+
+            // Act
+            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+
+            // Assert
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void HasAscendingDigits_EqualDigits_ReturnsFalse()
+        {
+            // Arrange
+            int number = 11;
+
+            // Act
+            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+
+            // Assert
+            Assert.IsFalse(actual);
+        }
+
+        // Exercise 100 - Equality of Value and Type
+
+        [TestMethod]
+        public void AreEqual_DifferentStrings_ReturnsFalse()
+        {
+            // Arrange
+            object a = "AAA";
+            object b = "BBB";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_DifferentBooleans_ReturnsFalse()
+        {
+            // Arrange
+            object a = true;
+            object b = false;
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_DifferentTypes_ReturnsFalse()
+        {
+            // Arrange
+            object a = true;
+            object b = "true";
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_SameIntegers_ReturnsTrue()
+        {
+            // Arrange
+            object a = 10;
+            object b = 10;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_SameStrings_ReturnsTrue()
+        {
+            // Arrange
+            object a = "Hello";
+            object b = "Hello";
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_SameBooleans_ReturnsTrue()
+        {
+            // Arrange
+            object a = true;
+            object b = true;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_DifferentNumericTypes_ReturnsFalse()
+        {
+            // Arrange
+            object a = 10;
+            object b = 10.0;
+            bool expected = false;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AreEqual_SameDoubles_ReturnsTrue()
+        {
+            // Arrange
+            object a = 3.14;
+            object b = 3.14;
+            bool expected = true;
+
+            // Act
+            bool actual = Exercises.AreEqual(a, b);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 101 - Calculate Euler's Number (e)
+
+        [TestMethod]
+        public void CalculateE_15Iterations_ReturnsApproximateValue()
+        {
+            // Arrange
+            int iterations = 15;
+            double expected = 2.718281828459045;
+            double tolerance = 1e-13;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_10Iterations_ReturnsApproximateValue()
+        {
+            // Arrange
+            int iterations = 10;
+            double expected = 2.7182818011463845;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_5Iterations_ReturnsApproximateValue()
+        {
+            // Arrange
+            int iterations = 5;
+            double expected = 2.7166666666666663;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_1Iteration_Returns2()
+        {
+            // Arrange
+            int iterations = 1;
+            double expected = 2.0;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_0Iterations_Returns1()
+        {
+            // Arrange
+            int iterations = 0;
+            double expected = 1.0;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_20Iterations_ReturnsMorePreciseValue()
+        {
+            // Arrange
+            int iterations = 20;
+            double expected = 2.7182818284590455;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_CompareWithMathE_WithinTolerance()
+        {
+            // Arrange
+            int iterations = 20;
+            double mathE = Math.E;
+            double tolerance = 1e-14;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(mathE, actual, tolerance);
+        }
+
+        [TestMethod]
+        public void CalculateE_25Iterations_ReturnsHighlyPreciseValue()
+        {
+            // Arrange
+            int iterations = 25;
+            double expected = 2.718281828459045;
+            double tolerance = 1e-15;
+
+            // Act
+            double actual = Exercises.CalculateE(iterations);
+
+            // Assert
+            Assert.AreEqual(expected, actual, tolerance);
+        }
+
+        // Exercise 102 - Create Identity Matrix
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size3_ReturnsCorrectMatrix()
+        {
+            // Arrange
+            int size = 3;
+            int[,] expected = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size1_ReturnsSingleElementMatrix()
+        {
+            // Arrange
+            int size = 1;
+            int[,] expected = { { 1 } };
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size2_ReturnsCorrectMatrix()
+        {
+            // Arrange
+            int size = 2;
+            int[,] expected = { { 1, 0 }, { 0, 1 } };
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size4_ReturnsCorrectMatrix()
+        {
+            // Arrange
+            int size = 4;
+            int[,] expected = {
+            { 1, 0, 0, 0 },
+            { 0, 1, 0, 0 },
+            { 0, 0, 1, 0 },
+            { 0, 0, 0, 1 }
+        };
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size0_ReturnsEmptyMatrix()
+        {
+            // Arrange
+            int size = 0;
+            int[,] expected = new int[0, 0];
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            Assert.AreEqual(expected.Rank, actual.Rank);
+            Assert.AreEqual(expected.GetLength(0), actual.GetLength(0));
+            Assert.AreEqual(expected.GetLength(1), actual.GetLength(1));
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_Size5_ReturnsCorrectMatrix()
+        {
+            // Arrange
+            int size = 5;
+            int[,] expected = {
+            { 1, 0, 0, 0, 0 },
+            { 0, 1, 0, 0, 0 },
+            { 0, 0, 1, 0, 0 },
+            { 0, 0, 0, 1, 0 },
+            { 0, 0, 0, 0, 1 }
+        };
+
+            // Act
+            int[,] actual = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_DiagonalElementsAreOne()
+        {
+            // Arrange
+            int size = 3;
+
+            // Act
+            int[,] matrix = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            for (int i = 0; i < size; i++)
+            {
+                Assert.AreEqual(1, matrix[i, i]);
+            }
+        }
+
+        [TestMethod]
+        public void CreateIdentityMatrix_NonDiagonalElementsAreZero()
+        {
+            // Arrange
+            int size = 3;
+
+            // Act
+            int[,] matrix = Exercises.CreateIdentityMatrix(size);
+
+            // Assert
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (i != j)
+                    {
+                        Assert.AreEqual(0, matrix[i, j]);
+                    }
+                }
+            }
+        }
+
+        // Exercise 103 - Sort Characters in String
+
+        [TestMethod]
+        public void SortCharacters_MixedCaseAndNumbers_ReturnsSortedString()
+        {
+            // Arrange
+            string input = "AAAbfed231";
+            string expected = "123AAAbdef";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_EmptyString_ReturnsBlankStringMessage()
+        {
+            // Arrange
+            string input = " ";
+            string expected = "Blank string!";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_OnlyLetters_ReturnsSortedString()
+        {
+            // Arrange
+            string input = "Python";
+            string expected = "Phnoty";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_LettersAndNumbers_ReturnsSortedString()
+        {
+            // Arrange
+            string input = "W3resource";
+            string expected = "3Wceeorrsu";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_NullString_ReturnsBlankStringMessage()
+        {
+            // Arrange
+            string input = null;
+            string expected = "Blank string!";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_OnlyNumbers_ReturnsSortedNumbers()
+        {
+            // Arrange
+            string input = "53124";
+            string expected = "12345";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_OnlyUppercase_ReturnsSortedUppercase()
+        {
+            // Arrange
+            string input = "ZYXWV";
+            string expected = "VWXYZ";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_OnlyLowercase_ReturnsSortedLowercase()
+        {
+            // Arrange
+            string input = "zyxwv";
+            string expected = "vwxyz";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_SpecialCharacters_ReturnsSortedSpecialChars()
+        {
+            // Arrange
+            string input = "!@#$%";
+            string expected = "!#$%@";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SortCharacters_SingleCharacter_ReturnsSameCharacter()
+        {
+            // Arrange
+            string input = "A";
+            string expected = "A";
+
+            // Act
+            string actual = Exercises.SortCharacters(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Exercise 104 - Compare Equality of Three Integers
+
+        [TestMethod]
+        public void CountEqualIntegers_AllDifferent_Returns0()
+        {
+            // Arrange
+            int a = 1;
+            int b = 2;
+            int c = 3;
+            int expected = 0;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_TwoEqual_Returns2()
+        {
+            // Arrange
+            int a = 1;
+            int b = 3;
+            int c = 3;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_AllEqual_Returns3()
+        {
+            // Arrange
+            int a = 3;
+            int b = 3;
+            int c = 3;
+            int expected = 3;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_FirstTwoEqual_Returns2()
+        {
+            // Arrange
+            int a = 5;
+            int b = 5;
+            int c = 10;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_FirstAndThirdEqual_Returns2()
+        {
+            // Arrange
+            int a = 7;
+            int b = 8;
+            int c = 7;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_SecondAndThirdEqual_Returns2()
+        {
+            // Arrange
+            int a = 9;
+            int b = 4;
+            int c = 4;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_NegativeNumbersAllEqual_Returns3()
+        {
+            // Arrange
+            int a = -5;
+            int b = -5;
+            int c = -5;
+            int expected = 3;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_NegativeNumbersTwoEqual_Returns2()
+        {
+            // Arrange
+            int a = -2;
+            int b = -2;
+            int c = -3;
+            int expected = 2;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_ZeroValuesAllEqual_Returns3()
+        {
+            // Arrange
+            int a = 0;
+            int b = 0;
+            int c = 0;
+            int expected = 3;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CountEqualIntegers_LargeNumbersAllEqual_Returns3()
+        {
+            // Arrange
+            int a = 1000000;
+            int b = 1000000;
+            int c = 1000000;
+            int expected = 3;
+
+            // Act
+            int actual = Exercises.CountEqualIntegers(a, b, c);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
-
