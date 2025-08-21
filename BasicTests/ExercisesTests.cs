@@ -1,8 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BasicExercises;
+﻿using BasicExercises;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using FluentAssertions;
+using System.Security.Cryptography;
 
 namespace BasicExercisesTests
 {
@@ -3999,6 +4000,3672 @@ namespace BasicExercisesTests
                   .And.Contain("[0, 2, 3, 2]")
                   .And.Contain("[0, 6, 0, 1]")
                   .And.Contain("Sum: 14");
+        }
+
+        // Exercise 61 - Sort Integers Keeping -5 Fixed
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_WithMinusFive_KeepsPosition()
+        {
+            // Arrange
+            int[] numbers = { 3, -5, 1, 4, -5, 2 };
+            int[] expected = { 1, -5, 2, 3, -5, 4 };
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_NoMinusFive_SortsNormally()
+        {
+            // Arrange
+            int[] numbers = { 5, 3, 1, 4, 2 };
+            int[] expected = { 1, 2, 3, 4, 5 };
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_AllMinusFive_ReturnsSame()
+        {
+            // Arrange
+            int[] numbers = { -5, -5, -5, -5 };
+            int[] expected = { -5, -5, -5, -5 };
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_EmptyArray_ReturnsEmpty()
+        {
+            // Arrange
+            int[] numbers = Array.Empty<int>();
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_NullArray_ReturnsNull()
+        {
+            // Arrange
+            int[] numbers = null;
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_MixedNumbers_CorrectSorting()
+        {
+            // Arrange
+            int[] numbers = { 10, -5, 7, -5, 3, 1 };
+            int[] expected = { 1, -5, 3, -5, 7, 10 };
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_NegativeNumbers_CorrectSorting()
+        {
+            // Arrange
+            int[] numbers = { -10, -5, -7, -5, -3, -1 };
+            int[] expected = { -10, -5, -7, -5, -3, -1 }; // Sorted: -10, -7, -3, -1
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(-10, -5, -7, -5, -3, -1);
+        }
+
+        [TestMethod]
+        public void SortKeepingMinusFiveFixed_MinusFiveAtEnds_KeepsPosition()
+        {
+            // Arrange
+            int[] numbers = { -5, 5, 3, 1, -5 };
+            int[] expected = { -5, 1, 3, 5, -5 };
+
+            // Act
+            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void GetSortedArrayResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            int[] numbers = { 3, -5, 1, 4, -5, 2 };
+            string expectedOriginal = "Original: [3, -5, 1, 4, -5, 2]";
+            string expectedSorted = "Sorted:   [1, -5, 2, 3, -5, 4]";
+
+            // Act
+            string result = Exercises.GetSortedArrayResult(numbers);
+
+            // Assert
+            result.Should().Contain(expectedOriginal)
+                  .And.Contain(expectedSorted);
+        }
+
+        // Exercises 62 - Reverse Strings in Parentheses
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_SimpleCase()
+        {
+            // Arrange
+            string input = "(abc)";
+            string expected = "cba";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_NestedParentheses()
+        {
+            // Arrange
+            string input = "a(bc(def))";
+            string expected = "adefcb";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_MultipleParentheses()
+        {
+            // Arrange
+            string input = "(abc)(def)";
+            string expected = "cbafed";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_NoParentheses()
+        {
+            // Arrange
+            string input = "abcdef";
+            string expected = "abcdef";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_EmptyString()
+        {
+            // Arrange
+            string input = "";
+            string expected = "";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_OnlyParentheses()
+        {
+            // Arrange
+            string input = "()";
+            string expected = "";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void ReverseStringsInParentheses_WithSpaces()
+        {
+            // Arrange
+            string input = "(hello world)";
+            string expected = "dlrow olleh";
+
+            // Act
+            string result = Exercises.ReverseStringsInParentheses(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetReversedParenthesesResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            string input = "(abc)";
+            string expected = "Input: (abc)\nOutput: cba";
+
+            // Act
+            string result = Exercises.GetReversedParenthesesResult(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        // Exercise 63 - Check Number in Array
+
+        [TestMethod]
+        public void CheckNumberInArray_NumberPresent()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int target = 3;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_NumberNotPresent()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int target = 6;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_EmptyArray()
+        {
+            // Arrange
+            int[] numbers = Array.Empty<int>();
+            int target = 5;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_NullArray()
+        {
+            // Arrange
+            int[] numbers = null;
+            int target = 5;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_DuplicateNumbers()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 2, 3, 3, 3 };
+            int target = 2;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_NegativeNumbers()
+        {
+            // Arrange
+            int[] numbers = { -5, -3, -1, 0, 2, 4 };
+            int target = -3;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_LargeArray()
+        {
+            // Arrange
+            int[] numbers = Enumerable.Range(1, 1000).ToArray();
+            int target = 500;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArrayBinarySearch_SortedArray()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int target = 3;
+
+            // Act
+            bool result = Exercises.CheckNumberInArrayBinarySearch(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void GetNumberCheckResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int target = 3;
+            string expected = "Array: [1, 2, 3, 4, 5]\nTarget: 3\nPresent: True";
+
+            // Act
+            string result = Exercises.GetNumberCheckResult(numbers, target);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_ZeroValue()
+        {
+            // Arrange
+            int[] numbers = { 0, 1, 2, 3 };
+            int target = 0;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_TargetAtBeginning()
+        {
+            // Arrange
+            int[] numbers = { 5, 6, 7, 8 };
+            int target = 5;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void CheckNumberInArray_TargetAtEnd()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int target = 5;
+
+            // Act
+            bool result = Exercises.CheckNumberInArray(numbers, target);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        // Exercise 64 - Get File Name from Path
+
+        [TestMethod]
+        public void GetFileNameFromPath_WindowsPath_ReturnsFileName()
+        {
+            // Arrange
+            string path = @"C:\Users\John\Documents\file.txt";
+            string expected = "file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_UnixPath_ReturnsFileName()
+        {
+            // Arrange
+            string path = "/home/user/documents/file.txt";
+            string expected = "file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_RelativePath_ReturnsFileName()
+        {
+            // Arrange
+            string path = @"..\folder\file.txt";
+            string expected = "file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_FileNameOnly_ReturnsSame()
+        {
+            // Arrange
+            string path = "file.txt";
+            string expected = "file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_EmptyString_ReturnsEmpty()
+        {
+            // Arrange
+            string path = "";
+            string expected = "";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_NullString_ReturnsNull()
+        {
+            // Arrange
+            string path = null;
+            string expected = null;
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_WithSpaces_ReturnsFileName()
+        {
+            // Arrange
+            string path = @"C:\My Documents\file name with spaces.txt";
+            string expected = "file name with spaces.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_NetworkPath_ReturnsFileName()
+        {
+            // Arrange
+            string path = @"\\server\share\file.txt";
+            string expected = "file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameResult_FormatsOutputCorrectly()
+        {
+            // Arrange
+            string path = @"C:\Users\file.txt";
+            string expected = "Path: C:\\Users\\file.txt\nFile Name: file.txt";
+
+            // Act
+            string result = Exercises.GetFileNameResult(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_WithMultipleExtensions_ReturnsFullFileName()
+        {
+            // Arrange
+            string path = @"C:\folder\archive.tar.gz";
+            string expected = "archive.tar.gz";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [TestMethod]
+        public void GetFileNameFromPath_EndingWithSeparator_ReturnsEmpty()
+        {
+            // Arrange
+            string path = @"C:\Users\";
+            string expected = "";
+
+            // Act
+            string result = Exercises.GetFileNameFromPath(path);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        // Exercise 65 - Multiply Array Elements by Length
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_WithPositiveNumbers()
+        {
+            // Arrange
+            int[] input = { 1, 2, 3, 4, 5 };
+            int[] expected = { 5, 10, 15, 20, 25 }; // Each element * 5 (array length)
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_WithNegativeNumbers()
+        {
+            // Arrange
+            int[] input = { -1, -2, -3 };
+            int[] expected = { -3, -6, -9 }; // Each element * 3 (array length)
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_WithZeros()
+        {
+            // Arrange
+            int[] input = { 0, 0, 0, 0 };
+            int[] expected = { 0, 0, 0, 0 }; // Each element * 4 = 0
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_SingleElement()
+        {
+            // Arrange
+            int[] input = { 7 };
+            int[] expected = { 7 }; // 7 * 1 = 7
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_EmptyArray()
+        {
+            // Arrange
+            int[] input = new int[0];
+            int[] expected = new int[0];
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void MultiplyArrayElementsByLength_MixedNumbers()
+        {
+            // Arrange
+            int[] input = { 1, -2, 3, -4, 5 };
+            int[] expected = { 5, -10, 15, -20, 25 }; // Each element * 5
+
+            // Act
+            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+
+            // Assert
+            result.Should().Equal(expected);
+        }
+
+        // Exercise 66 - Min Value from Two String Numbers
+
+        [TestMethod]
+        public void MinValueFromStrings_FirstNumberSmaller()
+        {
+            // Arrange
+            string num1 = "5";
+            string num2 = "10";
+
+            // Act
+            int result = Exercises.MinValueFromStrings(num1, num2);
+
+            // Assert
+            result.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void MinValueFromStrings_SecondNumberSmaller()
+        {
+            // Arrange
+            string num1 = "15";
+            string num2 = "8";
+
+            // Act
+            int result = Exercises.MinValueFromStrings(num1, num2);
+
+            // Assert
+            result.Should().Be(8);
+        }
+
+        [TestMethod]
+        public void MinValueFromStrings_EqualNumbers()
+        {
+            // Arrange
+            string num1 = "7";
+            string num2 = "7";
+
+            // Act
+            int result = Exercises.MinValueFromStrings(num1, num2);
+
+            // Assert
+            result.Should().Be(7);
+        }
+
+        [TestMethod]
+        public void MinValueFromStrings_NegativeNumbers()
+        {
+            // Arrange
+            string num1 = "-5";
+            string num2 = "-2";
+
+            // Act
+            int result = Exercises.MinValueFromStrings(num1, num2);
+
+            // Assert
+            result.Should().Be(-5);
+        }
+
+        [TestMethod]
+        public void MinValueFromStrings_MixedSignNumbers()
+        {
+            // Arrange
+            string num1 = "-3";
+            string num2 = "5";
+
+            // Act
+            int result = Exercises.MinValueFromStrings(num1, num2);
+
+            // Assert
+            result.Should().Be(-3);
+        }
+
+        // Exercises 67 -  Coded String Conversion
+
+        [TestMethod]
+        public void ConvertToCodedString_ReplacesPWith9()
+        {
+            // Arrange
+            string input = "P";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("9");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_ReplacesTWith0()
+        {
+            // Arrange
+            string input = "T";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("0");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_ReplacesSWith1()
+        {
+            // Arrange
+            string input = "S";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("1");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_ReplacesHWith6()
+        {
+            // Arrange
+            string input = "H";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("6");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_ReplacesAWith8()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("8");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_KeepsOtherCharactersUnchanged()
+        {
+            // Arrange
+            string input = "BCDEFGIJKLMNOQRUVWXYZ";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("BCDEFGIJKLMNOQRUVWXYZ");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_EmptyString_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_SampleOutput1()
+        {
+            // Arrange
+            string input = "PTP"; // P->9, T->0, P->9 → 909
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("909");
+        }
+
+        [TestMethod]
+        public void ConvertToCodedString_SampleOutput2()
+        {
+            // Arrange
+            string input = "JAVASCRIPT"; // J->J, A->8, V->V, A->8, S->1, C->C, R->R, I->I, P->9, T->0
+
+            // Act
+            string result = Exercises.ConvertToCodedString(input);
+
+            // Assert
+            result.Should().Be("J8V81CRI90");
+        }
+
+        // Exercise 68 - Count Specific Character in String
+
+        [TestMethod]
+        public void CountCharacter_UpperCaseTarget()
+        {
+            // Arrange
+            string input = "Hello World";
+            char target = 'L';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountCharacter_LowerCaseTarget()
+        {
+            // Arrange
+            string input = "Hello World";
+            char target = 'l';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountCharacter_NoMatches()
+        {
+            // Arrange
+            string input = "Hello World";
+            char target = 'z';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountCharacter_EmptyString()
+        {
+            // Arrange
+            string input = "";
+            char target = 'a';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountCharacter_NullString()
+        {
+            // Arrange
+            string input = null;
+            char target = 'a';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountCharacter_AllCharactersSame()
+        {
+            // Arrange
+            string input = "aaaaa";
+            char target = 'A';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void CountCharacter_SpecialCharacters()
+        {
+            // Arrange
+            string input = "a!a!a!";
+            char target = '!';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountCharacter_WithSpaces()
+        {
+            // Arrange
+            string input = "a b c d";
+            char target = ' ';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountCharacter_NumbersInString()
+        {
+            // Arrange
+            string input = "a1b2c3d4";
+            char target = '2';
+
+            // Act
+            int result = Exercises.CountCharacter(input, target);
+
+            // Assert
+            result.Should().Be(1);
+        }
+
+        // Exercise 69 - Check All Uppercase or Lowercase
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_AllUpperCase_ReturnsTrue()
+        {
+            // Arrange
+            string input = "HELLO";
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_AllLowerCase_ReturnsTrue()
+        {
+            // Arrange
+            string input = "hello";
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_MixedCase()
+        {
+            // Arrange
+            string input = "Hello";
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_EmptyString()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_NullString()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAllUpperOrLowerCase_MixedCaseWithNumbers()
+        {
+            // Arrange
+            string input = "Hello123";
+
+            // Act
+            bool result = Exercises.IsAllUpperOrLowerCase(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        // Exercises 70 - Remove First and Last Characters
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length3()
+        {
+            // Arrange
+            string input = "PHP";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("H");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length6()
+        {
+            // Arrange
+            string input = "Python";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("ytho");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length10()
+        {
+            // Arrange
+            string input = "JavaScript";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("avaScrip");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length2()
+        {
+            // Arrange
+            string input = "Hi";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length1()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_EmptyString()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_NullString()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_Length4()
+        {
+            // Arrange
+            string input = "Test";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("es");
+        }
+
+        [TestMethod]
+        public void RemoveFirstAndLast_WithSpaces()
+        {
+            // Arrange
+            string input = " Hello ";
+
+            // Act
+            string result = Exercises.RemoveFirstAndLast(input);
+
+            // Assert
+            result.Should().Be("Hello");
+        }
+
+        // Exercise 71 - Check Consecutive Similar Letters
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_NoConsecutive()
+        {
+            // Arrange
+            string input = "PHP";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_WithConsecutive()
+        {
+            // Arrange
+            string input = "PHHP";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_WithConsecutiveAtEnd()
+        {
+            // Arrange
+            string input = "PHPP";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_WithConsecutiveAtStart()
+        {
+            // Arrange
+            string input = "PPHP";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_EmptyString()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_SingleCharacter()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_AllSameCharacters()
+        {
+            // Arrange
+            string input = "AAAA";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_WithSpaces()
+        {
+            // Arrange
+            string input = "A B C";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_ConsecutiveSpaces()
+        {
+            // Arrange
+            string input = "A  B";
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void HasConsecutiveSimilarLetters_NullString()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        // Exercises 72 - Check Array Average as Whole Number
+
+        [TestMethod]
+        public void IsAverageWholeNumber_Sample1_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 5, 4, 2, 3, 4 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_Sample2_ReturnsFalse()
+        {
+            // Arrange
+            int[] numbers = { 2, 4, 2, 6, 4, 8 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_EmptyArray_ReturnsFalse()
+        {
+            // Arrange
+            int[] numbers = new int[0];
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_NullArray_ReturnsFalse()
+        {
+            // Arrange
+            int[] numbers = null;
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_SingleElement_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { 5 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_AllSameNumbers_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { 3, 3, 3, 3, 3 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_EvenSumEvenCount_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { 2, 4, 6, 8 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_OddSumEvenCount_ReturnsFalse()
+        {
+            // Arrange
+            int[] numbers = { 1, 3, 5, 7 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_NegativeNumbers_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { -2, -4, -6, -8 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsAverageWholeNumber_MixedNumbers_ReturnsTrue()
+        {
+            // Arrange
+            int[] numbers = { -1, 0, 1 };
+
+            // Act
+            bool result = Exercises.IsAverageWholeNumber(numbers);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        // Exercise 73 - Alphabetical Order of String Letters
+
+        [TestMethod]
+        public void SortStringAlphabetically_UpperCase_ReturnsSorted()
+        {
+            // Arrange
+            string input = "PHP";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("HPP");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_LowerCase_ReturnsSorted()
+        {
+            // Arrange
+            string input = "javascript";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("aacijprstv");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_AnotherLowerCase_ReturnsSorted()
+        {
+            // Arrange
+            string input = "python";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("hnopty");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_EmptyString_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_NullString_ReturnsNull()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_SingleCharacter_ReturnsSame()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("A");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_AlreadySorted_ReturnsSame()
+        {
+            // Arrange
+            string input = "abcde";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("abcde");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_ReverseOrder_ReturnsSorted()
+        {
+            // Arrange
+            string input = "edcba";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("abcde");
+        }
+
+        [TestMethod]
+        public void SortStringAlphabetically_WithNumbers_ReturnsSorted()
+        {
+            // Arrange
+            string input = "321cba";
+
+            // Act
+            string result = Exercises.SortStringAlphabetically(input);
+
+            // Assert
+            result.Should().Be("123abc");
+        }
+
+        // Exercises 74 - Odd or Even Length of String
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_OddLength_ReturnsOdd()
+        {
+            // Arrange
+            string input = "PHP";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Odd length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_EvenLength_ReturnsEven()
+        {
+            // Arrange
+            string input = "javascript";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_EvenLength2_ReturnsEven()
+        {
+            // Arrange
+            string input = "python";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_EmptyString_ReturnsEven()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_NullString_ReturnsEven()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_SingleCharacter_ReturnsOdd()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Odd length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_TwoCharacters_ReturnsEven()
+        {
+            // Arrange
+            string input = "AB";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_ThreeCharacters_ReturnsOdd()
+        {
+            // Arrange
+            string input = "ABC";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Odd length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_LongOddLength_ReturnsOdd()
+        {
+            // Arrange
+            string input = "HelloWorld";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Even length");
+        }
+
+        [TestMethod]
+        public void CheckStringLengthOddEven_LongEvenLength_ReturnsEven()
+        {
+            // Arrange
+            string input = "HelloWorld!";
+
+            // Act
+            string result = Exercises.CheckStringLengthOddEven(input);
+
+            // Assert
+            result.Should().Be("Odd length");
+        }
+
+        // Exercise 75 - Nth Odd Number
+
+        [TestMethod]
+        public void GetNthOddNumber_FirstOdd_Returns1()
+        {
+            // Arrange
+            int n = 1;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_SecondOdd_Returns3()
+        {
+            // Arrange
+            int n = 2;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_FourthOdd_Returns7()
+        {
+            // Arrange
+            int n = 4;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(7);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_HundredthOdd_Returns199()
+        {
+            // Arrange
+            int n = 100;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(199);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_ThirdOdd_Returns5()
+        {
+            // Arrange
+            int n = 3;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_FifthOdd_Returns9()
+        {
+            // Arrange
+            int n = 5;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(9);
+        }
+
+        [TestMethod]
+        public void GetNthOddNumber_TenthOdd_Returns19()
+        {
+            // Arrange
+            int n = 10;
+
+            // Act
+            int result = Exercises.GetNthOddNumber(n);
+
+            // Assert
+            result.Should().Be(19);
+        }
+
+        // Exercise 76 - Get ASCII Value of Character
+
+        [TestMethod]
+        public void GetAsciiValue_Digit1_Returns49()
+        {
+            // Arrange
+            char character = '1';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(49);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_UppercaseA_Returns65()
+        {
+            // Arrange
+            char character = 'A';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(65);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_LowercaseA_Returns97()
+        {
+            // Arrange
+            char character = 'a';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(97);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_HashSymbol_Returns35()
+        {
+            // Arrange
+            char character = '#';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(35);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_Space_Returns32()
+        {
+            // Arrange
+            char character = ' ';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(32);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_Zero_Returns48()
+        {
+            // Arrange
+            char character = '0';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(48);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_Newline_Returns10()
+        {
+            // Arrange
+            char character = '\n';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void GetAsciiValue_Tab_Returns9()
+        {
+            // Arrange
+            char character = '\t';
+
+            // Act
+            int result = Exercises.GetAsciiValue(character);
+
+            // Assert
+            result.Should().Be(9);
+        }
+
+        // Exercise 77 - Check Word Plural
+
+        [TestMethod]
+        public void IsPlural_Exercise_ReturnsFalse()
+        {
+            // Arrange
+            string word = "Exercise";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPlural_Exercises_ReturnsTrue()
+        {
+            // Arrange
+            string word = "Exercises";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPlural_Books_ReturnsTrue()
+        {
+            // Arrange
+            string word = "Books";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPlural_Book_ReturnsFalse()
+        {
+            // Arrange
+            string word = "Book";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPlural_EmptyString_ReturnsFalse()
+        {
+            // Arrange
+            string word = "";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPlural_NullString_ReturnsFalse()
+        {
+            // Arrange
+            string word = null;
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsPlural_UpperCaseS_ReturnsTrue()
+        {
+            // Arrange
+            string word = "CATS";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPlural_MixedCase_ReturnsTrue()
+        {
+            // Arrange
+            string word = "DoGgS";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPlural_EndsWithES_ReturnsTrue()
+        {
+            // Arrange
+            string word = "Bushes";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsPlural_EndsWithIES_ReturnsTrue()
+        {
+            // Arrange
+            string word = "Cities";
+
+            // Act
+            bool result = Exercises.IsPlural(word);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        // Exercise 78 - Sum of Squares in Array
+
+        [TestMethod]
+        public void SumOfSquares_Array1_Returns14()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(14);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_Array2_Returns29()
+        {
+            // Arrange
+            int[] numbers = { 2, 3, 4 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(29);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_EmptyArray_Returns0()
+        {
+            // Arrange
+            int[] numbers = new int[0];
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_NullArray_Returns0()
+        {
+            // Arrange
+            int[] numbers = null;
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_SingleElement_ReturnsSquare()
+        {
+            // Arrange
+            int[] numbers = { 5 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(25);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_NegativeNumbers_ReturnsPositiveSum()
+        {
+            // Arrange
+            int[] numbers = { -2, -3, -4 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(29);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_MixedNumbers_ReturnsCorrectSum()
+        {
+            // Arrange
+            int[] numbers = { -1, 2, -3, 4 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(30);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_WithZeros_ReturnsCorrectSum()
+        {
+            // Arrange
+            int[] numbers = { 0, 1, 2, 0 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void SumOfSquares_LargeNumbers_ReturnsCorrectSum()
+        {
+            // Arrange
+            int[] numbers = { 10, 20, 30 };
+
+            // Act
+            int result = Exercises.SumOfSquares(numbers);
+
+            // Assert
+            result.Should().Be(1400);
+        }
+
+        // Exercise 79 - Integer to String and Vice Versa
+
+        [TestMethod]
+        public void ConvertIntToString_PositiveNumber_ReturnsString()
+        {
+            // Arrange
+            int number = 50;
+
+            // Act
+            string result = Exercises.ConvertIntToString(number);
+
+            // Assert
+            result.Should().Be("50");
+            result.GetType().Name.Should().Be("String");
+        }
+
+        [TestMethod]
+        public void ConvertIntToString_NegativeNumber_ReturnsString()
+        {
+            // Arrange
+            int number = -50;
+
+            // Act
+            string result = Exercises.ConvertIntToString(number);
+
+            // Assert
+            result.Should().Be("-50");
+            result.GetType().Name.Should().Be("String");
+        }
+
+        [TestMethod]
+        public void ConvertIntToString_Zero_ReturnsString()
+        {
+            // Arrange
+            int number = 0;
+
+            // Act
+            string result = Exercises.ConvertIntToString(number);
+
+            // Assert
+            result.Should().Be("0");
+            result.GetType().Name.Should().Be("String");
+        }
+
+        [TestMethod]
+        public void ConvertStringToInt_PositiveString_ReturnsInt()
+        {
+            // Arrange
+            string text = "122";
+
+            // Act
+            int result = Exercises.ConvertStringToInt(text);
+
+            // Assert
+            result.Should().Be(122);
+            result.GetType().Name.Should().Be("Int32");
+        }
+
+        [TestMethod]
+        public void ConvertStringToInt_NegativeString_ReturnsInt()
+        {
+            // Arrange
+            string text = "-122";
+
+            // Act
+            int result = Exercises.ConvertStringToInt(text);
+
+            // Assert
+            result.Should().Be(-122);
+            result.GetType().Name.Should().Be("Int32");
+        }
+
+        [TestMethod]
+        public void ConvertStringToInt_ZeroString_ReturnsInt()
+        {
+            // Arrange
+            string text = "0";
+
+            // Act
+            int result = Exercises.ConvertStringToInt(text);
+
+            // Assert
+            result.Should().Be(0);
+            result.GetType().Name.Should().Be("Int32");
+        }
+
+        [TestMethod]
+        public void ConvertStringToInt_WithWhitespace_ReturnsInt()
+        {
+            // Arrange
+            string text = "  123  ";
+
+            // Act
+            int result = Exercises.ConvertStringToInt(text);
+
+            // Assert
+            result.Should().Be(123);
+        }
+
+        [TestMethod]
+        public void ConvertIntToString_LargeNumber_ReturnsString()
+        {
+            // Arrange
+            int number = int.MaxValue;
+
+            // Act
+            string result = Exercises.ConvertIntToString(number);
+
+            // Assert
+            result.Should().Be("2147483647");
+            result.GetType().Name.Should().Be("String");
+        }
+
+        [TestMethod]
+        public void ConvertStringToInt_LargeNumber_ReturnsInt()
+        {
+            // Arrange
+            string text = "2147483647";
+
+            // Act
+            int result = Exercises.ConvertStringToInt(text);
+
+            // Assert
+            result.Should().Be(int.MaxValue);
+            result.GetType().Name.Should().Be("Int32");
+        }
+
+        // Exercise 80 - Convert Array Elements to Strings
+
+        [TestMethod]
+        public void ConvertArrayToStrings_MixedTypes_ReturnsStringArray()
+        {
+            // Arrange
+            object[] array = { 25, "Anna", false, new DateTime(2021, 4, 15, 10, 37, 47), 112.22 };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("25", "Anna", "False", "15/04/2021 10:37:47", "112,22");
+            result[0].GetType().Name.Should().Be("String");
+            result[1].GetType().Name.Should().Be("String");
+            result[2].GetType().Name.Should().Be("String");
+            result[3].GetType().Name.Should().Be("String");
+            result[4].GetType().Name.Should().Be("String");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_NullArray_ReturnsNull()
+        {
+            // Arrange
+            object[] array = null;
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_EmptyArray_ReturnsEmptyStringArray()
+        {
+            // Arrange
+            object[] array = new object[0];
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_WithNullElements_ReturnsEmptyStrings()
+        {
+            // Arrange
+            object[] array = { "Hello", null, 42 };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("Hello", "", "42");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_AllStrings_ReturnsSameStrings()
+        {
+            // Arrange
+            object[] array = { "A", "B", "C" };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("A", "B", "C");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_AllNumbers_ReturnsNumberStrings()
+        {
+            // Arrange
+            object[] array = { 1, 2.5, 3.14f };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("1", "2,5", "3,14");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_Booleans_ReturnsBooleanStrings()
+        {
+            // Arrange
+            object[] array = { true, false };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("True", "False");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_DateTime_ReturnsDateTimeString()
+        {
+            // Arrange
+            DateTime date = new DateTime(2023, 12, 25);
+            object[] array = { date };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result.Should().Equal("25/12/2023 00:00:00");
+        }
+
+        [TestMethod]
+        public void ConvertArrayToStrings_Guid_ReturnsGuidString()
+        {
+            // Arrange
+            Guid guid = Guid.NewGuid();
+            object[] array = { guid };
+
+            // Act
+            string[] result = Exercises.ConvertArrayToStrings(array);
+
+            // Assert
+            result[0].Should().Be(guid.ToString());
+        }
+
+        // Exercise 81 - Check Swapped Two-Digit Number
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_NumberGreaterThanSwapped_ReturnsTrue()
+        {
+            // Arrange
+            int number = 53; // Swapped: 35, 53 > 35
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_NumberLessThanSwapped_ReturnsFalse()
+        {
+            // Arrange
+            int number = 25; // Swapped: 52, 25 < 52
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_NumberEqualToSwapped_ReturnsFalse()
+        {
+            // Arrange
+            int number = 33; // Swapped: 33, 33 == 33
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_AnotherGreaterCase_ReturnsTrue()
+        {
+            // Arrange
+            int number = 87; // Swapped: 78, 87 > 78
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_AnotherLessCase_ReturnsFalse()
+        {
+            // Arrange
+            int number = 14; // Swapped: 41, 14 < 41
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_MaxTwoDigit_ReturnsTrue()
+        {
+            // Arrange
+            int number = 99; // Swapped: 99, 99 == 99
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_MinTwoDigit_ReturnsFalse()
+        {
+            // Arrange
+            int number = 10; // Swapped: 01 (which is 1), 10 > 1
+
+            // Act
+            bool result = Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_ThrowsExceptionForSingleDigit()
+        {
+            // Arrange
+            int number = 5;
+
+            // Act
+            Action act = () => Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        [TestMethod]
+        public void IsGreaterThanSwapped_ThrowsExceptionForThreeDigit()
+        {
+            // Arrange
+            int number = 100;
+
+            // Act
+            Action act = () => Exercises.IsGreaterThanSwapped(number);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        // Exercise 82 - Remove Non-Letter Characters
+
+        [TestMethod]
+        public void RemoveNonLetters_Sample1_ReturnsOnlyLetters()
+        {
+            // Arrange
+            string input = "Py@th12on";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("Python");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_Sample2_ReturnsOnlyLetters()
+        {
+            // Arrange
+            string input = "Python 3.0";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("Python");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_Sample3_ReturnsOnlyLetters()
+        {
+            // Arrange
+            string input = "2^sdfds*^*^jlljdslfnoswje34u230sdfds984";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("sdfdsjlljdslfnoswjeusdfds");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_EmptyString_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_NullString_ReturnsNull()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_OnlyLetters_ReturnsSame()
+        {
+            // Arrange
+            string input = "HelloWorld";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("HelloWorld");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_OnlyNonLetters_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "123!@#$%^&*()";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_WithSpacesAndPunctuation_RemovesAllNonLetters()
+        {
+            // Arrange
+            string input = "Hello, World! 123";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("HelloWorld");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_MixedCaseLetters_PreservesCase()
+        {
+            // Arrange
+            string input = "HeLlO123WoRlD";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("HeLlOWoRlD");
+        }
+
+        [TestMethod]
+        public void RemoveNonLetters_WithUnicodeLetters_PreservesUnicodeLetters()
+        {
+            // Arrange
+            string input = "Café123ñ";
+
+            // Act
+            string result = Exercises.RemoveNonLetters(input);
+
+            // Assert
+            result.Should().Be("Caféñ");
+        }
+
+        // Exercise 83 - Remove Vowels from String
+
+        [TestMethod]
+        public void RemoveVowels_Sample1_RemovesVowels()
+        {
+            // Arrange
+            string input = "Python";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("Pythn");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_Sample2_RemovesVowels()
+        {
+            // Arrange
+            string input = "C Sharp";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("C Shrp");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_Sample3_RemovesVowels()
+        {
+            // Arrange
+            string input = "JavaScript";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("JvScrpt");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_EmptyString_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_NullString_ReturnsNull()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void RemoveVowels_OnlyVowels_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "aeiouAEIOU";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_NoVowels_ReturnsSame()
+        {
+            // Arrange
+            string input = "bcdfghjklmnpqrstvwxyz";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("bcdfghjklmnpqrstvwxyz");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_WithNumbersAndSymbols_RemovesOnlyVowels()
+        {
+            // Arrange
+            string input = "Hello123!World";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("Hll123!Wrld");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_MixedCaseVowels_RemovesAllVowels()
+        {
+            // Arrange
+            string input = "AEIOUaeiou";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("");
+        }
+
+        [TestMethod]
+        public void RemoveVowels_WithSpaces_PreservesSpaces()
+        {
+            // Arrange
+            string input = "Hello World";
+
+            // Act
+            string result = Exercises.RemoveVowels(input);
+
+            // Assert
+            result.Should().Be("Hll Wrld");
+        }
+
+        // Exercise 84 - Indices of Lowercase Letters
+
+        [TestMethod]
+        public void GetLowercaseIndices_Sample1_ReturnsCorrectIndices()
+        {
+            // Arrange
+            string input = "Python";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(1, 2, 3, 4, 5);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_Sample2_ReturnsCorrectIndices()
+        {
+            // Arrange
+            string input = "JavaScript";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(1, 2, 3, 5, 6, 7, 8, 9);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_EmptyString_ReturnsEmptyArray()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_NullString_ReturnsEmptyArray()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_AllUppercase_ReturnsEmptyArray()
+        {
+            // Arrange
+            string input = "HELLO";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_AllLowercase_ReturnsAllIndices()
+        {
+            // Arrange
+            string input = "hello";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(0, 1, 2, 3, 4);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_MixedCase_ReturnsLowercaseIndices()
+        {
+            // Arrange
+            string input = "HeLlO";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(1, 3);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_WithNumbersAndSymbols_ReturnsOnlyLowercaseIndices()
+        {
+            // Arrange
+            string input = "Hello123!World";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(1, 2, 3, 4, 10, 11, 12, 13);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_WithSpaces_ReturnsLowercaseIndices()
+        {
+            // Arrange
+            string input = "hello world";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(0, 1, 2, 3, 4, 6, 7, 8, 9, 10);
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_SingleLowercase_ReturnsSingleIndex()
+        {
+            // Arrange
+            string input = "A";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetLowercaseIndices_SingleUppercase_ReturnsEmpty()
+        {
+            // Arrange
+            string input = "a";
+
+            // Act
+            int[] result = Exercises.GetLowercaseIndices(input);
+
+            // Assert
+            result.Should().Equal(0);
+        }
+
+        // Exercise 85 - Cumulative Sum of Array
+
+        [TestMethod]
+        public void GetCumulativeSum_Integers_ReturnsCorrectCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { 1, 3, 4, 5, 6, 7 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(1, 4, 8, 13, 19, 26);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_Decimals_ReturnsCorrectCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { 1.2, -3, 4.1, 6, -5.47 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            var expected = new[] { 1.2, -1.8, 2.3, 8.3, 2.83 };
+            for (int i = 0; i < expected.Length; i++)
+            {
+                result[i].Should().BeApproximately(expected[i], 0.001);
+            }
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_EmptyArray_ReturnsEmptyArray()
+        {
+            // Arrange
+            double[] numbers = Array.Empty<double>();
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_NullArray_ReturnsEmptyArray()
+        {
+            // Arrange
+            double[] numbers = null;
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_SingleElement_ReturnsSameElement()
+        {
+            // Arrange
+            double[] numbers = { 5.5 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(5.5);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_TwoElements_ReturnsCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { 2, 3 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(2, 5);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_AllZeros_ReturnsAllZeros()
+        {
+            // Arrange
+            double[] numbers = { 0, 0, 0, 0 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(0, 0, 0, 0);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_NegativeNumbers_ReturnsCorrectCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { -1, -2, -3, -4 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(-1, -3, -6, -10);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_MixedNumbers_ReturnsCorrectCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { -2.5, 1.5, 3, -1 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(-2.5, -1, 2, 1);
+        }
+
+        [TestMethod]
+        public void GetCumulativeSum_LargeNumbers_ReturnsCorrectCumulativeSum()
+        {
+            // Arrange
+            double[] numbers = { 1000, 2000, 3000 };
+
+            // Act
+            double[] result = Exercises.GetCumulativeSum(numbers);
+
+            // Assert
+            result.Should().Equal(1000, 3000, 6000);
+        }
+
+        // Exercise 86 - Count Letters and Digits in String
+
+        [TestMethod]
+        public void CountLettersAndDigits_Sample1_ReturnsCorrectCounts()
+        {
+            // Arrange
+            string input = "Python 3.0";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(6);
+            result.digits.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_Sample2_ReturnsCorrectCounts()
+        {
+            // Arrange
+            string input = "dsfkaso230samdm2423sa";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(14);
+            result.digits.Should().Be(7);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_EmptyString_ReturnsZero()
+        {
+            // Arrange
+            string input = "";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(0);
+            result.digits.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_NullString_ReturnsZero()
+        {
+            // Arrange
+            string input = null;
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(0);
+            result.digits.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_OnlyLetters_ReturnsOnlyLetters()
+        {
+            // Arrange
+            string input = "HelloWorld";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(10);
+            result.digits.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_OnlyDigits_ReturnsOnlyDigits()
+        {
+            // Arrange
+            string input = "1234567890";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(0);
+            result.digits.Should().Be(10);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_WithSpacesAndSymbols_IgnoresNonAlphanumeric()
+        {
+            // Arrange
+            string input = "Hello 123! @World#";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(10);
+            result.digits.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_MixedCaseLetters_CountsAllLetters()
+        {
+            // Arrange
+            string input = "HeLlO123WoRlD";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(10);
+            result.digits.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_WithUnicodeLetters_CountsUnicodeLetters()
+        {
+            // Arrange
+            string input = "Café123ñ";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(5);
+            result.digits.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountLettersAndDigits_NoLettersOrDigits_ReturnsZero()
+        {
+            // Arrange
+            string input = "!@#$%^&*() ";
+
+            // Act
+            var result = Exercises.CountLettersAndDigits(input);
+
+            // Assert
+            result.letters.Should().Be(0);
+            result.digits.Should().Be(0);
+        }
+
+        // Exercise 87 - Reverse Boolean Value
+
+        [TestMethod]
+        public void ReverseBoolean_False_ReturnsTrue()
+        {
+            // Arrange
+            bool value = false;
+
+            // Act
+            bool result = Exercises.ReverseBoolean(value);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ReverseBoolean_True_ReturnsFalse()
+        {
+            // Arrange
+            bool value = true;
+
+            // Act
+            bool result = Exercises.ReverseBoolean(value);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void ReverseBoolean_TrueTwice_ReturnsOriginal()
+        {
+            // Arrange
+            bool value = true;
+
+            // Act
+            bool result = Exercises.ReverseBoolean(Exercises.ReverseBoolean(value));
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void ReverseBoolean_FalseTwice_ReturnsOriginal()
+        {
+            // Arrange
+            bool value = false;
+
+            // Act
+            bool result = Exercises.ReverseBoolean(Exercises.ReverseBoolean(value));
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        // Exercise 88 - Sum of Interior Angles in Polygon
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Triangle_Returns180()
+        {
+            // Arrange
+            int sides = 3;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(180);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Quadrilateral_Returns360()
+        {
+            // Arrange
+            int sides = 4;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(360);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Pentagon_Returns540()
+        {
+            // Arrange
+            int sides = 5;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(540);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Hexagon_Returns720()
+        {
+            // Arrange
+            int sides = 6;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(720);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Heptagon_Returns900()
+        {
+            // Arrange
+            int sides = 7;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(900);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_Octagon_Returns1080()
+        {
+            // Arrange
+            int sides = 8;
+
+            // Act
+            int result = Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            result.Should().Be(1080);
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_ThrowsExceptionForTwoSides()
+        {
+            // Arrange
+            int sides = 2;
+
+            // Act
+            Action act = () => Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_ThrowsExceptionForOneSide()
+        {
+            // Arrange
+            int sides = 1;
+
+            // Act
+            Action act = () => Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_ThrowsExceptionForZeroSides()
+        {
+            // Arrange
+            int sides = 0;
+
+            // Act
+            Action act = () => Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        [TestMethod]
+        public void SumOfInteriorAngles_ThrowsExceptionForNegativeSides()
+        {
+            // Arrange
+            int sides = -1;
+
+            // Act
+            Action act = () => Exercises.SumOfInteriorAngles(sides);
+
+            // Assert
+            act.Should().Throw<ArgumentException>();
+        }
+
+        // Exercise 89 - Count Positives and Negatives in Array
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_Sample1_ReturnsCorrectCounts()
+        {
+            // Arrange
+            int[] numbers = { 10, -11, 12, -13, 14, -18, 19, -20 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(4);
+            result.negatives.Should().Be(4);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_Sample2_ReturnsCorrectCounts()
+        {
+            // Arrange
+            int[] numbers = { -4, -3, -2, 0, 3, 5, 6, 2, 6 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(5);
+            result.negatives.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_EmptyArray_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = Array.Empty<int>();
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_NullArray_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = null;
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_OnlyPositives_ReturnsOnlyPositives()
+        {
+            // Arrange
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(5);
+            result.negatives.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_OnlyNegatives_ReturnsOnlyNegatives()
+        {
+            // Arrange
+            int[] numbers = { -1, -2, -3, -4, -5 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(5);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_WithZeros_IgnoresZeros()
+        {
+            // Arrange
+            int[] numbers = { 0, 1, -1, 0, 2, -2, 0 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(2);
+            result.negatives.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_OnlyZeros_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = { 0, 0, 0, 0, 0 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_MixedNumbers_ReturnsCorrectCounts()
+        {
+            // Arrange
+            int[] numbers = { -10, 20, -30, 40, -50, 60 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(3);
+            result.negatives.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_SinglePositive_ReturnsOnePositive()
+        {
+            // Arrange
+            int[] numbers = { 5 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(1);
+            result.negatives.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_SingleNegative_ReturnsOneNegative()
+        {
+            // Arrange
+            int[] numbers = { -5 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void CountPositivesAndNegatives_SingleZero_ReturnsZero()
+        {
+            // Arrange
+            int[] numbers = { 0 };
+
+            // Act
+            var result = Exercises.CountPositivesAndNegatives(numbers);
+
+            // Assert
+            result.positives.Should().Be(0);
+            result.negatives.Should().Be(0);
+        }
+
+        // Exercises 90 -  Count Ones and Zeros in Binary
+
+        [TestMethod]
+        public void CountOnesAndZeros_Number12_Returns2Ones2Zeros()
+        {
+            // Arrange
+            int number = 12; // Binary: 1100
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(2);
+            result.zeros.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_Number1234_Returns5Ones6Zeros()
+        {
+            // Arrange
+            int number = 1234; // Binary: 10011010010
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(5);
+            result.zeros.Should().Be(6);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_Zero_Returns0Ones1Zero()
+        {
+            // Arrange
+            int number = 0; // Binary: 0
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(0);
+            result.zeros.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_One_Returns1One0Zeros()
+        {
+            // Arrange
+            int number = 1; // Binary: 1
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(1);
+            result.zeros.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_Two_Returns1One1Zero()
+        {
+            // Arrange
+            int number = 2; // Binary: 10
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(1);
+            result.zeros.Should().Be(1);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_Three_Returns2Ones0Zeros()
+        {
+            // Arrange
+            int number = 3; // Binary: 11
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(2);
+            result.zeros.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_NegativeNumber_ReturnsCorrectCount()
+        {
+            // Arrange
+            int number = -5;
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().BeGreaterThan(0);
+        }
+
+        [TestMethod]
+        public void CountOnesAndZeros_PowerOfTwo_Returns1OneManyZeros()
+        {
+            // Arrange
+            int number = 16; // Binary: 10000
+
+            // Act
+            var result = Exercises.CountOnesAndZeros(number);
+
+            // Assert
+            result.ones.Should().Be(1);
+            result.zeros.Should().Be(4);
         }
     }
 }

@@ -995,5 +995,424 @@ namespace BasicExercises
             return string.Join("\n", matrix
                 .Select(row => $"[{string.Join(", ", row)}]"));
         }
+
+        // Exercise 61 - Sort Integers Keeping -5 Fixed
+        public static int[] SortKeepingMinusFiveFixedEfficient(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return numbers;
+
+            // Extract and sort non-minus-five numbers
+            var nonMinusFive = numbers.Where(x => x != -5).OrderBy(x => x).ToArray();
+
+            int nonMinusFiveIndex = 0;
+            int[] result = new int[numbers.Length];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] == -5)
+                {
+                    result[i] = -5;
+                }
+                else
+                {
+                    result[i] = nonMinusFive[nonMinusFiveIndex++];
+                }
+            }
+
+            return result;
+        }
+
+        public static string GetSortedArrayResult(int[] numbers)
+        {
+            int[] sorted = SortKeepingMinusFiveFixedEfficient(numbers);
+
+            return $"Original: [{string.Join(", ", numbers)}]\n" +
+                   $"Sorted:   [{string.Join(", ", sorted)}]";
+        }
+
+        // Exercises 62 - Reverse Strings in Parentheses
+        public static string ReverseStringsInParentheses(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            int lastOpenParen = input.LastIndexOf('(');
+            if (lastOpenParen == -1)
+                return input;
+
+            int matchingCloseParen = input.IndexOf(')', lastOpenParen);
+            if (matchingCloseParen == -1)
+                return input;
+
+            string before = input.Substring(0, lastOpenParen);
+            string inside = input.Substring(lastOpenParen + 1, matchingCloseParen - lastOpenParen - 1);
+            string after = input.Substring(matchingCloseParen + 1);
+
+            // Reverse the inside part and recursively process any nested parentheses
+            char[] insideArray = inside.ToCharArray();
+            Array.Reverse(insideArray);
+            string reversedInside = new string(insideArray);
+
+            return ReverseStringsInParentheses(before + reversedInside + after);
+        }
+
+        public static string GetReversedParenthesesResult(string input)
+        {
+            string result = ReverseStringsInParentheses(input);
+
+            return $"Input: {input}\n" +
+                   $"Output: {result}";
+        }
+
+        // Exercise 63 - Check Number in Array
+        public static bool CheckNumberInArray(int[] numbers, int target)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return false;
+
+            return numbers.Contains(target);
+        }
+        public static bool CheckNumberInArrayBinarySearch(int[] numbers, int target)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return false;
+
+            Array.Sort(numbers); // Ensure array is sorted for binary search
+            return Array.BinarySearch(numbers, target) >= 0;
+        }
+
+        public static string GetNumberCheckResult(int[] numbers, int target)
+        {
+            bool result = CheckNumberInArray(numbers, target);
+
+            return $"Array: [{string.Join(", ", numbers)}]\n" +
+                   $"Target: {target}\n" +
+                   $"Present: {result}";
+        }
+
+        // Exercise 64 - Get File Name from Path
+        public static string GetFileNameFromPath(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return path;
+
+            return Path.GetFileName(path);
+        }
+        public static string GetFileNameResult(string path)
+        {
+            string fileName = GetFileNameFromPath(path);
+
+            return $"Path: {path}\n" +
+                   $"File Name: {fileName}";
+        }
+
+        // Exercise 65 - Multiply Array Elements by Length
+        public static int[] MultiplyArrayElementsByLength(int[] numbers)
+        {
+            if (numbers == null)
+                return null;
+
+            int length = numbers.Length;
+            return numbers.Select(x => x * length).ToArray();
+        }
+
+        // Exercise 66 - Min Value from Two String Numbers
+        public static int MinValueFromStrings(string num1, string num2)
+        {
+            int number1 = int.Parse(num1);
+            int number2 = int.Parse(num2);
+
+            return Math.Min(number1, number2);
+        }
+
+        // Exercises 67 -  Coded String Conversion
+        public static string ConvertToCodedString(string input)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (char c in input)
+            {
+                switch (c)
+                {
+                    case 'P': result.Append('9'); break;
+                    case 'T': result.Append('0'); break;
+                    case 'S': result.Append('1'); break;
+                    case 'H': result.Append('6'); break;
+                    case 'A': result.Append('8'); break;
+                    default: result.Append(c); break;
+                }
+            }
+
+            return result.ToString();
+        }
+
+        // Exercise 68 - Count Specific Character in String
+        public static int CountCharacter(string input, char character)
+        {
+            if (string.IsNullOrEmpty(input))
+                return 0;
+
+            return input.Count(c => char.ToLower(c) == char.ToLower(character));
+        }
+
+        // Exercise 69 - Check All Uppercase or Lowercase
+        public static bool IsAllUpperOrLowerCase(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return false;
+
+            return input.All(char.IsUpper) || input.All(char.IsLower);
+        }
+
+        // Exercises 70 - Remove First and Last Characters
+        public static string RemoveFirstAndLast(string input)
+        {
+            if (string.IsNullOrEmpty(input) || input.Length <= 2)
+                return "";
+
+            return input.Substring(1, input.Length - 2);
+        }
+
+        // Exercise 71 - Check Consecutive Similar Letters
+        public static bool HasConsecutiveSimilarLetters(string input)
+        {
+            if (string.IsNullOrEmpty(input) || input.Length < 2)
+                return false;
+
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+                if (input[i] == input[i + 1])
+                    return true;
+            }
+
+            return false;
+        }
+
+        // Exercises 72 - Check Array Average as Whole Number
+        public static bool IsAverageWholeNumber(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return false;
+
+            double average = numbers.Average();
+            return average % 1 == 0;
+        }
+
+        // Exercise 73 - Alphabetical Order of String Letters
+        public static string SortStringAlphabetically(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            return new string(input.OrderBy(c => c).ToArray());
+        }
+
+        // Exercises 74 - Odd or Even Length of String
+        public static string CheckStringLengthOddEven(string input)
+        {
+            if (input == null)
+                return "Even length";
+
+            return input.Length % 2 == 0 ? "Even length" : "Odd length";
+        }
+
+        // Exercise 75 - Nth Odd Number
+        public static int GetNthOddNumber(int n)
+        {
+            if (n <= 0)
+                throw new ArgumentException("n must be a positive number");
+
+            return 2 * n - 1;
+        }
+
+        // Exercise 76 - Get ASCII Value of Character
+        public static int GetAsciiValue(char character)
+        {
+            return (int)character;
+        }
+
+        // Exercise 77 - Check Word Plural
+        public static bool IsPlural(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+                return false;
+
+            return word.EndsWith("s", StringComparison.OrdinalIgnoreCase);
+        }
+
+        // Exercise 78 - Sum of Squares in Array
+        public static int SumOfSquares(int[] numbers)
+        {
+            if (numbers == null)
+                return 0;
+
+            return numbers.Sum(x => x * x);
+        }
+
+        // Exercise 79 - Integer to String and Vice Versa
+        public static string ConvertIntToString(int number)
+        {
+            return number.ToString();
+        }
+
+        public static int ConvertStringToInt(string text)
+        {
+            return int.Parse(text);
+        }
+
+        // Exercise 80 - Convert Array Elements to Strings
+        public static string[] ConvertArrayToStrings(object[] array)
+        {
+            if (array == null)
+                return null;
+
+            string[] result = new string[array.Length];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                result[i] = array[i]?.ToString() ?? "";
+            }
+
+            return result;
+        }
+
+        // Exercise 81 - Check Swapped Two-Digit Number
+        public static bool IsGreaterThanSwapped(int number)
+        {
+            if (number < 10 || number > 99)
+                throw new ArgumentException("Number must be a two-digit integer");
+
+            int swapped = (number % 10) * 10 + (number / 10);
+            return number > swapped;
+        }
+
+        // Exercise 82 - Remove Non-Letter Characters
+        public static string RemoveNonLetters(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            StringBuilder result = new StringBuilder();
+
+            foreach (char c in input)
+            {
+                if (char.IsLetter(c))
+                {
+                    result.Append(c);
+                }
+            }
+
+            return result.ToString();
+        }
+
+        // Exercise 83 - Remove Vowels from String
+        public static string RemoveVowels(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return input;
+
+            StringBuilder result = new StringBuilder();
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+
+            foreach (char c in input)
+            {
+                if (!vowels.Contains(c))
+                {
+                    result.Append(c);
+                }
+            }
+
+            return result.ToString();
+        }
+
+        // Exercise 84 - Indices of Lowercase Letters
+        public static int[] GetLowercaseIndices(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return Array.Empty<int>();
+
+            List<int> indices = new List<int>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (char.IsLower(input[i]))
+                {
+                    indices.Add(i);
+                }
+            }
+
+            return indices.ToArray();
+        }
+
+        // Exercise 85 - Cumulative Sum of Array
+        public static double[] GetCumulativeSum(double[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return Array.Empty<double>();
+
+            double[] cumulativeSum = new double[numbers.Length];
+            double sum = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+                cumulativeSum[i] = sum;
+            }
+
+            return cumulativeSum;
+        }
+
+        // Exercise 86 - Count Letters and Digits in String
+        public static (int letters, int digits) CountLettersAndDigits(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return (0, 0);
+
+            int letterCount = input.Count(char.IsLetter);
+            int digitCount = input.Count(char.IsDigit);
+
+            return (letterCount, digitCount);
+        }
+
+        // Exercise 87 - Reverse Boolean Value
+        public static bool ReverseBoolean(bool value)
+        {
+            return !value;
+        }
+
+        // Exercise 88 - Sum of Interior Angles in Polygon
+        public static int SumOfInteriorAngles(int sides)
+        {
+            if (sides < 3)
+                throw new ArgumentException("A polygon must have at least 3 sides");
+
+            return (sides - 2) * 180;
+        }
+
+        // Exercise 89 - Count Positives and Negatives in Array
+        public static (int positives, int negatives) CountPositivesAndNegatives(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0)
+                return (0, 0);
+
+            int positiveCount = numbers.Count(n => n > 0);
+            int negativeCount = numbers.Count(n => n < 0);
+
+            return (positiveCount, negativeCount);
+        }
+
+        // Exercises 90 -  Count Ones and Zeros in Binary
+        public static (int ones, int zeros) CountOnesAndZeros(int number)
+        {
+            if (number == 0)
+                return (0, 1);
+
+            string binary = Convert.ToString(number, 2);
+            int ones = binary.Count(c => c == '1');
+            int zeros = binary.Count(c => c == '0');
+
+            return (ones, zeros);
+        }
     }
 }
