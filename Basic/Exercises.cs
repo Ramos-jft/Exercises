@@ -1414,5 +1414,348 @@ namespace BasicExercises
 
             return (ones, zeros);
         }
+
+        // Exercise 91 - Remove Non-Integer Values from Array
+        public static int[] RemoveNonIntegers(object[] array)
+        {
+            if (array == null)
+                return Array.Empty<int>();
+
+            List<int> integers = new List<int>();
+
+            foreach (object item in array)
+            {
+                if (item is int intValue)
+                {
+                    integers.Add(intValue);
+                }
+            }
+
+            return integers.ToArray();
+        }
+
+        // Exercise 92 - Find Next Prime Number
+        public static int FindNextPrime(int number)
+        {
+            if (number < 2)
+                return 2;
+
+            if (ItsPrime(number))
+                return number;
+
+            int nextNumber = number + 1;
+            while (true)
+            {
+                if (ItsPrime(nextNumber))
+                    return nextNumber;
+                nextNumber++;
+            }
+        }
+
+        private static bool ItsPrime(int n)
+        {
+            if (n < 2)
+                return false;
+            if (n == 2)
+                return true;
+            if (n % 2 == 0)
+                return false;
+
+            int limit = (int)Math.Sqrt(n);
+            for (int i = 3; i <= limit; i += 2)
+            {
+                if (n % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        // Exercise 93 - Square Root Without Built-In Functions
+        public static int SquareRoot(int number)
+        {
+            if (number <= 1)
+                return number;
+
+            int left = 1;
+            int right = number;
+            int result = 0;
+
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+
+                if (mid * mid == number)
+                    return mid;
+
+                if (mid * mid < number)
+                {
+                    left = mid + 1;
+                    result = mid;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+
+            return result;
+        }
+
+        // Exercise 94 - Find Longest Common Prefix
+        public static string LongestCommonPrefix(string[] strs)
+        {
+            if (strs == null || strs.Length == 0)
+                return "";
+
+            string prefix = strs[0];
+
+            for (int i = 1; i < strs.Length; i++)
+            {
+                while (strs[i].IndexOf(prefix) != 0)
+                {
+                    prefix = prefix.Substring(0, prefix.Length - 1);
+                    if (string.IsNullOrEmpty(prefix))
+                        return "";
+                }
+            }
+
+            return prefix;
+        }
+
+        // Exercise 95 - Validate Brackets in String
+        public static bool ValidateBrackets(string input)
+        {
+            Stack<char> stack = new Stack<char>();
+            Dictionary<char, char> bracketPairs = new Dictionary<char, char>
+        {
+            { ')', '(' },
+            { ']', '[' },
+            { '}', '{' },
+            { '>', '<' }
+        };
+
+            foreach (char c in input)
+            {
+                if (bracketPairs.ContainsValue(c))
+                {
+                    stack.Push(c);
+                }
+                else if (bracketPairs.ContainsKey(c))
+                {
+                    if (stack.Count == 0 || stack.Pop() != bracketPairs[c])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.Count == 0;
+        }
+
+        // Exercise 96 - Check All Characters Same in String
+        public static bool AllCharactersSame(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return true;
+
+            char firstChar = input[0];
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                if (input[i] != firstChar)
+                    return false;
+            }
+
+            return true;
+        }
+
+        // Exercise 97 - Check Numeric String
+        public static bool IsNumeric(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return false;
+
+            bool hasDecimalPoint = false;
+            bool hasDigit = false;
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                char c = input[i];
+
+                if (i == 0 && (c == '-' || c == '+'))
+                {
+                    continue;
+                }
+
+                if (c == '.')
+                {
+                    if (hasDecimalPoint || !hasDigit)
+                        return false;
+                    hasDecimalPoint = true;
+                }
+                else if (char.IsDigit(c))
+                {
+                    hasDigit = true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return hasDigit;
+        }
+
+        // Exercise 98 - Primes in Descending Order
+        public static List<int> GetPrimesDescendingDigits(int limit)
+        {
+            List<int> primes = new List<int>();
+
+            for (int i = 2; i <= limit; i++)
+            {
+                if (ItsPrime(i) && HasDescendingDigits(i))
+                {
+                    primes.Add(i);
+                }
+            }
+
+            return primes;
+        }
+
+        private static bool ItIsPrime(int n)
+        {
+            if (n < 2)
+                return false;
+            if (n == 2)
+                return true;
+            if (n % 2 == 0)
+                return false;
+
+            int limit = (int)Math.Sqrt(n);
+            for (int i = 3; i <= limit; i += 2)
+            {
+                if (n % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool HasDescendingDigits(int n)
+        {
+            if (n < 10)
+                return true;
+
+            string digits = n.ToString();
+
+            for (int i = 0; i < digits.Length - 1; i++)
+            {
+                int current = digits[i] - '0';
+                int next = digits[i + 1] - '0';
+
+                if (current <= next)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Exercise 99 - Primes in Ascending Order
+        public static List<int> GetPrimesAscendingDigits(int limit)
+        {
+            List<int> primes = new List<int>();
+
+            for (int i = 2; i <= limit; i++)
+            {
+                if (ItsPrime(i) && HasAscendingDigits(i))
+                {
+                    primes.Add(i);
+                }
+            }
+
+            return primes;
+        }
+
+        private static bool HasAscendingDigits(int n)
+        {
+            if (n < 10)
+                return true;
+
+            string digits = n.ToString();
+
+            for (int i = 0; i < digits.Length - 1; i++)
+            {
+                int current = digits[i] - '0';
+                int next = digits[i + 1] - '0';
+
+                if (current >= next)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Exercise 100 - Equality of Value and Type
+        public static bool AreEqual(object a, object b)
+        {
+            return a.GetType() == b.GetType() && a.Equals(b);
+        }
+
+        // Exercise 101 - Calculate Euler's Number (e)
+        public static double CalculateE(int iterations)
+        {
+            double e = 1.0;
+            double factorial = 1.0;
+
+            for (int i = 1; i <= iterations; i++)
+            {
+                factorial *= i;
+                e += 1.0 / factorial;
+            }
+
+            return e;
+        }
+
+        // Exercise 102 - Create Identity Matrix
+        public static int[,] CreateIdentityMatrix(int size)
+        {
+            int[,] matrix = new int[size, size];
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix[i, j] = (i == j) ? 1 : 0;
+                }
+            }
+
+            return matrix;
+        }
+
+        // Exercise 103 - Sort Characters in String
+        public static string SortCharacters(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return "Blank string!";
+
+            return new string(input.OrderBy(c => c).ToArray());
+        }
+
+        // Exercise 104 - Compare Equality of Three Integers
+        public static int CountEqualIntegers(int a, int b, int c)
+        {
+            if (a == b && b == c)
+                return 3;
+
+            if (a == b || a == c || b == c)
+                return 2;
+
+            return 0;
+        }
     }
 }
