@@ -1,4 +1,4 @@
-# C# Sharp Exercises - List 1
+# C# Exercises - List 1
 
 This repository contains solutions to the first set of 104 basic C# programming exercises. These exercises cover fundamental programming concepts and are designed to help developers practice and improve their C# skills.
 
