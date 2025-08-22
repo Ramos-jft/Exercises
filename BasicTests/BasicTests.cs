@@ -1,14 +1,14 @@
-﻿using BasicExercises;
+﻿using static Exercises.Basic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace BasicExercisesTests
+namespace ExercisesTests
 {
     [TestClass]
-    public class ExercisesTests
+    public class BasicTests
     {
         [TestMethod]
 
@@ -17,11 +17,11 @@ namespace BasicExercisesTests
         {
             // Arrange
 
-            var exercise = new Exercises();
+            var exercise = new BasicTests();
 
             // Act
 
-            var result = exercise.Message("Lucas");
+            var result = Exercises.Basic.Message("Lucas");
 
             // Assert
 
@@ -39,7 +39,7 @@ namespace BasicExercisesTests
             int expected = 13;
 
             // Act
-            int result = Exercises.Sum(n1, n2);
+            int result = Exercises.Basic.Sum(n1, n2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -56,7 +56,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int result = Exercises.Divide(n1, n2);
+            int result = Exercises.Basic.Divide(n1, n2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -72,7 +72,7 @@ namespace BasicExercisesTests
             double expected = 23;
 
             // Act
-            double result = Exercises.Calculate(operation);
+            double result = Exercises.Basic.Calculate(operation);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -86,7 +86,7 @@ namespace BasicExercisesTests
             double expected = 5;
 
             // Act
-            double result = Exercises.Calculate(operation);
+            double result = Exercises.Basic.Calculate(operation);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -100,7 +100,7 @@ namespace BasicExercisesTests
             double expected = 11.82;
 
             // Act
-            double result = Exercises.Calculate(operation);
+            double result = Exercises.Basic.Calculate(operation);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -114,7 +114,7 @@ namespace BasicExercisesTests
             double expected = 3.5;
 
             // Act
-            double result = Exercises.Calculate(operation);
+            double result = Exercises.Basic.Calculate(operation);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -130,7 +130,7 @@ namespace BasicExercisesTests
             int secondNumber = 6;
 
             // Act
-            Exercises.Swap(ref firstNumber, ref secondNumber);
+            Exercises.Basic.Swap(ref firstNumber, ref secondNumber);
 
             // Assert
             Assert.AreEqual(6, firstNumber);
@@ -149,7 +149,7 @@ namespace BasicExercisesTests
             int expected = 36;
 
             // Act
-            int result = Exercises.MultiplyThreeNumbers(n1, n2, n3);
+            int result = Exercises.Basic.MultiplyThreeNumbers(n1, n2, n3);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -169,7 +169,7 @@ namespace BasicExercisesTests
                 int expected = 29;
 
                 // Act
-                int result = Exercises.AddTwoNumbers(a, b);
+                int result = Exercises.Basic.AddTwoNumbers(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -184,7 +184,7 @@ namespace BasicExercisesTests
                 int expected = 21;
 
                 // Act
-                int result = Exercises.SubtractTwoNumbers(a, b);
+                int result = Exercises.Basic.SubtractTwoNumbers(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -199,7 +199,7 @@ namespace BasicExercisesTests
                 int expected = 100;
 
                 // Act
-                int result = Exercises.MultiplyTwoNumbers(a, b);
+                int result = Exercises.Basic.MultiplyTwoNumbers(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -214,7 +214,7 @@ namespace BasicExercisesTests
                 int expected = 6;
 
                 // Act
-                int result = Exercises.DivideTwoNumbers(a, b);
+                int result = Exercises.Basic.DivideTwoNumbers(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -229,7 +229,7 @@ namespace BasicExercisesTests
                 int expected = 1;
 
                 // Act
-                int result = Exercises.ModulusTwoNumbers(a, b);
+                int result = Exercises.Basic.ModulusTwoNumbers(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -248,7 +248,7 @@ namespace BasicExercisesTests
                                  "25 mod 4 = 1";
 
                 // Act
-                string result = Exercises.GetOperationResults(a, b);
+                string result = Exercises.Basic.GetOperationResults(a, b);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -278,7 +278,7 @@ namespace BasicExercisesTests
                                 "5 * 10 = 50";
 
                 // Act
-                string result = Exercises.GenerateMultiplicationTable(number);
+                string result = Exercises.Basic.GenerateMultiplicationTable(number);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -302,7 +302,7 @@ namespace BasicExercisesTests
                                 "0 * 10 = 0";
 
                 // Act
-                string result = Exercises.GenerateMultiplicationTable(number);
+                string result = Exercises.Basic.GenerateMultiplicationTable(number);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -325,7 +325,7 @@ namespace BasicExercisesTests
                 double expected = 18.75;
 
                 // Act
-                double result = Exercises.CalculateAverage(num1, num2, num3, num4);
+                double result = Exercises.Basic.CalculateAverage(num1, num2, num3, num4);
 
                 // Assert
                 Assert.AreEqual(expected, result);
@@ -344,7 +344,7 @@ namespace BasicExercisesTests
             int expected = 77; // (5+6)*7 = 77
 
             // Act
-            int result = Exercises.CalculateFirstFormula(x, y, z);
+            int result = Exercises.Basic.CalculateFirstFormula(x, y, z);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -360,7 +360,7 @@ namespace BasicExercisesTests
             int expected = 72; // 5*6 + 6*7 = 30 + 42 = 72
 
             // Act
-            int result = Exercises.CalculateSecondFormula(x, y, z);
+            int result = Exercises.Basic.CalculateSecondFormula(x, y, z);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -378,7 +378,7 @@ namespace BasicExercisesTests
                             "x.y + y.z = 72";
 
             // Act
-            string result = Exercises.GetFormulasOutput(x, y, z);
+            string result = Exercises.Basic.GetFormulasOutput(x, y, z);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -395,7 +395,7 @@ namespace BasicExercisesTests
             string expected = "You look older than 25";
 
             // Act
-            string result = Exercises.GetAgeMessage(age);
+            string result = Exercises.Basic.GetAgeMessage(age);
 
             // Assert
             result.Should().Be(expected);
@@ -409,7 +409,7 @@ namespace BasicExercisesTests
         public void GetNumberPattern(int number, string expectedResult)
         {
             // Act
-            string result = Exercises.GetNumberPattern(number);
+            string result = Exercises.Basic.GetNumberPattern(number);
 
             // Assert
             result.Should().Be(expectedResult);
@@ -425,7 +425,7 @@ namespace BasicExercisesTests
             string expected = "555\r\n5 5\r\n5 5\r\n5 5\r\n555";
 
             // Act
-            string result = Exercises.GetRectanglePattern(number);
+            string result = Exercises.Basic.GetRectanglePattern(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -441,7 +441,7 @@ namespace BasicExercisesTests
             double expected = 303;
 
             // Act
-            double result = Exercises.ConvertToKelvin(celsius);
+            double result = Exercises.Basic.ConvertToKelvin(celsius);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -455,7 +455,7 @@ namespace BasicExercisesTests
             double expected = 86;
 
             // Act
-            double result = Exercises.ConvertToFahrenheit(celsius);
+            double result = Exercises.Basic.ConvertToFahrenheit(celsius);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -469,7 +469,7 @@ namespace BasicExercisesTests
             string expected = "Kelvin = 303\r\nFahrenheit = 86";
 
             // Act
-            string result = Exercises.GetTemperatureConversions(celsius);
+            string result = Exercises.Basic.GetTemperatureConversions(celsius);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -486,7 +486,7 @@ namespace BasicExercisesTests
             string expected = "3resource";
 
             // Act
-            string result = Exercises.RemoveCharacterAtIndex(input, index);
+            string result = Exercises.Basic.RemoveCharacterAtIndex(input, index);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -501,7 +501,7 @@ namespace BasicExercisesTests
             string expected = "wresource";
 
             // Act
-            string result = Exercises.RemoveCharacterAtIndex(input, index);
+            string result = Exercises.Basic.RemoveCharacterAtIndex(input, index);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -516,7 +516,7 @@ namespace BasicExercisesTests
             string expected = "w3resourc";
 
             // Act
-            string result = Exercises.RemoveCharacterAtIndex(input, index);
+            string result = Exercises.Basic.RemoveCharacterAtIndex(input, index);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -532,7 +532,7 @@ namespace BasicExercisesTests
             string expected = "e3resourcw";
 
             // Act
-            string result = Exercises.SwapFirstLastCharacters(input);
+            string result = Exercises.Basic.SwapFirstLastCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -544,7 +544,7 @@ namespace BasicExercisesTests
         public void SwapFirst_LastCharacter(string input, string expectedResult)
         {
             // Act
-            string result = Exercises.SwapFirstLastCharacters(input);
+            string result = Exercises.Basic.SwapFirstLastCharacters(input);
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -558,7 +558,7 @@ namespace BasicExercisesTests
             string expected = "x";
 
             // Act
-            string result = Exercises.SwapFirstLastCharacters(input);
+            string result = Exercises.Basic.SwapFirstLastCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -574,7 +574,7 @@ namespace BasicExercisesTests
             string expected = "TThe quick brown fox jumps over the lazy dog.T";
 
             // Act
-            string result = Exercises.AddFirstCharFrontAndBack(input);
+            string result = Exercises.Basic.AddFirstCharFrontAndBack(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -591,7 +591,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckPositiveNegativePair(first, second);
+            bool result = Exercises.Basic.CheckPositiveNegativePair(first, second);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -608,7 +608,7 @@ namespace BasicExercisesTests
             int expected = 12;
 
             // Act
-            int result = Exercises.ComputeSum(a, b);
+            int result = Exercises.Basic.ComputeSum(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -623,7 +623,7 @@ namespace BasicExercisesTests
             int expected = 22;
 
             // Act
-            int result = Exercises.ComputeSum(a, b);
+            int result = Exercises.Basic.ComputeSum(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -638,7 +638,7 @@ namespace BasicExercisesTests
             int expected = -3;
 
             // Act
-            int result = Exercises.ComputeSum(a, b);
+            int result = Exercises.Basic.ComputeSum(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -655,7 +655,7 @@ namespace BasicExercisesTests
             int expected = 16;
 
             // Act
-            int result = Exercises.CalculateDifference(a, b);
+            int result = Exercises.Basic.CalculateDifference(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -670,7 +670,7 @@ namespace BasicExercisesTests
             int expected = 7;
 
             // Act
-            int result = Exercises.CalculateDifference(a, b);
+            int result = Exercises.Basic.CalculateDifference(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -687,7 +687,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFor20(a, b);
+            bool result = Exercises.Basic.CheckFor20(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -702,7 +702,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFor20(a, b);
+            bool result = Exercises.Basic.CheckFor20(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -717,7 +717,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFor20(a, b);
+            bool result = Exercises.Basic.CheckFor20(a, b);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -733,7 +733,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -747,7 +747,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -761,7 +761,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -775,7 +775,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -789,7 +789,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -803,7 +803,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool result = Exercises.CheckWithin20(number);
+            bool result = Exercises.Basic.CheckWithin20(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -817,7 +817,7 @@ namespace BasicExercisesTests
             string expected = "Check result: True";
 
             // Act
-            string result = Exercises.GetCheckResult(number);
+            string result = Exercises.Basic.GetCheckResult(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -833,7 +833,7 @@ namespace BasicExercisesTests
             string expected = "hello world";
 
             // Act
-            string result = Exercises.ConvertToLower(input);
+            string result = Exercises.Basic.ConvertToLower(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -847,7 +847,7 @@ namespace BasicExercisesTests
             string expected = "c# programming";
 
             // Act
-            string result = Exercises.ConvertToLower(input);
+            string result = Exercises.Basic.ConvertToLower(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -861,7 +861,7 @@ namespace BasicExercisesTests
             string expected = "already lowercase";
 
             // Act
-            string result = Exercises.ConvertToLower(input);
+            string result = Exercises.Basic.ConvertToLower(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -875,7 +875,7 @@ namespace BasicExercisesTests
             string expected = "123 abc!@#";
 
             // Act
-            string result = Exercises.ConvertToLower(input);
+            string result = Exercises.Basic.ConvertToLower(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -889,7 +889,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ConvertToLower(input);
+            string result = Exercises.Basic.ConvertToLower(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -903,7 +903,7 @@ namespace BasicExercisesTests
             string expected = "Lowercase result: convert this";
 
             // Act
-            string result = Exercises.GetLowercaseResult(input);
+            string result = Exercises.Basic.GetLowercaseResult(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -919,7 +919,7 @@ namespace BasicExercisesTests
             string expected = "following";
 
             // Act
-            string result = Exercises.FindLongestWord(input);
+            string result = Exercises.Basic.FindLongestWord(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -934,7 +934,7 @@ namespace BasicExercisesTests
             string expected = "1\r\n3\r\n5\r\n7\r\n9\r\n11\r\n...\r\n95\r\n97\r\n99";
 
             // Act
-            string result = Exercises.GetOddNumbers();
+            string result = Exercises.Basic.GetOddNumbers();
 
             // Assert
             Assert.IsTrue(result.Contains("1\r\n3\r\n5\r\n7\r\n9"));
@@ -952,7 +952,7 @@ namespace BasicExercisesTests
             string expectedEnd = "95\r\n97\r\n99\r\n";
 
             // Act
-            Exercises.PrintOddNumbers();
+            Exercises.Basic.PrintOddNumbers();
             string result = stringWriter.ToString();
 
             // Assert
@@ -967,24 +967,24 @@ namespace BasicExercisesTests
         public void IsPrime_ShouldIdentifyPrimesCorrectly()
         {
             // Números primos
-            Assert.IsTrue(Exercises.IsPrime(2));
-            Assert.IsTrue(Exercises.IsPrime(3));
-            Assert.IsTrue(Exercises.IsPrime(5));
-            Assert.IsTrue(Exercises.IsPrime(7));
-            Assert.IsTrue(Exercises.IsPrime(11));
+            Assert.IsTrue(Exercises.Basic.IsPrime(2));
+            Assert.IsTrue(Exercises.Basic.IsPrime(3));
+            Assert.IsTrue(Exercises.Basic.IsPrime(5));
+            Assert.IsTrue(Exercises.Basic.IsPrime(7));
+            Assert.IsTrue(Exercises.Basic.IsPrime(11));
 
             // Não primos
-            Assert.IsFalse(Exercises.IsPrime(1));
-            Assert.IsFalse(Exercises.IsPrime(4));
-            Assert.IsFalse(Exercises.IsPrime(9));
-            Assert.IsFalse(Exercises.IsPrime(15));
+            Assert.IsFalse(Exercises.Basic.IsPrime(1));
+            Assert.IsFalse(Exercises.Basic.IsPrime(4));
+            Assert.IsFalse(Exercises.Basic.IsPrime(9));
+            Assert.IsFalse(Exercises.Basic.IsPrime(15));
         }
 
         [TestMethod]
         public void SumOfFirst500Primes_ShouldReturnCorrectSum()
         {
             // Arrange & Act
-            long result = Exercises.SumOfFirst500Primes();
+            long result = Exercises.Basic.SumOfFirst500Primes();
 
             // Assert
             Assert.AreEqual(824693, result); // Valor correto da soma
@@ -994,7 +994,7 @@ namespace BasicExercisesTests
         public void GetPrimeSumResult_ShouldReturnFormattedString()
         {
             // Act
-            string result = Exercises.GetPrimeSumResult();
+            string result = Exercises.Basic.GetPrimeSumResult();
 
             // Assert
             Assert.IsTrue(result.StartsWith("Sum of the first 500 prime numbers:\n"));
@@ -1011,7 +1011,7 @@ namespace BasicExercisesTests
             int expected = 15;
 
             // Act
-            int actual = Exercises.SumDigits(number);
+            int actual = Exercises.Basic.SumDigits(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1025,7 +1025,7 @@ namespace BasicExercisesTests
             int expected = 6;
 
             // Act
-            int actual = Exercises.SumDigits(number);
+            int actual = Exercises.Basic.SumDigits(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1039,7 +1039,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int actual = Exercises.SumDigits(number);
+            int actual = Exercises.Basic.SumDigits(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1053,7 +1053,7 @@ namespace BasicExercisesTests
             int expected = 7;
 
             // Act
-            int actual = Exercises.SumDigits(number);
+            int actual = Exercises.Basic.SumDigits(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1067,7 +1067,7 @@ namespace BasicExercisesTests
             int expected = 45;
 
             // Act
-            int actual = Exercises.SumDigits(number);
+            int actual = Exercises.Basic.SumDigits(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -1083,7 +1083,7 @@ namespace BasicExercisesTests
             string expected = "alphabet. the using pyramid like pattern the Display";
 
             // Act
-            string result = Exercises.ReverseWords(input);
+            string result = Exercises.Basic.ReverseWords(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1097,7 +1097,7 @@ namespace BasicExercisesTests
             string expected = "World Hello";
 
             // Act
-            string result = Exercises.ReverseWords(input);
+            string result = Exercises.Basic.ReverseWords(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1111,7 +1111,7 @@ namespace BasicExercisesTests
             string expected = "Original String: Hello World\nReverse String: World Hello";
 
             // Act
-            string result = Exercises.GetReversedSentenceResult(input);
+            string result = Exercises.Basic.GetReversedSentenceResult(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1143,7 +1143,7 @@ namespace BasicExercisesTests
             long expectedSize = new FileInfo(TestFilePath).Length;
 
             // Act
-            long actualSize = Exercises.GetFileSize(TestFilePath);
+            long actualSize = Exercises.Basic.GetFileSize(TestFilePath);
 
             // Assert
             Assert.AreEqual(expectedSize, actualSize);
@@ -1157,7 +1157,7 @@ namespace BasicExercisesTests
 
             // Act & Assert
             var exception = Assert.ThrowsException<FileNotFoundException>(() =>
-                Exercises.GetFileSize(nonExistentFile));
+                Exercises.Basic.GetFileSize(nonExistentFile));
 
             Assert.AreEqual($"File not found: {nonExistentFile}", exception.Message);
         }
@@ -1170,7 +1170,7 @@ namespace BasicExercisesTests
             string expectedMessage = $"File not found: {nonExistentFile}";
 
             // Act
-            string result = Exercises.GetFileSizeResult(nonExistentFile);
+            string result = Exercises.Basic.GetFileSizeResult(nonExistentFile);
 
             // Assert
             Assert.AreEqual(expectedMessage, result);
@@ -1184,7 +1184,7 @@ namespace BasicExercisesTests
             string expected = $"Size of a file: {size}";
 
             // Act
-            string result = Exercises.GetFileSizeResult(TestFilePath);
+            string result = Exercises.Basic.GetFileSizeResult(TestFilePath);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1200,7 +1200,7 @@ namespace BasicExercisesTests
             int expected = 1200;
 
             // Act
-            int result = Exercises.HexToDecimal(hex);
+            int result = Exercises.Basic.HexToDecimal(hex);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1214,7 +1214,7 @@ namespace BasicExercisesTests
             int expected = 1200;
 
             // Act
-            int result = Exercises.HexToDecimal(hex);
+            int result = Exercises.Basic.HexToDecimal(hex);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1228,7 +1228,7 @@ namespace BasicExercisesTests
             string expected = "Hexadecimal number: 4B0\nConvert to-\nDecimal number: 1200";
 
             // Act
-            string result = Exercises.GetConversionResult(hex);
+            string result = Exercises.Basic.GetConversionResult(hex);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1245,7 +1245,7 @@ namespace BasicExercisesTests
             int[] expected = { 1, 12, 25, -8 };
 
             // Act
-            int[] result = Exercises.MultiplyArrays(array1, array2);
+            int[] result = Exercises.Basic.MultiplyArrays(array1, array2);
 
             // Assert
             CollectionAssert.AreEqual(expected, result);
@@ -1263,7 +1263,7 @@ namespace BasicExercisesTests
                             "1 12 25 -8";
 
             // Act
-            string result = Exercises.GetMultiplicationResult(array1, array2);
+            string result = Exercises.Basic.GetMultiplicationResult(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1279,7 +1279,7 @@ namespace BasicExercisesTests
             string expected = "dog.dog.dog.dog.";
 
             // Act
-            string result = Exercises.GetLastFourCopies(input);
+            string result = Exercises.Basic.GetLastFourCopies(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1294,7 +1294,7 @@ namespace BasicExercisesTests
             int number = 15;
 
             // Act
-            bool result = Exercises.IsMultipleOf3Or7(number);
+            bool result = Exercises.Basic.IsMultipleOf3Or7(number);
 
             // Assert
             Assert.IsTrue(result);
@@ -1307,7 +1307,7 @@ namespace BasicExercisesTests
             int number = 14;
 
             // Act
-            bool result = Exercises.IsMultipleOf3Or7(number);
+            bool result = Exercises.Basic.IsMultipleOf3Or7(number);
 
             // Assert
             Assert.IsTrue(result);
@@ -1320,7 +1320,7 @@ namespace BasicExercisesTests
             int number = 16;
 
             // Act
-            bool result = Exercises.IsMultipleOf3Or7(number);
+            bool result = Exercises.Basic.IsMultipleOf3Or7(number);
 
             // Assert
             Assert.IsFalse(result);
@@ -1330,7 +1330,7 @@ namespace BasicExercisesTests
         public void IsMultipleOf3Or7_Zero()
         {
             // Act
-            bool result = Exercises.IsMultipleOf3Or7(0);
+            bool result = Exercises.Basic.IsMultipleOf3Or7(0);
 
             // Assert
             Assert.IsFalse(result);
@@ -1340,7 +1340,7 @@ namespace BasicExercisesTests
         public void IsMultipleOf3Or7_NegativeNumber()
         {
             // Act
-            bool result = Exercises.IsMultipleOf3Or7(-21);
+            bool result = Exercises.Basic.IsMultipleOf3Or7(-21);
 
             // Assert
             Assert.IsFalse(result);
@@ -1354,7 +1354,7 @@ namespace BasicExercisesTests
             string expected = "Input first integer:\n15\nTrue";
 
             // Act
-            string result = Exercises.GetCheckResult0(number);
+            string result = Exercises.Basic.GetCheckResult0(number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1369,7 +1369,7 @@ namespace BasicExercisesTests
             string input = "Hello how are you?";
 
             // Act
-            bool result = Exercises.StartsWithHello(input);
+            bool result = Exercises.Basic.StartsWithHello(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1382,7 +1382,7 @@ namespace BasicExercisesTests
             string input = "hello world";
 
             // Act
-            bool result = Exercises.StartsWithHello(input);
+            bool result = Exercises.Basic.StartsWithHello(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1395,7 +1395,7 @@ namespace BasicExercisesTests
             string input = "Hi there";
 
             // Act
-            bool result = Exercises.StartsWithHello(input);
+            bool result = Exercises.Basic.StartsWithHello(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -1405,7 +1405,7 @@ namespace BasicExercisesTests
         public void StartsWithHello_EmptyString_ReturnsFalse()
         {
             // Act
-            bool result = Exercises.StartsWithHello("");
+            bool result = Exercises.Basic.StartsWithHello("");
 
             // Assert
             Assert.IsFalse(result);
@@ -1418,7 +1418,7 @@ namespace BasicExercisesTests
             string input = "   Hello everyone";
 
             // Act
-            bool result = Exercises.StartsWithHello(input);
+            bool result = Exercises.Basic.StartsWithHello(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1432,7 +1432,7 @@ namespace BasicExercisesTests
             string expected = "Input a string : Hello how are you?\nTrue";
 
             // Act
-            string result = Exercises.GetCheckResult(input);
+            string result = Exercises.Basic.GetCheckResult(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1448,7 +1448,7 @@ namespace BasicExercisesTests
             int num2 = 250;
 
             // Act
-            bool result = Exercises.CheckNumbers(num1, num2);
+            bool result = Exercises.Basic.CheckNumbers(num1, num2);
 
             // Assert
             Assert.IsTrue(result);
@@ -1462,7 +1462,7 @@ namespace BasicExercisesTests
             int num2 = 250;
 
             // Act
-            bool result = Exercises.CheckNumbers(num1, num2);
+            bool result = Exercises.Basic.CheckNumbers(num1, num2);
 
             // Assert
             Assert.IsFalse(result);
@@ -1476,7 +1476,7 @@ namespace BasicExercisesTests
             int num2 = 150;
 
             // Act
-            bool result = Exercises.CheckNumbers(num1, num2);
+            bool result = Exercises.Basic.CheckNumbers(num1, num2);
 
             // Assert
             Assert.IsFalse(result);
@@ -1490,7 +1490,7 @@ namespace BasicExercisesTests
             int num2 = 150;
 
             // Act
-            bool result = Exercises.CheckNumbers(num1, num2);
+            bool result = Exercises.Basic.CheckNumbers(num1, num2);
 
             // Assert
             Assert.IsFalse(result);
@@ -1507,7 +1507,7 @@ namespace BasicExercisesTests
                             "True";
 
             // Act
-            string result = Exercises.GetCheckResult(num1, num2);
+            string result = Exercises.Basic.GetCheckResult(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1523,7 +1523,7 @@ namespace BasicExercisesTests
             int num2 = 15;
 
             // Act
-            bool result = Exercises.CheckInRange(num1, num2);
+            bool result = Exercises.Basic.CheckInRange(num1, num2);
 
             // Assert
             Assert.IsTrue(result);
@@ -1537,7 +1537,7 @@ namespace BasicExercisesTests
             int num2 = 8;
 
             // Act
-            bool result = Exercises.CheckInRange(num1, num2);
+            bool result = Exercises.Basic.CheckInRange(num1, num2);
 
             // Assert
             Assert.IsTrue(result);
@@ -1551,7 +1551,7 @@ namespace BasicExercisesTests
             int num2 = 10;
 
             // Act
-            bool result = Exercises.CheckInRange(num1, num2);
+            bool result = Exercises.Basic.CheckInRange(num1, num2);
 
             // Assert
             Assert.IsTrue(result);
@@ -1565,7 +1565,7 @@ namespace BasicExercisesTests
             int num2 = 11;
 
             // Act
-            bool result = Exercises.CheckInRange(num1, num2);
+            bool result = Exercises.Basic.CheckInRange(num1, num2);
 
             // Assert
             Assert.IsFalse(result);
@@ -1579,7 +1579,7 @@ namespace BasicExercisesTests
             int num2 = 10;
 
             // Act
-            bool result = Exercises.CheckInRange(num1, num2);
+            bool result = Exercises.Basic.CheckInRange(num1, num2);
 
             // Assert
             Assert.IsTrue(result);
@@ -1596,7 +1596,7 @@ namespace BasicExercisesTests
                             "True";
 
             // Act
-            string result = Exercises.GetCheckResult1(num1, num2);
+            string result = Exercises.Basic.GetCheckResult1(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1612,7 +1612,7 @@ namespace BasicExercisesTests
             string expected = "P Tutorial";
 
             // Act
-            string result = Exercises.RemoveHP(input);
+            string result = Exercises.Basic.RemoveHP(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1626,7 +1626,7 @@ namespace BasicExercisesTests
             string expected = "P Tutorial";
 
             // Act
-            string result = Exercises.RemoveHP(input);
+            string result = Exercises.Basic.RemoveHP(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1640,7 +1640,7 @@ namespace BasicExercisesTests
             string expected = "C# Tutorial";
 
             // Act
-            string result = Exercises.RemoveHP(input);
+            string result = Exercises.Basic.RemoveHP(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1654,7 +1654,7 @@ namespace BasicExercisesTests
             string expected = "HP";
 
             // Act
-            string result = Exercises.RemoveHP(input);
+            string result = Exercises.Basic.RemoveHP(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1668,7 +1668,7 @@ namespace BasicExercisesTests
             string expected = "Original String: PHP Tutorial\nModified String: P Tutorial";
 
             // Act
-            string result = Exercises.GetModifiedString(input);
+            string result = Exercises.Basic.GetModifiedString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1684,7 +1684,7 @@ namespace BasicExercisesTests
             string expected = "PH";
 
             // Act
-            string result = Exercises.ExtractPH(input);
+            string result = Exercises.Basic.ExtractPH(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1698,7 +1698,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ExtractPH(input);
+            string result = Exercises.Basic.ExtractPH(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1712,7 +1712,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ExtractPH(input);
+            string result = Exercises.Basic.ExtractPH(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1726,7 +1726,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ExtractPH(input);
+            string result = Exercises.Basic.ExtractPH(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1740,7 +1740,7 @@ namespace BasicExercisesTests
             string expected = "Test Data: PHP\nExtracted: PH";
 
             // Act
-            string result = Exercises.GetExtractionResult(input);
+            string result = Exercises.Basic.GetExtractionResult(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1758,7 +1758,7 @@ namespace BasicExercisesTests
             (int expectedLargest, int expectedLowest) = (30, 15);
 
             // Act
-            var (largest, lowest) = Exercises.FindLargestAndLowest(num1, num2, num3);
+            var (largest, lowest) = Exercises.Basic.FindLargestAndLowest(num1, num2, num3);
 
             // Assert
             Assert.AreEqual(expectedLargest, largest);
@@ -1775,7 +1775,7 @@ namespace BasicExercisesTests
             (int expectedLargest, int expectedLowest) = (-1, -10);
 
             // Act
-            var (largest, lowest) = Exercises.FindLargestAndLowest(num1, num2, num3);
+            var (largest, lowest) = Exercises.Basic.FindLargestAndLowest(num1, num2, num3);
 
             // Assert
             Assert.AreEqual(expectedLargest, largest);
@@ -1792,7 +1792,7 @@ namespace BasicExercisesTests
             (int expectedLargest, int expectedLowest) = (10, 10);
 
             // Act
-            var (largest, lowest) = Exercises.FindLargestAndLowest(num1, num2, num3);
+            var (largest, lowest) = Exercises.Basic.FindLargestAndLowest(num1, num2, num3);
 
             // Assert
             Assert.AreEqual(expectedLargest, largest);
@@ -1809,7 +1809,7 @@ namespace BasicExercisesTests
             string expected = "Largest of three: 30\nLowest of three: 15";
 
             // Act
-            string result = Exercises.GetComparisonResult(num1, num2, num3);
+            string result = Exercises.Basic.GetComparisonResult(num1, num2, num3);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1826,7 +1826,7 @@ namespace BasicExercisesTests
             int expected = 15;
 
             // Act
-            int result = Exercises.FindNearestTo20(num1, num2);
+            int result = Exercises.Basic.FindNearestTo20(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1841,7 +1841,7 @@ namespace BasicExercisesTests
             int expected = 22;
 
             // Act
-            int result = Exercises.FindNearestTo20(num1, num2);
+            int result = Exercises.Basic.FindNearestTo20(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1856,7 +1856,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.FindNearestTo20(num1, num2);
+            int result = Exercises.Basic.FindNearestTo20(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1871,7 +1871,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.FindNearestTo20(num1, num2);
+            int result = Exercises.Basic.FindNearestTo20(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1888,7 +1888,7 @@ namespace BasicExercisesTests
                             "Nearest to 20: 15";
 
             // Act
-            string result = Exercises.GetNearestResult(num1, num2);
+            string result = Exercises.Basic.GetNearestResult(num1, num2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1903,7 +1903,7 @@ namespace BasicExercisesTests
             string input = "w3resource";
 
             // Act
-            bool result = Exercises.CheckWCount(input);
+            bool result = Exercises.Basic.CheckWCount(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1916,7 +1916,7 @@ namespace BasicExercisesTests
             string input = "www.example.com";
 
             // Act
-            bool result = Exercises.CheckWCount(input);
+            bool result = Exercises.Basic.CheckWCount(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1929,7 +1929,7 @@ namespace BasicExercisesTests
             string input = "hello lucas";
 
             // Act
-            bool result = Exercises.CheckWCount(input);
+            bool result = Exercises.Basic.CheckWCount(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -1942,7 +1942,7 @@ namespace BasicExercisesTests
             string input = "wwww.example";
 
             // Act
-            bool result = Exercises.CheckWCount(input);
+            bool result = Exercises.Basic.CheckWCount(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -1955,7 +1955,7 @@ namespace BasicExercisesTests
             string input = "WwW.example";
 
             // Act
-            bool result = Exercises.CheckWCount(input);
+            bool result = Exercises.Basic.CheckWCount(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -1971,7 +1971,7 @@ namespace BasicExercisesTests
                             "True";
 
             // Act
-            string result = Exercises.GetCheckResult2(input);
+            string result = Exercises.Basic.GetCheckResult2(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -1987,7 +1987,7 @@ namespace BasicExercisesTests
             string expected = "W3R";
 
             // Act
-            string result = Exercises.TransformString(input);
+            string result = Exercises.Basic.TransformString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2001,7 +2001,7 @@ namespace BasicExercisesTests
             string expected = "hellOWORLD";
 
             // Act
-            string result = Exercises.TransformString(input);
+            string result = Exercises.Basic.TransformString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2015,7 +2015,7 @@ namespace BasicExercisesTests
             string expected = "test";
 
             // Act
-            string result = Exercises.TransformString(input);
+            string result = Exercises.Basic.TransformString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2029,7 +2029,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.TransformString(input);
+            string result = Exercises.Basic.TransformString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2043,7 +2043,7 @@ namespace BasicExercisesTests
             string expected = "mixeDCASE";
 
             // Act
-            string result = Exercises.TransformString(input);
+            string result = Exercises.Basic.TransformString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2057,7 +2057,7 @@ namespace BasicExercisesTests
             string expected = "Input a string: w3r\nW3R";
 
             // Act
-            string result = Exercises.GetTransformedResult(input);
+            string result = Exercises.Basic.GetTransformedResult(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2072,7 +2072,7 @@ namespace BasicExercisesTests
             string input = "www.example.com";
 
             // Act
-            bool result = Exercises.CheckWWWStart(input);
+            bool result = Exercises.Basic.CheckWWWStart(input);
 
             // Assert
             Assert.IsTrue(result);
@@ -2086,7 +2086,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckWWWStart(input);
+            bool result = Exercises.Basic.CheckWWWStart(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2099,7 +2099,7 @@ namespace BasicExercisesTests
             string input = "ww.example";
 
             // Act
-            bool result = Exercises.CheckWWWStart(input);
+            bool result = Exercises.Basic.CheckWWWStart(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -2112,7 +2112,7 @@ namespace BasicExercisesTests
             string input = "ww";
 
             // Act
-            bool result = Exercises.CheckWWWStart(input);
+            bool result = Exercises.Basic.CheckWWWStart(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -2125,7 +2125,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            bool result = Exercises.CheckWWWStart(input);
+            bool result = Exercises.Basic.CheckWWWStart(input);
 
             // Assert
             Assert.IsFalse(result);
@@ -2139,7 +2139,7 @@ namespace BasicExercisesTests
             string expected = "Input a string : www\nTrue";
 
             // Act
-            string result = Exercises.GetCheckResult3(input);
+            string result = Exercises.Basic.GetCheckResult3(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2155,7 +2155,7 @@ namespace BasicExercisesTests
             string expected = "wrsuc";
 
             // Act
-            string result = Exercises.GetEveryOtherCharacter(input);
+            string result = Exercises.Basic.GetEveryOtherCharacter(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2169,7 +2169,7 @@ namespace BasicExercisesTests
             string expected = "A";
 
             // Act
-            string result = Exercises.GetEveryOtherCharacter(input);
+            string result = Exercises.Basic.GetEveryOtherCharacter(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2183,7 +2183,7 @@ namespace BasicExercisesTests
             string expected = "ACE";
 
             // Act
-            string result = Exercises.GetEveryOtherCharacter(input);
+            string result = Exercises.Basic.GetEveryOtherCharacter(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2197,7 +2197,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.GetEveryOtherCharacter(input);
+            string result = Exercises.Basic.GetEveryOtherCharacter(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2211,7 +2211,7 @@ namespace BasicExercisesTests
             string expected = "Input a string : w3resource\nwrsuc";
 
             // Act
-            string result = Exercises.GetResultString(input);
+            string result = Exercises.Basic.GetResultString(input);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2228,7 +2228,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int result = Exercises.CountNumberInArray(numbers, target);
+            int result = Exercises.Basic.CountNumberInArray(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2243,7 +2243,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.CountNumberInArray(numbers, target);
+            int result = Exercises.Basic.CountNumberInArray(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2258,7 +2258,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.CountNumberInArray(numbers, target);
+            int result = Exercises.Basic.CountNumberInArray(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2273,7 +2273,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.CountNumberInArray(numbers, target);
+            int result = Exercises.Basic.CountNumberInArray(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2288,7 +2288,7 @@ namespace BasicExercisesTests
             int expected = 5;
 
             // Act
-            int result = Exercises.CountNumberInArray(numbers, target);
+            int result = Exercises.Basic.CountNumberInArray(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2303,7 +2303,7 @@ namespace BasicExercisesTests
             string expected = "Number of 5 present in the said array: 2";
 
             // Act
-            string result = Exercises.GetCountResult(numbers, target);
+            string result = Exercises.Basic.GetCountResult(numbers, target);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2319,7 +2319,7 @@ namespace BasicExercisesTests
             int number = 25;
 
             // Act
-            bool result = Exercises.CheckFirstOrLast(array, number);
+            bool result = Exercises.Basic.CheckFirstOrLast(array, number);
 
             // Assert
             Assert.IsTrue(result);
@@ -2333,7 +2333,7 @@ namespace BasicExercisesTests
             int number = 25;
 
             // Act
-            bool result = Exercises.CheckFirstOrLast(array, number);
+            bool result = Exercises.Basic.CheckFirstOrLast(array, number);
 
             // Assert
             Assert.IsTrue(result);
@@ -2347,7 +2347,7 @@ namespace BasicExercisesTests
             int number = 25;
 
             // Act
-            bool result = Exercises.CheckFirstOrLast(array, number);
+            bool result = Exercises.Basic.CheckFirstOrLast(array, number);
 
             // Assert
             Assert.IsFalse(result);
@@ -2361,7 +2361,7 @@ namespace BasicExercisesTests
             int number = 25;
 
             // Act
-            bool result = Exercises.CheckFirstOrLast(array, number);
+            bool result = Exercises.Basic.CheckFirstOrLast(array, number);
 
             // Assert
             Assert.IsTrue(result);
@@ -2376,7 +2376,7 @@ namespace BasicExercisesTests
             string expected = "Input an integer: 25\nFalse";
 
             // Act
-            string result = Exercises.GetCheckResult(array, number);
+            string result = Exercises.Basic.GetCheckResult(array, number);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2392,7 +2392,7 @@ namespace BasicExercisesTests
             int expected = 69;
 
             // Act
-            int result = Exercises.CalculateSum(array);
+            int result = Exercises.Basic.CalculateSum(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2406,7 +2406,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int result = Exercises.CalculateSum(array);
+            int result = Exercises.Basic.CalculateSum(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2420,7 +2420,7 @@ namespace BasicExercisesTests
             int expected = -10;
 
             // Act
-            int result = Exercises.CalculateSum(array);
+            int result = Exercises.Basic.CalculateSum(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2434,7 +2434,7 @@ namespace BasicExercisesTests
             string expected = "Array1: [1, 2, 3]\nSum: 6";
 
             // Act
-            string result = Exercises.GetSumResult(array);
+            string result = Exercises.Basic.GetSumResult(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2450,7 +2450,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFirstLastEqual(array);
+            bool result = Exercises.Basic.CheckFirstLastEqual(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2464,7 +2464,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool result = Exercises.CheckFirstLastEqual(array);
+            bool result = Exercises.Basic.CheckFirstLastEqual(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2478,7 +2478,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFirstLastEqual(array);
+            bool result = Exercises.Basic.CheckFirstLastEqual(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2492,7 +2492,7 @@ namespace BasicExercisesTests
             string expected = "Array1: [1, 2, 3, 1]\nTrue";
 
             // Act
-            string result = Exercises.GetCheckResult(array);
+            string result = Exercises.Basic.GetCheckResult(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2509,7 +2509,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFirstOrLastEqual(array1, array2);
+            bool result = Exercises.Basic.CheckFirstOrLastEqual(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2524,7 +2524,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFirstOrLastEqual(array1, array2);
+            bool result = Exercises.Basic.CheckFirstOrLastEqual(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2539,7 +2539,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool result = Exercises.CheckFirstOrLastEqual(array1, array2);
+            bool result = Exercises.Basic.CheckFirstOrLastEqual(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2554,7 +2554,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool result = Exercises.CheckFirstOrLastEqual(array1, array2);
+            bool result = Exercises.Basic.CheckFirstOrLastEqual(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2572,7 +2572,7 @@ namespace BasicExercisesTests
                             "True";
 
             // Act
-            string result = Exercises.GetCheckResult(array1, array2);
+            string result = Exercises.Basic.GetCheckResult(array1, array2);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2588,7 +2588,7 @@ namespace BasicExercisesTests
             int[] expected = { 2, 8, 1 };
 
             // Act
-            int[] result = Exercises.RotateLeft(array);
+            int[] result = Exercises.Basic.RotateLeft(array);
 
             // Assert
             CollectionAssert.AreEqual(expected, result);
@@ -2602,7 +2602,7 @@ namespace BasicExercisesTests
             int[] expected = { 10, 15, 5 };
 
             // Act
-            int[] result = Exercises.RotateLeft(array);
+            int[] result = Exercises.Basic.RotateLeft(array);
 
             // Assert
             CollectionAssert.AreEqual(expected, result);
@@ -2617,7 +2617,7 @@ namespace BasicExercisesTests
                             "After rotating array becomes: [2, 8, 1]";
 
             // Act
-            string result = Exercises.GetRotatedResult(array);
+            string result = Exercises.Basic.GetRotatedResult(array);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -2626,28 +2626,28 @@ namespace BasicExercisesTests
         // Exercise 51 - Max of First and Last in Array
 
         [TestMethod]
-        public void GetMaxOfFirstAndLast_ArrayWithFirstMax_ReturnsFirstElement()
+        public static void GetMaxOfFirstAndLast_ArrayWithFirstMax_ReturnsFirstElement()
         {
             // Arrange
             int[] array = { 10, 2, 5, 7, 8 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(10);
         }
 
         [TestMethod]
-        public void GetMaxOfFirstAndLast_ArrayWithLastMax_ReturnsLastElement()
+        public static void GetMaxOfFirstAndLast_ArrayWithLastMax_ReturnsLastElement()
         {
             // Arrange
             int[] array = { 1, 2, 5, 7, 15 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(15);
@@ -2658,10 +2658,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 5, 2, 3, 4, 5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(5);
@@ -2672,10 +2672,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { -10, 2, 5, 7, -5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(-5);
@@ -2686,10 +2686,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 42 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(42);
@@ -2700,10 +2700,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 1, 2, 5, 7, 8 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            int result = exercises.GetMaxOfFirstAndLast(array);
+            int result = Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             result.Should().Be(8);
@@ -2714,10 +2714,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = null;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            Action act = () => exercises.GetMaxOfFirstAndLast(array);
+            Action act = () => Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             act.Should().Throw<ArgumentException>()
@@ -2729,10 +2729,10 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = new int[0];
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
-            Action act = () => exercises.GetMaxOfFirstAndLast(array);
+            Action act = () => Exercises.Basic.GetMaxOfFirstAndLast(array);
 
             // Assert
             act.Should().Throw<ArgumentException>()
@@ -2748,7 +2748,7 @@ namespace BasicExercisesTests
             int[] array1 = { 1, 2, 5 };
             int[] array2 = { 0, 3, 8 };
             int[] array3 = { -1, 0, 2 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int[] result = exercises.GetMiddleElements(array1, array2, array3);
@@ -2766,7 +2766,7 @@ namespace BasicExercisesTests
             int[] array1 = { -5, -2, -1 };
             int[] array2 = { 10, 20, 30 };
             int[] array3 = { 0, -10, 5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int[] result = exercises.GetMiddleElements(array1, array2, array3);
@@ -2782,7 +2782,7 @@ namespace BasicExercisesTests
             int[] array1 = { 5, 5, 5 };
             int[] array2 = { 10, 10, 10 };
             int[] array3 = { 1, 1, 1 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int[] result = exercises.GetMiddleElements(array1, array2, array3);
@@ -2798,7 +2798,7 @@ namespace BasicExercisesTests
             int[] array1 = { 0, 0, 0 };
             int[] array2 = { 1, 0, 2 };
             int[] array3 = { 0, 5, 0 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int[] result = exercises.GetMiddleElements(array1, array2, array3);
@@ -2814,7 +2814,7 @@ namespace BasicExercisesTests
             int[] array1 = { 1, 2, 3 };
             int[] array2 = null;
             int[] array3 = { 4, 5, 6 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.GetMiddleElements(array1, array2, array3);
@@ -2831,7 +2831,7 @@ namespace BasicExercisesTests
             int[] array1 = { 1, 2, 3 };
             int[] array2 = { 4, 5 }; // Length 2
             int[] array3 = { 7, 8, 9 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.GetMiddleElements(array1, array2, array3);
@@ -2848,7 +2848,7 @@ namespace BasicExercisesTests
             int[] array1 = { 1, 2, 3 };
             int[] array2 = new int[0]; // Empty
             int[] array3 = { 7, 8, 9 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.GetMiddleElements(array1, array2, array3);
@@ -2865,7 +2865,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 2, 4, 7, 8, 6 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2879,7 +2879,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 2, 4, 8, 6, 10 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2893,7 +2893,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 1, 3, 5, 7, 9 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2907,7 +2907,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { -1, -2, -3, -4, -5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2921,7 +2921,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { -2, -4, -6, -8, -10 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2935,7 +2935,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 0, 2, 4, 6, 8 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2949,7 +2949,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = new int[0];
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2963,7 +2963,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = null;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2977,7 +2977,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 7 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -2991,7 +2991,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 4 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.ContainsOddNumber(array);
@@ -3007,7 +3007,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 1;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3021,7 +3021,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 100;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3035,7 +3035,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 101;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3049,7 +3049,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 200;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3063,7 +3063,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 2023;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3077,7 +3077,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 2000;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3091,7 +3091,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 2001;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3105,7 +3105,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 1900;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3119,7 +3119,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 1901;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3133,7 +3133,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 0;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.GetCentury(year);
@@ -3148,7 +3148,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = -100;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.GetCentury(year);
@@ -3163,7 +3163,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 9999;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3177,7 +3177,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int year = 10000;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.GetCentury(year);
@@ -3193,7 +3193,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 1, 2, 3, 4, 5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3207,7 +3207,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 3, 6, -2, -5, 7, 3 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3221,7 +3221,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 9, 5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3235,7 +3235,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { -5, -2, -1, -4, -3 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3249,7 +3249,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { -100, -100, 5, 10 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3264,7 +3264,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 0, 0, 0, 0 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3278,7 +3278,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 5 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.MaxAdjacentProduct(array);
@@ -3293,7 +3293,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = new int[0];
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.MaxAdjacentProduct(array);
@@ -3308,7 +3308,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = null;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             Action act = () => exercises.MaxAdjacentProduct(array);
@@ -3323,7 +3323,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             int[] array = { 1, 0, 1, 0, 1000 };
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             int result = exercises.MaxAdjacentProduct(array);
@@ -3339,7 +3339,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "aaa";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3353,7 +3353,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "abcd";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3367,7 +3367,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "a";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3381,7 +3381,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3395,7 +3395,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "abba";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3409,7 +3409,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "radar";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3423,7 +3423,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "A man a plan a canal Panama";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3437,7 +3437,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "Racecar";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3451,7 +3451,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = null;
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3465,7 +3465,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "a!b@b#a";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3479,7 +3479,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "12321";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3493,7 +3493,7 @@ namespace BasicExercisesTests
         {
             // Arrange
             string input = "12345";
-            var exercises = new Exercises();
+            var exercises = new Exercises.Basic();
 
             // Act
             bool result = exercises.IsPalindrome(input);
@@ -3512,7 +3512,7 @@ namespace BasicExercisesTests
             int expected = 21;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(expected);
@@ -3526,7 +3526,7 @@ namespace BasicExercisesTests
             int expected = 10;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(expected);
@@ -3540,7 +3540,7 @@ namespace BasicExercisesTests
             int expected = 12;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(-2);
@@ -3554,7 +3554,7 @@ namespace BasicExercisesTests
             int expected = 40;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(expected);
@@ -3568,7 +3568,7 @@ namespace BasicExercisesTests
             int expected = 16;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(expected);
@@ -3582,7 +3582,7 @@ namespace BasicExercisesTests
             int expected = 500000;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(2000);
@@ -3596,7 +3596,7 @@ namespace BasicExercisesTests
             int expected = 12;
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(expected);
@@ -3609,7 +3609,7 @@ namespace BasicExercisesTests
             int[] inputArray = { int.MinValue, int.MaxValue, 1 };
 
             // Act
-            int result = Exercises.ArrayAdjacentElementsProduct(inputArray);
+            int result = Exercises.Basic.ArrayAdjacentElementsProduct(inputArray);
 
             // Assert
             result.Should().Be(int.MaxValue);
@@ -3625,7 +3625,7 @@ namespace BasicExercisesTests
             int expected = 4; // Missing: 2, 5, 6, 8
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(expected);
@@ -3639,7 +3639,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 5, 6, 8 };
 
             // Act
-            var result = Exercises.GetMissingNumbersInRange(numbers);
+            var result = Exercises.Basic.GetMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -3652,7 +3652,7 @@ namespace BasicExercisesTests
             int[] numbers = { 1, 2, 3, 4, 5 };
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(0);
@@ -3665,7 +3665,7 @@ namespace BasicExercisesTests
             int[] numbers = { 5 };
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(0);
@@ -3680,7 +3680,7 @@ namespace BasicExercisesTests
             // Range: -3 to 2, missing: -2, -1, 1
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(expected); // -2, -1, 1
@@ -3694,7 +3694,7 @@ namespace BasicExercisesTests
             // Range: 1 to 5, missing: 2, 4
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(2);
@@ -3711,7 +3711,7 @@ namespace BasicExercisesTests
             string expectedCount = "Count of missing numbers: 4";
 
             // Act
-            string result = Exercises.GetMissingNumbersResult(numbers);
+            string result = Exercises.Basic.GetMissingNumbersResult(numbers);
 
             // Assert
             result.Should().Contain(expectedStart)
@@ -3728,7 +3728,7 @@ namespace BasicExercisesTests
             // Missing numbers from 11 to 49 = 39 numbers
 
             // Act
-            int result = Exercises.CountMissingNumbersInRange(numbers);
+            int result = Exercises.Basic.CountMissingNumbersInRange(numbers);
 
             // Assert
             result.Should().Be(39);
@@ -3743,7 +3743,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 2, 3, 4, 5 };
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3756,7 +3756,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 3, 2, 4 }; // Remove 3 → [1, 2, 4]
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3769,7 +3769,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 1, 1, 1 }; // Need to remove 3 elements
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeFalse();
@@ -3782,7 +3782,7 @@ namespace BasicExercisesTests
             int[] sequence = { 10, 1, 2, 3, 4, 5 }; // Remove 10 → [1, 2, 3, 4, 5]
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3795,7 +3795,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 2, 1, 2, 1 }; // Multiple violations
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeFalse();
@@ -3808,7 +3808,7 @@ namespace BasicExercisesTests
             int[] sequence = { 5 };
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3821,7 +3821,7 @@ namespace BasicExercisesTests
             int[] sequence = Array.Empty<int>();
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3834,7 +3834,7 @@ namespace BasicExercisesTests
             int[] sequence = null;
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3847,7 +3847,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 2, 3, 4, 3, 6 }; // Remove 4 → [1, 2, 3, 3, 6] → Remove second 3 → [1, 2, 3, 6]
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeTrue();
@@ -3860,7 +3860,7 @@ namespace BasicExercisesTests
             int[] sequence = { 1, 2, 3, 4, 3, 2, 5 }; // Multiple violations
 
             // Act
-            bool result = Exercises.CanBecomeStrictlyIncreasing(sequence);
+            bool result = Exercises.Basic.CanBecomeStrictlyIncreasing(sequence);
 
             // Assert
             result.Should().BeFalse();
@@ -3875,7 +3875,7 @@ namespace BasicExercisesTests
                             "Can become strictly increasing: True";
 
             // Act
-            string result = Exercises.GetStrictlyIncreasingResult(sequence);
+            string result = Exercises.Basic.GetStrictlyIncreasingResult(sequence);
 
             // Assert
             result.Should().Be(expected);
@@ -3896,7 +3896,7 @@ namespace BasicExercisesTests
             int expected = 14;
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(expected);
@@ -3914,7 +3914,7 @@ namespace BasicExercisesTests
             int expected = 21;
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(expected);
@@ -3931,7 +3931,7 @@ namespace BasicExercisesTests
             };
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(0);
@@ -3950,7 +3950,7 @@ namespace BasicExercisesTests
             int expected = 1 + 2 + 3 + 4 + 0 + 6 + 7 + 9;
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(expected);
@@ -3963,7 +3963,7 @@ namespace BasicExercisesTests
             int[][] matrix = new int[0][];
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(0);
@@ -3976,7 +3976,7 @@ namespace BasicExercisesTests
             int[][] matrix = null;
 
             // Act
-            int result = Exercises.SumMatrixWithZeroCondition(matrix);
+            int result = Exercises.Basic.SumMatrixWithZeroCondition(matrix);
 
             // Assert
             result.Should().Be(0);
@@ -3993,7 +3993,7 @@ namespace BasicExercisesTests
             };
 
             // Act
-            string result = Exercises.GetMatrixSumResult(matrix);
+            string result = Exercises.Basic.GetMatrixSumResult(matrix);
 
             // Assert
             result.Should().Contain("Matrix:")
@@ -4012,7 +4012,7 @@ namespace BasicExercisesTests
             int[] expected = { 1, -5, 2, 3, -5, 4 };
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(expected);
@@ -4026,7 +4026,7 @@ namespace BasicExercisesTests
             int[] expected = { 1, 2, 3, 4, 5 };
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(expected);
@@ -4040,7 +4040,7 @@ namespace BasicExercisesTests
             int[] expected = { -5, -5, -5, -5 };
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(expected);
@@ -4053,7 +4053,7 @@ namespace BasicExercisesTests
             int[] numbers = Array.Empty<int>();
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().BeEmpty();
@@ -4066,7 +4066,7 @@ namespace BasicExercisesTests
             int[] numbers = null;
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().BeNull();
@@ -4080,7 +4080,7 @@ namespace BasicExercisesTests
             int[] expected = { 1, -5, 3, -5, 7, 10 };
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(expected);
@@ -4094,7 +4094,7 @@ namespace BasicExercisesTests
             int[] expected = { -10, -5, -7, -5, -3, -1 }; // Sorted: -10, -7, -3, -1
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(-10, -5, -7, -5, -3, -1);
@@ -4108,7 +4108,7 @@ namespace BasicExercisesTests
             int[] expected = { -5, 1, 3, 5, -5 };
 
             // Act
-            int[] result = Exercises.SortKeepingMinusFiveFixedEfficient(numbers);
+            int[] result = Exercises.Basic.SortKeepingMinusFiveFixedEfficient(numbers);
 
             // Assert
             result.Should().Equal(expected);
@@ -4123,7 +4123,7 @@ namespace BasicExercisesTests
             string expectedSorted = "Sorted:   [1, -5, 2, 3, -5, 4]";
 
             // Act
-            string result = Exercises.GetSortedArrayResult(numbers);
+            string result = Exercises.Basic.GetSortedArrayResult(numbers);
 
             // Assert
             result.Should().Contain(expectedOriginal)
@@ -4140,7 +4140,7 @@ namespace BasicExercisesTests
             string expected = "cba";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4154,7 +4154,7 @@ namespace BasicExercisesTests
             string expected = "adefcb";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4168,7 +4168,7 @@ namespace BasicExercisesTests
             string expected = "cbafed";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4182,7 +4182,7 @@ namespace BasicExercisesTests
             string expected = "abcdef";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4196,7 +4196,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4210,7 +4210,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4224,7 +4224,7 @@ namespace BasicExercisesTests
             string expected = "dlrow olleh";
 
             // Act
-            string result = Exercises.ReverseStringsInParentheses(input);
+            string result = Exercises.Basic.ReverseStringsInParentheses(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4238,7 +4238,7 @@ namespace BasicExercisesTests
             string expected = "Input: (abc)\nOutput: cba";
 
             // Act
-            string result = Exercises.GetReversedParenthesesResult(input);
+            string result = Exercises.Basic.GetReversedParenthesesResult(input);
 
             // Assert
             result.Should().Be(expected);
@@ -4254,7 +4254,7 @@ namespace BasicExercisesTests
             int target = 3;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4268,7 +4268,7 @@ namespace BasicExercisesTests
             int target = 6;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeFalse();
@@ -4282,7 +4282,7 @@ namespace BasicExercisesTests
             int target = 5;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeFalse();
@@ -4296,7 +4296,7 @@ namespace BasicExercisesTests
             int target = 5;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeFalse();
@@ -4310,7 +4310,7 @@ namespace BasicExercisesTests
             int target = 2;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4324,7 +4324,7 @@ namespace BasicExercisesTests
             int target = -3;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4338,7 +4338,7 @@ namespace BasicExercisesTests
             int target = 500;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4352,7 +4352,7 @@ namespace BasicExercisesTests
             int target = 3;
 
             // Act
-            bool result = Exercises.CheckNumberInArrayBinarySearch(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArrayBinarySearch(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4367,7 +4367,7 @@ namespace BasicExercisesTests
             string expected = "Array: [1, 2, 3, 4, 5]\nTarget: 3\nPresent: True";
 
             // Act
-            string result = Exercises.GetNumberCheckResult(numbers, target);
+            string result = Exercises.Basic.GetNumberCheckResult(numbers, target);
 
             // Assert
             result.Should().Be(expected);
@@ -4381,7 +4381,7 @@ namespace BasicExercisesTests
             int target = 0;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4395,7 +4395,7 @@ namespace BasicExercisesTests
             int target = 5;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4409,7 +4409,7 @@ namespace BasicExercisesTests
             int target = 5;
 
             // Act
-            bool result = Exercises.CheckNumberInArray(numbers, target);
+            bool result = Exercises.Basic.CheckNumberInArray(numbers, target);
 
             // Assert
             result.Should().BeTrue();
@@ -4425,7 +4425,7 @@ namespace BasicExercisesTests
             string expected = "file.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4439,7 +4439,7 @@ namespace BasicExercisesTests
             string expected = "file.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4453,7 +4453,7 @@ namespace BasicExercisesTests
             string expected = "file.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4467,7 +4467,7 @@ namespace BasicExercisesTests
             string expected = "file.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4481,7 +4481,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4495,7 +4495,7 @@ namespace BasicExercisesTests
             string expected = null;
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4509,7 +4509,7 @@ namespace BasicExercisesTests
             string expected = "file name with spaces.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4523,7 +4523,7 @@ namespace BasicExercisesTests
             string expected = "file.txt";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4537,7 +4537,7 @@ namespace BasicExercisesTests
             string expected = "Path: C:\\Users\\file.txt\nFile Name: file.txt";
 
             // Act
-            string result = Exercises.GetFileNameResult(path);
+            string result = Exercises.Basic.GetFileNameResult(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4551,7 +4551,7 @@ namespace BasicExercisesTests
             string expected = "archive.tar.gz";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4565,7 +4565,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string result = Exercises.GetFileNameFromPath(path);
+            string result = Exercises.Basic.GetFileNameFromPath(path);
 
             // Assert
             result.Should().Be(expected);
@@ -4581,7 +4581,7 @@ namespace BasicExercisesTests
             int[] expected = { 5, 10, 15, 20, 25 }; // Each element * 5 (array length)
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().Equal(expected);
@@ -4595,7 +4595,7 @@ namespace BasicExercisesTests
             int[] expected = { -3, -6, -9 }; // Each element * 3 (array length)
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().Equal(expected);
@@ -4609,7 +4609,7 @@ namespace BasicExercisesTests
             int[] expected = { 0, 0, 0, 0 }; // Each element * 4 = 0
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().Equal(expected);
@@ -4623,7 +4623,7 @@ namespace BasicExercisesTests
             int[] expected = { 7 }; // 7 * 1 = 7
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().Equal(expected);
@@ -4637,7 +4637,7 @@ namespace BasicExercisesTests
             int[] expected = new int[0];
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().BeEmpty();
@@ -4651,7 +4651,7 @@ namespace BasicExercisesTests
             int[] expected = { 5, -10, 15, -20, 25 }; // Each element * 5
 
             // Act
-            int[] result = Exercises.MultiplyArrayElementsByLength(input);
+            int[] result = Exercises.Basic.MultiplyArrayElementsByLength(input);
 
             // Assert
             result.Should().Equal(expected);
@@ -4667,7 +4667,7 @@ namespace BasicExercisesTests
             string num2 = "10";
 
             // Act
-            int result = Exercises.MinValueFromStrings(num1, num2);
+            int result = Exercises.Basic.MinValueFromStrings(num1, num2);
 
             // Assert
             result.Should().Be(5);
@@ -4681,7 +4681,7 @@ namespace BasicExercisesTests
             string num2 = "8";
 
             // Act
-            int result = Exercises.MinValueFromStrings(num1, num2);
+            int result = Exercises.Basic.MinValueFromStrings(num1, num2);
 
             // Assert
             result.Should().Be(8);
@@ -4695,7 +4695,7 @@ namespace BasicExercisesTests
             string num2 = "7";
 
             // Act
-            int result = Exercises.MinValueFromStrings(num1, num2);
+            int result = Exercises.Basic.MinValueFromStrings(num1, num2);
 
             // Assert
             result.Should().Be(7);
@@ -4709,7 +4709,7 @@ namespace BasicExercisesTests
             string num2 = "-2";
 
             // Act
-            int result = Exercises.MinValueFromStrings(num1, num2);
+            int result = Exercises.Basic.MinValueFromStrings(num1, num2);
 
             // Assert
             result.Should().Be(-5);
@@ -4723,7 +4723,7 @@ namespace BasicExercisesTests
             string num2 = "5";
 
             // Act
-            int result = Exercises.MinValueFromStrings(num1, num2);
+            int result = Exercises.Basic.MinValueFromStrings(num1, num2);
 
             // Assert
             result.Should().Be(-3);
@@ -4738,7 +4738,7 @@ namespace BasicExercisesTests
             string input = "P";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("9");
@@ -4751,7 +4751,7 @@ namespace BasicExercisesTests
             string input = "T";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("0");
@@ -4764,7 +4764,7 @@ namespace BasicExercisesTests
             string input = "S";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("1");
@@ -4777,7 +4777,7 @@ namespace BasicExercisesTests
             string input = "H";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("6");
@@ -4790,7 +4790,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("8");
@@ -4803,7 +4803,7 @@ namespace BasicExercisesTests
             string input = "BCDEFGIJKLMNOQRUVWXYZ";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("BCDEFGIJKLMNOQRUVWXYZ");
@@ -4816,7 +4816,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("");
@@ -4829,7 +4829,7 @@ namespace BasicExercisesTests
             string input = "PTP"; // P->9, T->0, P->9 → 909
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("909");
@@ -4842,7 +4842,7 @@ namespace BasicExercisesTests
             string input = "JAVASCRIPT"; // J->J, A->8, V->V, A->8, S->1, C->C, R->R, I->I, P->9, T->0
 
             // Act
-            string result = Exercises.ConvertToCodedString(input);
+            string result = Exercises.Basic.ConvertToCodedString(input);
 
             // Assert
             result.Should().Be("J8V81CRI90");
@@ -4858,7 +4858,7 @@ namespace BasicExercisesTests
             char target = 'L';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(3);
@@ -4872,7 +4872,7 @@ namespace BasicExercisesTests
             char target = 'l';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(3);
@@ -4886,7 +4886,7 @@ namespace BasicExercisesTests
             char target = 'z';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(0);
@@ -4900,7 +4900,7 @@ namespace BasicExercisesTests
             char target = 'a';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(0);
@@ -4914,7 +4914,7 @@ namespace BasicExercisesTests
             char target = 'a';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(0);
@@ -4928,7 +4928,7 @@ namespace BasicExercisesTests
             char target = 'A';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(5);
@@ -4942,7 +4942,7 @@ namespace BasicExercisesTests
             char target = '!';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(3);
@@ -4956,7 +4956,7 @@ namespace BasicExercisesTests
             char target = ' ';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(3);
@@ -4970,7 +4970,7 @@ namespace BasicExercisesTests
             char target = '2';
 
             // Act
-            int result = Exercises.CountCharacter(input, target);
+            int result = Exercises.Basic.CountCharacter(input, target);
 
             // Assert
             result.Should().Be(1);
@@ -4985,7 +4985,7 @@ namespace BasicExercisesTests
             string input = "HELLO";
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeTrue();
@@ -4998,7 +4998,7 @@ namespace BasicExercisesTests
             string input = "hello";
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5011,7 +5011,7 @@ namespace BasicExercisesTests
             string input = "Hello";
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5024,7 +5024,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5037,7 +5037,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5050,7 +5050,7 @@ namespace BasicExercisesTests
             string input = "Hello123";
 
             // Act
-            bool result = Exercises.IsAllUpperOrLowerCase(input);
+            bool result = Exercises.Basic.IsAllUpperOrLowerCase(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5065,7 +5065,7 @@ namespace BasicExercisesTests
             string input = "PHP";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("H");
@@ -5078,7 +5078,7 @@ namespace BasicExercisesTests
             string input = "Python";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("ytho");
@@ -5091,7 +5091,7 @@ namespace BasicExercisesTests
             string input = "JavaScript";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("avaScrip");
@@ -5104,7 +5104,7 @@ namespace BasicExercisesTests
             string input = "Hi";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("");
@@ -5117,7 +5117,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("");
@@ -5130,7 +5130,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("");
@@ -5143,7 +5143,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("");
@@ -5156,7 +5156,7 @@ namespace BasicExercisesTests
             string input = "Test";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("es");
@@ -5169,7 +5169,7 @@ namespace BasicExercisesTests
             string input = " Hello ";
 
             // Act
-            string result = Exercises.RemoveFirstAndLast(input);
+            string result = Exercises.Basic.RemoveFirstAndLast(input);
 
             // Assert
             result.Should().Be("Hello");
@@ -5184,7 +5184,7 @@ namespace BasicExercisesTests
             string input = "PHP";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5197,7 +5197,7 @@ namespace BasicExercisesTests
             string input = "PHHP";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5210,7 +5210,7 @@ namespace BasicExercisesTests
             string input = "PHPP";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5223,7 +5223,7 @@ namespace BasicExercisesTests
             string input = "PPHP";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5236,7 +5236,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5249,7 +5249,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5262,7 +5262,7 @@ namespace BasicExercisesTests
             string input = "AAAA";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5275,7 +5275,7 @@ namespace BasicExercisesTests
             string input = "A B C";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5288,7 +5288,7 @@ namespace BasicExercisesTests
             string input = "A  B";
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeTrue();
@@ -5301,7 +5301,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            bool result = Exercises.HasConsecutiveSimilarLetters(input);
+            bool result = Exercises.Basic.HasConsecutiveSimilarLetters(input);
 
             // Assert
             result.Should().BeFalse();
@@ -5316,7 +5316,7 @@ namespace BasicExercisesTests
             int[] numbers = { 1, 2, 3, 5, 4, 2, 3, 4 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5329,7 +5329,7 @@ namespace BasicExercisesTests
             int[] numbers = { 2, 4, 2, 6, 4, 8 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeFalse();
@@ -5342,7 +5342,7 @@ namespace BasicExercisesTests
             int[] numbers = new int[0];
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeFalse();
@@ -5355,7 +5355,7 @@ namespace BasicExercisesTests
             int[] numbers = null;
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeFalse();
@@ -5368,7 +5368,7 @@ namespace BasicExercisesTests
             int[] numbers = { 5 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5381,7 +5381,7 @@ namespace BasicExercisesTests
             int[] numbers = { 3, 3, 3, 3, 3 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5394,7 +5394,7 @@ namespace BasicExercisesTests
             int[] numbers = { 2, 4, 6, 8 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5407,7 +5407,7 @@ namespace BasicExercisesTests
             int[] numbers = { 1, 3, 5, 7 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5420,7 +5420,7 @@ namespace BasicExercisesTests
             int[] numbers = { -2, -4, -6, -8 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5433,7 +5433,7 @@ namespace BasicExercisesTests
             int[] numbers = { -1, 0, 1 };
 
             // Act
-            bool result = Exercises.IsAverageWholeNumber(numbers);
+            bool result = Exercises.Basic.IsAverageWholeNumber(numbers);
 
             // Assert
             result.Should().BeTrue();
@@ -5448,7 +5448,7 @@ namespace BasicExercisesTests
             string input = "PHP";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("HPP");
@@ -5461,7 +5461,7 @@ namespace BasicExercisesTests
             string input = "javascript";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("aacijprstv");
@@ -5474,7 +5474,7 @@ namespace BasicExercisesTests
             string input = "python";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("hnopty");
@@ -5487,7 +5487,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("");
@@ -5500,7 +5500,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().BeNull();
@@ -5513,7 +5513,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("A");
@@ -5526,7 +5526,7 @@ namespace BasicExercisesTests
             string input = "abcde";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("abcde");
@@ -5539,7 +5539,7 @@ namespace BasicExercisesTests
             string input = "edcba";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("abcde");
@@ -5552,7 +5552,7 @@ namespace BasicExercisesTests
             string input = "321cba";
 
             // Act
-            string result = Exercises.SortStringAlphabetically(input);
+            string result = Exercises.Basic.SortStringAlphabetically(input);
 
             // Assert
             result.Should().Be("123abc");
@@ -5567,7 +5567,7 @@ namespace BasicExercisesTests
             string input = "PHP";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Odd length");
@@ -5580,7 +5580,7 @@ namespace BasicExercisesTests
             string input = "javascript";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5593,7 +5593,7 @@ namespace BasicExercisesTests
             string input = "python";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5606,7 +5606,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5619,7 +5619,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5632,7 +5632,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Odd length");
@@ -5645,7 +5645,7 @@ namespace BasicExercisesTests
             string input = "AB";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5658,7 +5658,7 @@ namespace BasicExercisesTests
             string input = "ABC";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Odd length");
@@ -5671,7 +5671,7 @@ namespace BasicExercisesTests
             string input = "HelloWorld";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Even length");
@@ -5684,7 +5684,7 @@ namespace BasicExercisesTests
             string input = "HelloWorld!";
 
             // Act
-            string result = Exercises.CheckStringLengthOddEven(input);
+            string result = Exercises.Basic.CheckStringLengthOddEven(input);
 
             // Assert
             result.Should().Be("Odd length");
@@ -5699,7 +5699,7 @@ namespace BasicExercisesTests
             int n = 1;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(1);
@@ -5712,7 +5712,7 @@ namespace BasicExercisesTests
             int n = 2;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(3);
@@ -5725,7 +5725,7 @@ namespace BasicExercisesTests
             int n = 4;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(7);
@@ -5738,7 +5738,7 @@ namespace BasicExercisesTests
             int n = 100;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(199);
@@ -5751,7 +5751,7 @@ namespace BasicExercisesTests
             int n = 3;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(5);
@@ -5764,7 +5764,7 @@ namespace BasicExercisesTests
             int n = 5;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(9);
@@ -5777,7 +5777,7 @@ namespace BasicExercisesTests
             int n = 10;
 
             // Act
-            int result = Exercises.GetNthOddNumber(n);
+            int result = Exercises.Basic.GetNthOddNumber(n);
 
             // Assert
             result.Should().Be(19);
@@ -5792,7 +5792,7 @@ namespace BasicExercisesTests
             char character = '1';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(49);
@@ -5805,7 +5805,7 @@ namespace BasicExercisesTests
             char character = 'A';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(65);
@@ -5818,7 +5818,7 @@ namespace BasicExercisesTests
             char character = 'a';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(97);
@@ -5831,7 +5831,7 @@ namespace BasicExercisesTests
             char character = '#';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(35);
@@ -5844,7 +5844,7 @@ namespace BasicExercisesTests
             char character = ' ';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(32);
@@ -5857,7 +5857,7 @@ namespace BasicExercisesTests
             char character = '0';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(48);
@@ -5870,7 +5870,7 @@ namespace BasicExercisesTests
             char character = '\n';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(10);
@@ -5883,7 +5883,7 @@ namespace BasicExercisesTests
             char character = '\t';
 
             // Act
-            int result = Exercises.GetAsciiValue(character);
+            int result = Exercises.Basic.GetAsciiValue(character);
 
             // Assert
             result.Should().Be(9);
@@ -5898,7 +5898,7 @@ namespace BasicExercisesTests
             string word = "Exercise";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeFalse();
@@ -5911,7 +5911,7 @@ namespace BasicExercisesTests
             string word = "Exercises";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -5924,7 +5924,7 @@ namespace BasicExercisesTests
             string word = "Books";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -5937,7 +5937,7 @@ namespace BasicExercisesTests
             string word = "Book";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeFalse();
@@ -5950,7 +5950,7 @@ namespace BasicExercisesTests
             string word = "";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeFalse();
@@ -5963,7 +5963,7 @@ namespace BasicExercisesTests
             string word = null;
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeFalse();
@@ -5976,7 +5976,7 @@ namespace BasicExercisesTests
             string word = "CATS";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -5989,7 +5989,7 @@ namespace BasicExercisesTests
             string word = "DoGgS";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -6002,7 +6002,7 @@ namespace BasicExercisesTests
             string word = "Bushes";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -6015,7 +6015,7 @@ namespace BasicExercisesTests
             string word = "Cities";
 
             // Act
-            bool result = Exercises.IsPlural(word);
+            bool result = Exercises.Basic.IsPlural(word);
 
             // Assert
             result.Should().BeTrue();
@@ -6030,7 +6030,7 @@ namespace BasicExercisesTests
             int[] numbers = { 1, 2, 3 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(14);
@@ -6043,7 +6043,7 @@ namespace BasicExercisesTests
             int[] numbers = { 2, 3, 4 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(29);
@@ -6056,7 +6056,7 @@ namespace BasicExercisesTests
             int[] numbers = new int[0];
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(0);
@@ -6069,7 +6069,7 @@ namespace BasicExercisesTests
             int[] numbers = null;
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(0);
@@ -6082,7 +6082,7 @@ namespace BasicExercisesTests
             int[] numbers = { 5 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(25);
@@ -6095,7 +6095,7 @@ namespace BasicExercisesTests
             int[] numbers = { -2, -3, -4 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(29);
@@ -6108,7 +6108,7 @@ namespace BasicExercisesTests
             int[] numbers = { -1, 2, -3, 4 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(30);
@@ -6121,7 +6121,7 @@ namespace BasicExercisesTests
             int[] numbers = { 0, 1, 2, 0 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(5);
@@ -6134,7 +6134,7 @@ namespace BasicExercisesTests
             int[] numbers = { 10, 20, 30 };
 
             // Act
-            int result = Exercises.SumOfSquares(numbers);
+            int result = Exercises.Basic.SumOfSquares(numbers);
 
             // Assert
             result.Should().Be(1400);
@@ -6149,7 +6149,7 @@ namespace BasicExercisesTests
             int number = 50;
 
             // Act
-            string result = Exercises.ConvertIntToString(number);
+            string result = Exercises.Basic.ConvertIntToString(number);
 
             // Assert
             result.Should().Be("50");
@@ -6163,7 +6163,7 @@ namespace BasicExercisesTests
             int number = -50;
 
             // Act
-            string result = Exercises.ConvertIntToString(number);
+            string result = Exercises.Basic.ConvertIntToString(number);
 
             // Assert
             result.Should().Be("-50");
@@ -6177,7 +6177,7 @@ namespace BasicExercisesTests
             int number = 0;
 
             // Act
-            string result = Exercises.ConvertIntToString(number);
+            string result = Exercises.Basic.ConvertIntToString(number);
 
             // Assert
             result.Should().Be("0");
@@ -6191,7 +6191,7 @@ namespace BasicExercisesTests
             string text = "122";
 
             // Act
-            int result = Exercises.ConvertStringToInt(text);
+            int result = Exercises.Basic.ConvertStringToInt(text);
 
             // Assert
             result.Should().Be(122);
@@ -6205,7 +6205,7 @@ namespace BasicExercisesTests
             string text = "-122";
 
             // Act
-            int result = Exercises.ConvertStringToInt(text);
+            int result = Exercises.Basic.ConvertStringToInt(text);
 
             // Assert
             result.Should().Be(-122);
@@ -6219,7 +6219,7 @@ namespace BasicExercisesTests
             string text = "0";
 
             // Act
-            int result = Exercises.ConvertStringToInt(text);
+            int result = Exercises.Basic.ConvertStringToInt(text);
 
             // Assert
             result.Should().Be(0);
@@ -6233,7 +6233,7 @@ namespace BasicExercisesTests
             string text = "  123  ";
 
             // Act
-            int result = Exercises.ConvertStringToInt(text);
+            int result = Exercises.Basic.ConvertStringToInt(text);
 
             // Assert
             result.Should().Be(123);
@@ -6246,7 +6246,7 @@ namespace BasicExercisesTests
             int number = int.MaxValue;
 
             // Act
-            string result = Exercises.ConvertIntToString(number);
+            string result = Exercises.Basic.ConvertIntToString(number);
 
             // Assert
             result.Should().Be("2147483647");
@@ -6260,7 +6260,7 @@ namespace BasicExercisesTests
             string text = "2147483647";
 
             // Act
-            int result = Exercises.ConvertStringToInt(text);
+            int result = Exercises.Basic.ConvertStringToInt(text);
 
             // Assert
             result.Should().Be(int.MaxValue);
@@ -6276,7 +6276,7 @@ namespace BasicExercisesTests
             object[] array = { 25, "Anna", false, new DateTime(2021, 4, 15, 10, 37, 47), 112.22 };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("25", "Anna", "False", "15/04/2021 10:37:47", "112,22");
@@ -6294,7 +6294,7 @@ namespace BasicExercisesTests
             object[] array = null;
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().BeNull();
@@ -6307,7 +6307,7 @@ namespace BasicExercisesTests
             object[] array = new object[0];
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().BeEmpty();
@@ -6320,7 +6320,7 @@ namespace BasicExercisesTests
             object[] array = { "Hello", null, 42 };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("Hello", "", "42");
@@ -6333,7 +6333,7 @@ namespace BasicExercisesTests
             object[] array = { "A", "B", "C" };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("A", "B", "C");
@@ -6346,7 +6346,7 @@ namespace BasicExercisesTests
             object[] array = { 1, 2.5, 3.14f };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("1", "2,5", "3,14");
@@ -6359,7 +6359,7 @@ namespace BasicExercisesTests
             object[] array = { true, false };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("True", "False");
@@ -6373,7 +6373,7 @@ namespace BasicExercisesTests
             object[] array = { date };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result.Should().Equal("25/12/2023 00:00:00");
@@ -6387,7 +6387,7 @@ namespace BasicExercisesTests
             object[] array = { guid };
 
             // Act
-            string[] result = Exercises.ConvertArrayToStrings(array);
+            string[] result = Exercises.Basic.ConvertArrayToStrings(array);
 
             // Assert
             result[0].Should().Be(guid.ToString());
@@ -6402,7 +6402,7 @@ namespace BasicExercisesTests
             int number = 53; // Swapped: 35, 53 > 35
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeTrue();
@@ -6415,7 +6415,7 @@ namespace BasicExercisesTests
             int number = 25; // Swapped: 52, 25 < 52
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeFalse();
@@ -6428,7 +6428,7 @@ namespace BasicExercisesTests
             int number = 33; // Swapped: 33, 33 == 33
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeFalse();
@@ -6441,7 +6441,7 @@ namespace BasicExercisesTests
             int number = 87; // Swapped: 78, 87 > 78
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeTrue();
@@ -6454,7 +6454,7 @@ namespace BasicExercisesTests
             int number = 14; // Swapped: 41, 14 < 41
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeFalse();
@@ -6467,7 +6467,7 @@ namespace BasicExercisesTests
             int number = 99; // Swapped: 99, 99 == 99
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeFalse();
@@ -6480,7 +6480,7 @@ namespace BasicExercisesTests
             int number = 10; // Swapped: 01 (which is 1), 10 > 1
 
             // Act
-            bool result = Exercises.IsGreaterThanSwapped(number);
+            bool result = Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             result.Should().BeTrue();
@@ -6493,7 +6493,7 @@ namespace BasicExercisesTests
             int number = 5;
 
             // Act
-            Action act = () => Exercises.IsGreaterThanSwapped(number);
+            Action act = () => Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -6506,7 +6506,7 @@ namespace BasicExercisesTests
             int number = 100;
 
             // Act
-            Action act = () => Exercises.IsGreaterThanSwapped(number);
+            Action act = () => Exercises.Basic.IsGreaterThanSwapped(number);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -6521,7 +6521,7 @@ namespace BasicExercisesTests
             string input = "Py@th12on";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("Python");
@@ -6534,7 +6534,7 @@ namespace BasicExercisesTests
             string input = "Python 3.0";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("Python");
@@ -6547,7 +6547,7 @@ namespace BasicExercisesTests
             string input = "2^sdfds*^*^jlljdslfnoswje34u230sdfds984";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("sdfdsjlljdslfnoswjeusdfds");
@@ -6560,7 +6560,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("");
@@ -6573,7 +6573,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().BeNull();
@@ -6586,7 +6586,7 @@ namespace BasicExercisesTests
             string input = "HelloWorld";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("HelloWorld");
@@ -6599,7 +6599,7 @@ namespace BasicExercisesTests
             string input = "123!@#$%^&*()";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("");
@@ -6612,7 +6612,7 @@ namespace BasicExercisesTests
             string input = "Hello, World! 123";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("HelloWorld");
@@ -6625,7 +6625,7 @@ namespace BasicExercisesTests
             string input = "HeLlO123WoRlD";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("HeLlOWoRlD");
@@ -6638,7 +6638,7 @@ namespace BasicExercisesTests
             string input = "Café123ñ";
 
             // Act
-            string result = Exercises.RemoveNonLetters(input);
+            string result = Exercises.Basic.RemoveNonLetters(input);
 
             // Assert
             result.Should().Be("Caféñ");
@@ -6653,7 +6653,7 @@ namespace BasicExercisesTests
             string input = "Python";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("Pythn");
@@ -6666,7 +6666,7 @@ namespace BasicExercisesTests
             string input = "C Sharp";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("C Shrp");
@@ -6679,7 +6679,7 @@ namespace BasicExercisesTests
             string input = "JavaScript";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("JvScrpt");
@@ -6692,7 +6692,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("");
@@ -6705,7 +6705,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().BeNull();
@@ -6718,7 +6718,7 @@ namespace BasicExercisesTests
             string input = "aeiouAEIOU";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("");
@@ -6731,7 +6731,7 @@ namespace BasicExercisesTests
             string input = "bcdfghjklmnpqrstvwxyz";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("bcdfghjklmnpqrstvwxyz");
@@ -6744,7 +6744,7 @@ namespace BasicExercisesTests
             string input = "Hello123!World";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("Hll123!Wrld");
@@ -6757,7 +6757,7 @@ namespace BasicExercisesTests
             string input = "AEIOUaeiou";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("");
@@ -6770,7 +6770,7 @@ namespace BasicExercisesTests
             string input = "Hello World";
 
             // Act
-            string result = Exercises.RemoveVowels(input);
+            string result = Exercises.Basic.RemoveVowels(input);
 
             // Assert
             result.Should().Be("Hll Wrld");
@@ -6785,7 +6785,7 @@ namespace BasicExercisesTests
             string input = "Python";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(1, 2, 3, 4, 5);
@@ -6798,7 +6798,7 @@ namespace BasicExercisesTests
             string input = "JavaScript";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(1, 2, 3, 5, 6, 7, 8, 9);
@@ -6811,7 +6811,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().BeEmpty();
@@ -6824,7 +6824,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().BeEmpty();
@@ -6837,7 +6837,7 @@ namespace BasicExercisesTests
             string input = "HELLO";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().BeEmpty();
@@ -6850,7 +6850,7 @@ namespace BasicExercisesTests
             string input = "hello";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(0, 1, 2, 3, 4);
@@ -6863,7 +6863,7 @@ namespace BasicExercisesTests
             string input = "HeLlO";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(1, 3);
@@ -6876,7 +6876,7 @@ namespace BasicExercisesTests
             string input = "Hello123!World";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(1, 2, 3, 4, 10, 11, 12, 13);
@@ -6889,7 +6889,7 @@ namespace BasicExercisesTests
             string input = "hello world";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(0, 1, 2, 3, 4, 6, 7, 8, 9, 10);
@@ -6902,7 +6902,7 @@ namespace BasicExercisesTests
             string input = "A";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().BeEmpty();
@@ -6915,7 +6915,7 @@ namespace BasicExercisesTests
             string input = "a";
 
             // Act
-            int[] result = Exercises.GetLowercaseIndices(input);
+            int[] result = Exercises.Basic.GetLowercaseIndices(input);
 
             // Assert
             result.Should().Equal(0);
@@ -6930,7 +6930,7 @@ namespace BasicExercisesTests
             double[] numbers = { 1, 3, 4, 5, 6, 7 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(1, 4, 8, 13, 19, 26);
@@ -6943,7 +6943,7 @@ namespace BasicExercisesTests
             double[] numbers = { 1.2, -3, 4.1, 6, -5.47 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             var expected = new[] { 1.2, -1.8, 2.3, 8.3, 2.83 };
@@ -6960,7 +6960,7 @@ namespace BasicExercisesTests
             double[] numbers = Array.Empty<double>();
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().BeEmpty();
@@ -6973,7 +6973,7 @@ namespace BasicExercisesTests
             double[] numbers = null;
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().BeEmpty();
@@ -6986,7 +6986,7 @@ namespace BasicExercisesTests
             double[] numbers = { 5.5 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(5.5);
@@ -6999,7 +6999,7 @@ namespace BasicExercisesTests
             double[] numbers = { 2, 3 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(2, 5);
@@ -7012,7 +7012,7 @@ namespace BasicExercisesTests
             double[] numbers = { 0, 0, 0, 0 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(0, 0, 0, 0);
@@ -7025,7 +7025,7 @@ namespace BasicExercisesTests
             double[] numbers = { -1, -2, -3, -4 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(-1, -3, -6, -10);
@@ -7038,7 +7038,7 @@ namespace BasicExercisesTests
             double[] numbers = { -2.5, 1.5, 3, -1 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(-2.5, -1, 2, 1);
@@ -7051,7 +7051,7 @@ namespace BasicExercisesTests
             double[] numbers = { 1000, 2000, 3000 };
 
             // Act
-            double[] result = Exercises.GetCumulativeSum(numbers);
+            double[] result = Exercises.Basic.GetCumulativeSum(numbers);
 
             // Assert
             result.Should().Equal(1000, 3000, 6000);
@@ -7066,7 +7066,7 @@ namespace BasicExercisesTests
             string input = "Python 3.0";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(6);
@@ -7080,7 +7080,7 @@ namespace BasicExercisesTests
             string input = "dsfkaso230samdm2423sa";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(14);
@@ -7094,7 +7094,7 @@ namespace BasicExercisesTests
             string input = "";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(0);
@@ -7108,7 +7108,7 @@ namespace BasicExercisesTests
             string input = null;
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(0);
@@ -7122,7 +7122,7 @@ namespace BasicExercisesTests
             string input = "HelloWorld";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(10);
@@ -7136,7 +7136,7 @@ namespace BasicExercisesTests
             string input = "1234567890";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(0);
@@ -7150,7 +7150,7 @@ namespace BasicExercisesTests
             string input = "Hello 123! @World#";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(10);
@@ -7164,7 +7164,7 @@ namespace BasicExercisesTests
             string input = "HeLlO123WoRlD";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(10);
@@ -7178,7 +7178,7 @@ namespace BasicExercisesTests
             string input = "Café123ñ";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(5);
@@ -7192,7 +7192,7 @@ namespace BasicExercisesTests
             string input = "!@#$%^&*() ";
 
             // Act
-            var result = Exercises.CountLettersAndDigits(input);
+            var result = Exercises.Basic.CountLettersAndDigits(input);
 
             // Assert
             result.letters.Should().Be(0);
@@ -7208,7 +7208,7 @@ namespace BasicExercisesTests
             bool value = false;
 
             // Act
-            bool result = Exercises.ReverseBoolean(value);
+            bool result = Exercises.Basic.ReverseBoolean(value);
 
             // Assert
             result.Should().BeTrue();
@@ -7221,7 +7221,7 @@ namespace BasicExercisesTests
             bool value = true;
 
             // Act
-            bool result = Exercises.ReverseBoolean(value);
+            bool result = Exercises.Basic.ReverseBoolean(value);
 
             // Assert
             result.Should().BeFalse();
@@ -7234,7 +7234,7 @@ namespace BasicExercisesTests
             bool value = true;
 
             // Act
-            bool result = Exercises.ReverseBoolean(Exercises.ReverseBoolean(value));
+            bool result = Exercises.Basic.ReverseBoolean(Exercises.Basic.ReverseBoolean(value));
 
             // Assert
             result.Should().BeTrue();
@@ -7247,7 +7247,7 @@ namespace BasicExercisesTests
             bool value = false;
 
             // Act
-            bool result = Exercises.ReverseBoolean(Exercises.ReverseBoolean(value));
+            bool result = Exercises.Basic.ReverseBoolean(Exercises.Basic.ReverseBoolean(value));
 
             // Assert
             result.Should().BeFalse();
@@ -7262,7 +7262,7 @@ namespace BasicExercisesTests
             int sides = 3;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(180);
@@ -7275,7 +7275,7 @@ namespace BasicExercisesTests
             int sides = 4;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(360);
@@ -7288,7 +7288,7 @@ namespace BasicExercisesTests
             int sides = 5;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(540);
@@ -7301,7 +7301,7 @@ namespace BasicExercisesTests
             int sides = 6;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(720);
@@ -7314,7 +7314,7 @@ namespace BasicExercisesTests
             int sides = 7;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(900);
@@ -7327,7 +7327,7 @@ namespace BasicExercisesTests
             int sides = 8;
 
             // Act
-            int result = Exercises.SumOfInteriorAngles(sides);
+            int result = Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             result.Should().Be(1080);
@@ -7340,7 +7340,7 @@ namespace BasicExercisesTests
             int sides = 2;
 
             // Act
-            Action act = () => Exercises.SumOfInteriorAngles(sides);
+            Action act = () => Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -7353,7 +7353,7 @@ namespace BasicExercisesTests
             int sides = 1;
 
             // Act
-            Action act = () => Exercises.SumOfInteriorAngles(sides);
+            Action act = () => Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -7366,7 +7366,7 @@ namespace BasicExercisesTests
             int sides = 0;
 
             // Act
-            Action act = () => Exercises.SumOfInteriorAngles(sides);
+            Action act = () => Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -7379,7 +7379,7 @@ namespace BasicExercisesTests
             int sides = -1;
 
             // Act
-            Action act = () => Exercises.SumOfInteriorAngles(sides);
+            Action act = () => Exercises.Basic.SumOfInteriorAngles(sides);
 
             // Assert
             act.Should().Throw<ArgumentException>();
@@ -7394,7 +7394,7 @@ namespace BasicExercisesTests
             int[] numbers = { 10, -11, 12, -13, 14, -18, 19, -20 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(4);
@@ -7408,7 +7408,7 @@ namespace BasicExercisesTests
             int[] numbers = { -4, -3, -2, 0, 3, 5, 6, 2, 6 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(5);
@@ -7422,7 +7422,7 @@ namespace BasicExercisesTests
             int[] numbers = Array.Empty<int>();
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7436,7 +7436,7 @@ namespace BasicExercisesTests
             int[] numbers = null;
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7450,7 +7450,7 @@ namespace BasicExercisesTests
             int[] numbers = { 1, 2, 3, 4, 5 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(5);
@@ -7464,7 +7464,7 @@ namespace BasicExercisesTests
             int[] numbers = { -1, -2, -3, -4, -5 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7478,7 +7478,7 @@ namespace BasicExercisesTests
             int[] numbers = { 0, 1, -1, 0, 2, -2, 0 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(2);
@@ -7492,7 +7492,7 @@ namespace BasicExercisesTests
             int[] numbers = { 0, 0, 0, 0, 0 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7506,7 +7506,7 @@ namespace BasicExercisesTests
             int[] numbers = { -10, 20, -30, 40, -50, 60 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(3);
@@ -7520,7 +7520,7 @@ namespace BasicExercisesTests
             int[] numbers = { 5 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(1);
@@ -7534,7 +7534,7 @@ namespace BasicExercisesTests
             int[] numbers = { -5 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7548,7 +7548,7 @@ namespace BasicExercisesTests
             int[] numbers = { 0 };
 
             // Act
-            var result = Exercises.CountPositivesAndNegatives(numbers);
+            var result = Exercises.Basic.CountPositivesAndNegatives(numbers);
 
             // Assert
             result.positives.Should().Be(0);
@@ -7564,7 +7564,7 @@ namespace BasicExercisesTests
             int number = 12; // Binary: 1100
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(2);
@@ -7578,7 +7578,7 @@ namespace BasicExercisesTests
             int number = 1234; // Binary: 10011010010
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(5);
@@ -7592,7 +7592,7 @@ namespace BasicExercisesTests
             int number = 0; // Binary: 0
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(0);
@@ -7606,7 +7606,7 @@ namespace BasicExercisesTests
             int number = 1; // Binary: 1
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(1);
@@ -7620,7 +7620,7 @@ namespace BasicExercisesTests
             int number = 2; // Binary: 10
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(1);
@@ -7634,7 +7634,7 @@ namespace BasicExercisesTests
             int number = 3; // Binary: 11
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(2);
@@ -7648,7 +7648,7 @@ namespace BasicExercisesTests
             int number = -5;
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().BeGreaterThan(0);
@@ -7661,7 +7661,7 @@ namespace BasicExercisesTests
             int number = 16; // Binary: 10000
 
             // Act
-            var result = Exercises.CountOnesAndZeros(number);
+            var result = Exercises.Basic.CountOnesAndZeros(number);
 
             // Assert
             result.ones.Should().Be(1);
@@ -7677,7 +7677,7 @@ namespace BasicExercisesTests
             object[] array = { 25, "Anna", false, DateTime.Parse("24/04/2021 11:43:11"), -112, -34.67 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(25, -112);
@@ -7690,7 +7690,7 @@ namespace BasicExercisesTests
             object[] array = { 1, 2, 3, -4, 5 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(1, 2, 3, -4, 5);
@@ -7703,7 +7703,7 @@ namespace BasicExercisesTests
             object[] array = { "Hello", 3.14, true, DateTime.Now };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().BeEmpty();
@@ -7716,7 +7716,7 @@ namespace BasicExercisesTests
             object[] array = Array.Empty<object>();
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().BeEmpty();
@@ -7729,7 +7729,7 @@ namespace BasicExercisesTests
             object[] array = null;
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().BeEmpty();
@@ -7742,7 +7742,7 @@ namespace BasicExercisesTests
             object[] array = { 1, null, "test", 2, 3.5, 3 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(1, 2, 3);
@@ -7755,7 +7755,7 @@ namespace BasicExercisesTests
             object[] array = { 1.5, 2.7, 3, 4.0, 5 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(3, 5);
@@ -7768,7 +7768,7 @@ namespace BasicExercisesTests
             object[] array = { 1.5f, 2.7f, 3, 4.0f, 5 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(3, 5);
@@ -7781,7 +7781,7 @@ namespace BasicExercisesTests
             object[] array = { 1.5m, 2.7m, 3, 4.0m, 5 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(3, 5);
@@ -7794,7 +7794,7 @@ namespace BasicExercisesTests
             object[] array = { true, false, 1, 0, -1 };
 
             // Act
-            int[] result = Exercises.RemoveNonIntegers(array);
+            int[] result = Exercises.Basic.RemoveNonIntegers(array);
 
             // Assert
             result.Should().Equal(1, 0, -1);
@@ -7810,7 +7810,7 @@ namespace BasicExercisesTests
             int expected = 127;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7824,7 +7824,7 @@ namespace BasicExercisesTests
             int expected = 331;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7838,7 +7838,7 @@ namespace BasicExercisesTests
             int expected = 43;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7852,7 +7852,7 @@ namespace BasicExercisesTests
             int expected = 4441;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7866,7 +7866,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7880,7 +7880,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7894,7 +7894,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.FindNextPrime(input);
+            int actual = Exercises.Basic.FindNextPrime(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7910,7 +7910,7 @@ namespace BasicExercisesTests
             int expected = 10;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7924,7 +7924,7 @@ namespace BasicExercisesTests
             int expected = 15;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7938,7 +7938,7 @@ namespace BasicExercisesTests
             int expected = 18;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7952,7 +7952,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7966,7 +7966,7 @@ namespace BasicExercisesTests
             int expected = 1;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7980,7 +7980,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -7994,7 +7994,7 @@ namespace BasicExercisesTests
             int expected = 4;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8008,7 +8008,7 @@ namespace BasicExercisesTests
             int expected = 10;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8022,7 +8022,7 @@ namespace BasicExercisesTests
             int expected = 9;
 
             // Act
-            int actual = Exercises.SquareRoot(input);
+            int actual = Exercises.Basic.SquareRoot(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8038,7 +8038,7 @@ namespace BasicExercisesTests
             string expected = "Pa";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8052,7 +8052,7 @@ namespace BasicExercisesTests
             string expected = "J";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8066,7 +8066,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8080,7 +8080,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8094,7 +8094,7 @@ namespace BasicExercisesTests
             string expected = "Hello";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8108,7 +8108,7 @@ namespace BasicExercisesTests
             string expected = "Test";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8122,7 +8122,7 @@ namespace BasicExercisesTests
             string expected = "Fl";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8136,7 +8136,7 @@ namespace BasicExercisesTests
             string expected = "";
 
             // Act
-            string actual = Exercises.LongestCommonPrefix(input);
+            string actual = Exercises.Basic.LongestCommonPrefix(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8152,7 +8152,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8166,7 +8166,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8180,7 +8180,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8194,7 +8194,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8208,7 +8208,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8222,7 +8222,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8236,7 +8236,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8250,7 +8250,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8264,7 +8264,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.ValidateBrackets(input);
+            bool actual = Exercises.Basic.ValidateBrackets(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8280,7 +8280,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8294,7 +8294,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8308,7 +8308,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8322,7 +8322,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8336,7 +8336,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8350,7 +8350,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8364,7 +8364,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8378,7 +8378,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8392,7 +8392,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AllCharactersSame(input);
+            bool actual = Exercises.Basic.AllCharactersSame(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8408,7 +8408,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8422,7 +8422,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8436,7 +8436,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8450,7 +8450,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8464,7 +8464,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8478,7 +8478,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8492,7 +8492,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8506,7 +8506,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8520,7 +8520,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8534,7 +8534,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8548,7 +8548,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8562,7 +8562,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8576,7 +8576,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.IsNumeric(input);
+            bool actual = Exercises.Basic.IsNumeric(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8592,7 +8592,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7, 31, 41, 43, 53, 61, 71, 73, 83, 97 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8606,7 +8606,7 @@ namespace BasicExercisesTests
             List<int> expectedPrimes = new List<int> { 421, 431 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             Assert.IsTrue(expectedPrimes.All(p => actual.Contains(p)));
@@ -8620,7 +8620,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8634,7 +8634,7 @@ namespace BasicExercisesTests
             List<int> nonDescendingPrimes = new List<int> { 11, 13, 17, 19, 23, 29, 37, 47, 59, 67, 79, 89 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             Assert.IsFalse(nonDescendingPrimes.Any(p => actual.Contains(p)));
@@ -8648,7 +8648,7 @@ namespace BasicExercisesTests
             int expectedCount = 4;
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8662,7 +8662,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7, 31, 41, 43 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8676,7 +8676,7 @@ namespace BasicExercisesTests
             int expectedCount = 0;
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8690,7 +8690,7 @@ namespace BasicExercisesTests
             int expectedCount = 0;
 
             // Act
-            List<int> actual = Exercises.GetPrimesDescendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesDescendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8704,7 +8704,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.GetPrimesDescendingDigits(10).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesDescendingDigits(10).Contains(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8718,7 +8718,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.GetPrimesDescendingDigits(500).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesDescendingDigits(500).Contains(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8731,7 +8731,7 @@ namespace BasicExercisesTests
             int number = 123;
 
             // Act
-            bool actual = Exercises.GetPrimesDescendingDigits(200).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesDescendingDigits(200).Contains(number);
 
             // Assert
             Assert.IsFalse(actual);
@@ -8747,7 +8747,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7, 13, 17, 19, 23, 29, 37, 47, 59, 67, 79, 89 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8761,7 +8761,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8775,7 +8775,7 @@ namespace BasicExercisesTests
             List<int> nonAscendingPrimes = new List<int> { 11, 31, 41, 43, 53, 61, 71, 73, 83, 97 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             Assert.IsFalse(nonAscendingPrimes.Any(p => actual.Contains(p)));
@@ -8789,7 +8789,7 @@ namespace BasicExercisesTests
             int expectedCount = 4;
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8803,7 +8803,7 @@ namespace BasicExercisesTests
             List<int> expected = new List<int> { 2, 3, 5, 7, 13, 17, 19, 23, 29, 37, 47 };
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -8817,7 +8817,7 @@ namespace BasicExercisesTests
             int expectedCount = 0;
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8831,7 +8831,7 @@ namespace BasicExercisesTests
             int expectedCount = 0;
 
             // Act
-            List<int> actual = Exercises.GetPrimesAscendingDigits(limit);
+            List<int> actual = Exercises.Basic.GetPrimesAscendingDigits(limit);
 
             // Assert
             Assert.AreEqual(expectedCount, actual.Count);
@@ -8845,7 +8845,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.GetPrimesAscendingDigits(10).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesAscendingDigits(10).Contains(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8859,7 +8859,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesAscendingDigits(100).Contains(number);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8872,7 +8872,7 @@ namespace BasicExercisesTests
             int number = 31;
 
             // Act
-            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesAscendingDigits(100).Contains(number);
 
             // Assert
             Assert.IsFalse(actual);
@@ -8885,7 +8885,7 @@ namespace BasicExercisesTests
             int number = 11;
 
             // Act
-            bool actual = Exercises.GetPrimesAscendingDigits(100).Contains(number);
+            bool actual = Exercises.Basic.GetPrimesAscendingDigits(100).Contains(number);
 
             // Assert
             Assert.IsFalse(actual);
@@ -8902,7 +8902,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8917,7 +8917,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8932,7 +8932,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8947,7 +8947,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8962,7 +8962,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8977,7 +8977,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -8992,7 +8992,7 @@ namespace BasicExercisesTests
             bool expected = false;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9007,7 +9007,7 @@ namespace BasicExercisesTests
             bool expected = true;
 
             // Act
-            bool actual = Exercises.AreEqual(a, b);
+            bool actual = Exercises.Basic.AreEqual(a, b);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9024,7 +9024,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-13;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9039,7 +9039,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9054,7 +9054,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9069,7 +9069,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9084,7 +9084,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9099,7 +9099,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9114,7 +9114,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-14;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(mathE, actual, tolerance);
@@ -9129,7 +9129,7 @@ namespace BasicExercisesTests
             double tolerance = 1e-15;
 
             // Act
-            double actual = Exercises.CalculateE(iterations);
+            double actual = Exercises.Basic.CalculateE(iterations);
 
             // Assert
             Assert.AreEqual(expected, actual, tolerance);
@@ -9145,7 +9145,7 @@ namespace BasicExercisesTests
             int[,] expected = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -9159,7 +9159,7 @@ namespace BasicExercisesTests
             int[,] expected = { { 1 } };
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -9173,7 +9173,7 @@ namespace BasicExercisesTests
             int[,] expected = { { 1, 0 }, { 0, 1 } };
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -9192,7 +9192,7 @@ namespace BasicExercisesTests
         };
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -9206,7 +9206,7 @@ namespace BasicExercisesTests
             int[,] expected = new int[0, 0];
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             Assert.AreEqual(expected.Rank, actual.Rank);
@@ -9228,7 +9228,7 @@ namespace BasicExercisesTests
         };
 
             // Act
-            int[,] actual = Exercises.CreateIdentityMatrix(size);
+            int[,] actual = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -9241,7 +9241,7 @@ namespace BasicExercisesTests
             int size = 3;
 
             // Act
-            int[,] matrix = Exercises.CreateIdentityMatrix(size);
+            int[,] matrix = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             for (int i = 0; i < size; i++)
@@ -9257,7 +9257,7 @@ namespace BasicExercisesTests
             int size = 3;
 
             // Act
-            int[,] matrix = Exercises.CreateIdentityMatrix(size);
+            int[,] matrix = Exercises.Basic.CreateIdentityMatrix(size);
 
             // Assert
             for (int i = 0; i < size; i++)
@@ -9282,7 +9282,7 @@ namespace BasicExercisesTests
             string expected = "123AAAbdef";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9296,7 +9296,7 @@ namespace BasicExercisesTests
             string expected = "Blank string!";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9310,7 +9310,7 @@ namespace BasicExercisesTests
             string expected = "Phnoty";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9324,7 +9324,7 @@ namespace BasicExercisesTests
             string expected = "3Wceeorrsu";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9338,7 +9338,7 @@ namespace BasicExercisesTests
             string expected = "Blank string!";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9352,7 +9352,7 @@ namespace BasicExercisesTests
             string expected = "12345";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9366,7 +9366,7 @@ namespace BasicExercisesTests
             string expected = "VWXYZ";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9380,7 +9380,7 @@ namespace BasicExercisesTests
             string expected = "vwxyz";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9394,7 +9394,7 @@ namespace BasicExercisesTests
             string expected = "!#$%@";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9408,7 +9408,7 @@ namespace BasicExercisesTests
             string expected = "A";
 
             // Act
-            string actual = Exercises.SortCharacters(input);
+            string actual = Exercises.Basic.SortCharacters(input);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9426,7 +9426,7 @@ namespace BasicExercisesTests
             int expected = 0;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9442,7 +9442,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9458,7 +9458,7 @@ namespace BasicExercisesTests
             int expected = 3;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9474,7 +9474,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9490,7 +9490,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9506,7 +9506,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9522,7 +9522,7 @@ namespace BasicExercisesTests
             int expected = 3;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9538,7 +9538,7 @@ namespace BasicExercisesTests
             int expected = 2;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9554,7 +9554,7 @@ namespace BasicExercisesTests
             int expected = 3;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -9570,7 +9570,7 @@ namespace BasicExercisesTests
             int expected = 3;
 
             // Act
-            int actual = Exercises.CountEqualIntegers(a, b, c);
+            int actual = Exercises.Basic.CountEqualIntegers(a, b, c);
 
             // Assert
             Assert.AreEqual(expected, actual);
