@@ -1,12 +1,12 @@
 ﻿using System.Data;
 using System.Text;
 
-namespace BasicExercises
+namespace Exercises
 {
-    public class Exercises
+    public class Basic
     {
         // Exercise 1 - Print Hello and Name
-        public string Message(string name)
+        public static string Message(string name)
         {
             return $"Hello\n{name}";
         }
@@ -702,7 +702,7 @@ namespace BasicExercises
         }
 
         // Exercise 51 - Max of First and Last in Array
-        public int GetMaxOfFirstAndLast(int[] array)
+        public static int GetMaxOfFirstAndLast(int[] array)
         {
             if (array == null || array.Length == 0)
             {
