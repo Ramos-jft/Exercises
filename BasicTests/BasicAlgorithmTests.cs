@@ -1,4 +1,4 @@
-using Exercises;
+﻿using Exercises;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ExercisesTests;
@@ -3726,5 +3726,2876 @@ public class BasicAlgorithmTests
         numbers = new int[] { };
         result = BasicAlgorithm.SameRightmostDigit(numbers);
         Assert.IsFalse(result);
+    }
+
+    // Exercise 51 - Check if One Integer 20 Less Than Another
+
+    [TestMethod]
+    public void CheckInteger20Less_11_21_31_ReturnsTrue()
+    {
+        // Arrange
+        int a = 11, b = 21, c = 31;
+
+        // Act
+        bool result = BasicAlgorithm.CheckInteger20Less(a, b, c);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void CheckInteger20Less_11_22_31_ReturnsTrue()
+    {
+        // Arrange
+        int a = 11, b = 22, c = 31;
+
+        // Act
+        bool result = BasicAlgorithm.CheckInteger20Less(a, b, c);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void CheckInteger20Less_10_20_15_ReturnsFalse()
+    {
+        // Arrange
+        int a = 10, b = 20, c = 15;
+
+        // Act
+        bool result = BasicAlgorithm.CheckInteger20Less(a, b, c);
+
+        // Assert
+        Assert.IsFalse(result);
+    }
+
+    // Exercise 52 - Largest of Two Integers or Smallest if Same Remainder by 7
+
+    [TestMethod]
+    public void LargestOrSmallestBy7_11_21_Returns21()
+    {
+        // Arrange
+        int a = 11, b = 21;
+
+        // Act
+        int result = BasicAlgorithm.LargestOrSmallestBy7(a, b);
+
+        // Assert
+        Assert.AreEqual(21, result);
+    }
+
+    [TestMethod]
+    public void LargestOrSmallestBy7_11_20_Returns20()
+    {
+        // Arrange
+        int a = 11, b = 20;
+
+        // Act
+        int result = BasicAlgorithm.LargestOrSmallestBy7(a, b);
+
+        // Assert
+        Assert.AreEqual(20, result);
+    }
+
+    [TestMethod]
+    public void LargestOrSmallestBy7_10_10_Returns0()
+    {
+        // Arrange
+        int a = 10, b = 10;
+
+        // Act
+        int result = BasicAlgorithm.LargestOrSmallestBy7(a, b);
+
+        // Assert
+        Assert.AreEqual(0, result);
+    }
+
+    [TestMethod]
+    public void LargestOrSmallestBy7_14_28_Returns14()
+    {
+        // Arrange
+        int a = 14, b = 28;
+
+        // Act
+        int result = BasicAlgorithm.LargestOrSmallestBy7(a, b);
+
+        // Assert
+        Assert.AreEqual(14, result);
+    }
+
+    // Exercise 53 - Digit Appears in Both Integers
+
+    [TestMethod]
+    public void DigitAppearsInBoth_11_21_ReturnsTrue()
+    {
+        // Arrange
+        int a = 11, b = 21;
+
+        // Act
+        bool result = BasicAlgorithm.DigitAppearsInBoth(a, b);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void DigitAppearsInBoth_11_20_ReturnsFalse()
+    {
+        // Arrange
+        int a = 11, b = 20;
+
+        // Act
+        bool result = BasicAlgorithm.DigitAppearsInBoth(a, b);
+
+        // Assert
+        Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void DigitAppearsInBoth_10_10_ReturnsTrue()
+    {
+        // Arrange
+        int a = 10, b = 10;
+
+        // Act
+        bool result = BasicAlgorithm.DigitAppearsInBoth(a, b);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void DigitAppearsInBoth_13_33_ReturnsTrue()
+    {
+        // Arrange
+        int a = 13, b = 33;
+
+        // Act
+        bool result = BasicAlgorithm.DigitAppearsInBoth(a, b);
+
+        // Assert
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void DigitAppearsInBoth_12_34_ReturnsFalse()
+    {
+        // Arrange
+        int a = 12, b = 34;
+
+        // Act
+        bool result = BasicAlgorithm.DigitAppearsInBoth(a, b);
+
+        // Assert
+        Assert.IsFalse(result);
+    }
+
+    // Exercise 54 - Sum of Integers with Same Digit Count
+
+    [TestMethod]
+    public void SumIfSameDigitCount_TestCases()
+    {
+        // Arrange
+        int x1 = 4, y1 = 5;
+        int x2 = 7, y2 = 4;
+        int x3 = 10, y3 = 10;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIfSameDigitCount(x1, y1);
+        int result2 = BasicAlgorithm.SumIfSameDigitCount(x2, y2);
+        int result3 = BasicAlgorithm.SumIfSameDigitCount(x3, y3);
+
+        // Assert
+        Assert.AreEqual(9, result1);
+        Assert.AreEqual(7, result2);
+        Assert.AreEqual(20, result3);
+    }
+
+    [TestMethod]
+    public void SumIfSameDigitCount_EdgeCases()
+    {
+        // Arrange
+        int x1 = 0, y1 = 5;
+        int x2 = 99, y2 = 1;
+        int x3 = 100, y3 = 900;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIfSameDigitCount(x1, y1);
+        int result2 = BasicAlgorithm.SumIfSameDigitCount(x2, y2);
+        int result3 = BasicAlgorithm.SumIfSameDigitCount(x3, y3);
+
+        // Assert
+        Assert.AreEqual(5, result1); 
+        Assert.AreEqual(99, result2); 
+        Assert.AreEqual(100, result3); 
+    }
+
+    // Exercise 55 - Sum of Three Integers or Return Third if Two Match
+
+    [TestMethod]
+    public void SumOrThirdIfTwoMatch_TestCases()
+    {
+        // Arrange
+        int a1 = 4, b1 = 5, c1 = 7;
+        int a2 = 7, b2 = 4, c2 = 12;
+        int a3 = 10, b3 = 10, c3 = 12;
+        int a4 = 12, b4 = 12, c4 = 18;
+
+        // Act
+        int result1 = BasicAlgorithm.SumOrThirdIfTwoMatch(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumOrThirdIfTwoMatch(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumOrThirdIfTwoMatch(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumOrThirdIfTwoMatch(a4, b4, c4);
+
+        // Assert
+        Assert.AreEqual(16, result1);  
+        Assert.AreEqual(23, result2);  
+        Assert.AreEqual(12, result3);  
+        Assert.AreEqual(18, result4);  
+    }
+
+    [TestMethod]
+    public void SumOrThirdIfTwoMatch_EdgeCases()
+    {
+        // Arrange
+        int a1 = 0, b1 = 0, c1 = 5;
+        int a2 = 5, b2 = 5, c2 = 5;
+        int a3 = -3, b3 = -3, c3 = 10;
+        int a4 = 1, b4 = 2, c4 = 3;
+
+        // Act
+        int result1 = BasicAlgorithm.SumOrThirdIfTwoMatch(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumOrThirdIfTwoMatch(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumOrThirdIfTwoMatch(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumOrThirdIfTwoMatch(a4, b4, c4);
+
+        // Assert
+        Assert.AreEqual(5, result1);   
+        Assert.AreEqual(5, result2);   
+        Assert.AreEqual(10, result3);  
+        Assert.AreEqual(6, result4);   
+    }
+
+    // Exercise 56 - Sum of Three Integers Ignoring 13 and Right
+
+    [TestMethod]
+    public void SumIgnoring13AndRight_TestCases()
+    {
+        // Arrange
+        int a1 = 4, b1 = 5, c1 = 7;
+        int a2 = 7, b2 = 4, c2 = 12;
+        int a3 = 10, b3 = 13, c3 = 12;
+        int a4 = 13, b4 = 12, c4 = 18;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIgnoring13AndRight(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumIgnoring13AndRight(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumIgnoring13AndRight(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumIgnoring13AndRight(a4, b4, c4);
+
+        // Assert
+        Assert.AreEqual(16, result1);  
+        Assert.AreEqual(23, result2);  
+        Assert.AreEqual(10, result3);  
+        Assert.AreEqual(0, result4);   
+    }
+
+    [TestMethod]
+    public void SumIgnoring13AndRight_EdgeCases()
+    {
+        // Arrange
+        int a1 = 13, b1 = 13, c1 = 13;
+        int a2 = 1, b2 = 13, c2 = 13;
+        int a3 = 5, b3 = 6, c3 = 13;
+        int a4 = 2, b4 = 3, c4 = 4;
+        int a5 = 0, b5 = 13, c5 = 5;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIgnoring13AndRight(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumIgnoring13AndRight(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumIgnoring13AndRight(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumIgnoring13AndRight(a4, b4, c4);
+        int result5 = BasicAlgorithm.SumIgnoring13AndRight(a5, b5, c5);
+
+        // Assert
+        Assert.AreEqual(0, result1);   
+        Assert.AreEqual(1, result2);   
+        Assert.AreEqual(11, result3);  
+        Assert.AreEqual(9, result4);   
+        Assert.AreEqual(0, result5);   
+    }
+
+    // Exercise 57 - Sum Ignoring 10-20 Except 13, 17
+
+    [TestMethod]
+    public void SumIgnoring10To20Except13And17_TestCases()
+    {
+        // Arrange
+        int a1 = 4, b1 = 5, c1 = 7;
+        int a2 = 7, b2 = 4, c2 = 12;
+        int a3 = 10, b3 = 13, c3 = 12;
+        int a4 = 14, b4 = 15, c4 = 16;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIgnoring10To20Except13And17(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumIgnoring10To20Except13And17(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumIgnoring10To20Except13And17(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumIgnoring10To20Except13And17(a4, b4, c4);
+
+        // Assert
+        Assert.AreEqual(16, result1);  
+        Assert.AreEqual(11, result2);  
+        Assert.AreEqual(13, result3);  
+        Assert.AreEqual(0, result4);   
+    }
+
+    [TestMethod]
+    public void SumIgnoring10To20Except13And17_EdgeCases()
+    {
+        // Arrange
+        int a1 = 13, b1 = 17, c1 = 19;
+        int a2 = 9, b2 = 10, c2 = 20;
+        int a3 = 8, b3 = 13, c3 = 21;
+        int a4 = 17, b4 = 18, c4 = 19;
+        int a5 = 1, b5 = 2, c5 = 3;
+
+        // Act
+        int result1 = BasicAlgorithm.SumIgnoring10To20Except13And17(a1, b1, c1);
+        int result2 = BasicAlgorithm.SumIgnoring10To20Except13And17(a2, b2, c2);
+        int result3 = BasicAlgorithm.SumIgnoring10To20Except13And17(a3, b3, c3);
+        int result4 = BasicAlgorithm.SumIgnoring10To20Except13And17(a4, b4, c4);
+        int result5 = BasicAlgorithm.SumIgnoring10To20Except13And17(a5, b5, c5);
+
+        // Assert
+        Assert.AreEqual(30, result1);  
+        Assert.AreEqual(9, result2);   
+        Assert.AreEqual(42, result3);  
+        Assert.AreEqual(17, result4);  
+        Assert.AreEqual(6, result5);   
+    }
+
+    // Exercise 58 - Nearest to 13 Without Crossing
+
+    [TestMethod]
+    public void NearestTo13WithoutCrossing_TestCases()
+    {
+        // Arrange
+        int a1 = 4, b1 = 5;
+        int a2 = 7, b2 = 12;
+        int a3 = 10, b3 = 13;
+        int a4 = 17, b4 = 33;
+
+        // Act
+        int result1 = BasicAlgorithm.NearestTo13WithoutCrossing(a1, b1);
+        int result2 = BasicAlgorithm.NearestTo13WithoutCrossing(a2, b2);
+        int result3 = BasicAlgorithm.NearestTo13WithoutCrossing(a3, b3);
+        int result4 = BasicAlgorithm.NearestTo13WithoutCrossing(a4, b4);
+
+        // Assert
+        Assert.AreEqual(5, result1);   
+        Assert.AreEqual(12, result2);  
+        Assert.AreEqual(13, result3);  
+        Assert.AreEqual(0, result4);   
+    }
+
+    [TestMethod]
+    public void NearestTo13WithoutCrossing_EdgeCases()
+    {
+        // Arrange
+        int a1 = 13, b1 = 13;
+        int a2 = 12, b2 = 14;
+        int a3 = 11, b3 = 15;
+        int a4 = 0, b4 = 13;
+        int a5 = 14, b5 = 15;
+        int a6 = 10, b6 = 10;
+
+        // Act
+        int result1 = BasicAlgorithm.NearestTo13WithoutCrossing(a1, b1);
+        int result2 = BasicAlgorithm.NearestTo13WithoutCrossing(a2, b2);
+        int result3 = BasicAlgorithm.NearestTo13WithoutCrossing(a3, b3);
+        int result4 = BasicAlgorithm.NearestTo13WithoutCrossing(a4, b4);
+        int result5 = BasicAlgorithm.NearestTo13WithoutCrossing(a5, b5);
+        int result6 = BasicAlgorithm.NearestTo13WithoutCrossing(a6, b6);
+
+        // Assert
+        Assert.AreEqual(13, result1);
+        Assert.AreEqual(12, result2);  
+        Assert.AreEqual(11, result3);  
+        Assert.AreEqual(13, result4); 
+        Assert.AreEqual(0, result5);   
+        Assert.AreEqual(10, result6);  
+    }
+
+    // Exercise 59 - Check Equal Differences in Three Integers
+
+    [TestMethod]
+    public void CheckEqualDifferences_TestCases()
+    {
+        // Arrange
+        int a1 = 4, b1 = 5, c1 = 6;
+        int a2 = 7, b2 = 12, c2 = 13;
+        int a3 = -1, b3 = 0, c3 = 1;
+
+        // Act
+        bool result1 = BasicAlgorithm.CheckEqualDifferences(a1, b1, c1);
+        bool result2 = BasicAlgorithm.CheckEqualDifferences(a2, b2, c2);
+        bool result3 = BasicAlgorithm.CheckEqualDifferences(a3, b3, c3);
+
+        // Assert
+        Assert.IsTrue(result1);   
+        Assert.IsFalse(result2);  
+        Assert.IsTrue(result3);   
+    }
+
+    [TestMethod]
+    public void CheckEqualDifferences_EdgeCases()
+    {
+        // Arrange
+        int a1 = 1, b1 = 1, c1 = 1;
+        int a2 = 2, b2 = 4, c2 = 6;
+        int a3 = 10, b3 = 5, c3 = 0;
+        int a4 = 3, b4 = 1, c4 = 5;
+        int a5 = -5, b5 = 0, c5 = 5;
+
+        // Act
+        bool result1 = BasicAlgorithm.CheckEqualDifferences(a1, b1, c1);
+        bool result2 = BasicAlgorithm.CheckEqualDifferences(a2, b2, c2);
+        bool result3 = BasicAlgorithm.CheckEqualDifferences(a3, b3, c3);
+        bool result4 = BasicAlgorithm.CheckEqualDifferences(a4, b4, c4);
+        bool result5 = BasicAlgorithm.CheckEqualDifferences(a5, b5, c5);
+
+        // Assert
+        Assert.IsTrue(result1);  
+        Assert.IsTrue(result2);  
+        Assert.IsTrue(result3);  
+        Assert.IsTrue(result4);  
+        Assert.IsTrue(result5);   
+    }
+
+    [TestMethod]
+    public void CheckEqualDifferences_WithUnsortedNumbers()
+    {
+        // Arrange
+        int a1 = 6, b1 = 4, c1 = 5;
+        int a2 = 12, b2 = 7, c2 = 13;
+        int a3 = 0, b3 = -1, c3 = 1;
+
+        // Act
+        bool result1 = BasicAlgorithm.CheckEqualDifferences(a1, b1, c1);
+        bool result2 = BasicAlgorithm.CheckEqualDifferences(a2, b2, c2);
+        bool result3 = BasicAlgorithm.CheckEqualDifferences(a3, b3, c3);
+
+        // Assert 
+        Assert.IsTrue(result1); 
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
+    }
+
+    // Exercise 60 - String Format s1s2s2s1
+
+    [TestMethod]
+    public void CreateS1S2S2S1String_TestCases()
+    {
+        // Arrange
+        string s1_1 = "Hi", s2_1 = "Hello";
+        string s1_2 = "whats", s2_2 = "app";
+
+        // Act
+        string result1 = BasicAlgorithm.CreateS1S2S2S1String(s1_1, s2_1);
+        string result2 = BasicAlgorithm.CreateS1S2S2S1String(s1_2, s2_2);
+
+        // Assert
+        Assert.AreEqual("HiHelloHelloHi", result1);
+        Assert.AreEqual("whatsappappwhats", result2);
+    }
+
+    [TestMethod]
+    public void CreateS1S2S2S1String_EdgeCases()
+    {
+        // Arrange
+        string s1_1 = "", s2_1 = "";
+        string s1_2 = "a", s2_2 = "b";
+        string s1_3 = "123", s2_3 = "456";
+        string s1_4 = " ", s2_4 = " ";
+        string s1_5 = "ABC", s2_5 = "";
+
+        // Act
+        string result1 = BasicAlgorithm.CreateS1S2S2S1String(s1_1, s2_1);
+        string result2 = BasicAlgorithm.CreateS1S2S2S1String(s1_2, s2_2);
+        string result3 = BasicAlgorithm.CreateS1S2S2S1String(s1_3, s2_3);
+        string result4 = BasicAlgorithm.CreateS1S2S2S1String(s1_4, s2_4);
+        string result5 = BasicAlgorithm.CreateS1S2S2S1String(s1_5, s2_5);
+
+        // Assert
+        Assert.AreEqual("", result1);           
+        Assert.AreEqual("abba", result2);       
+        Assert.AreEqual("123456456123", result3); 
+        Assert.AreEqual("    ", result4);       
+        Assert.AreEqual("ABCABC", result5);     
+    }
+
+    // Exercise 61 - Insert String into Middle of Another
+
+    [TestMethod]
+    public void InsertIntoMiddle_TestCases()
+    {
+        // Arrange
+        string outer1 = "[[]]", inner1 = "Hello";
+        string outer2 = "(())", inner2 = "Hi";
+
+        // Act
+        string result1 = BasicAlgorithm.InsertIntoMiddle(outer1, inner1);
+        string result2 = BasicAlgorithm.InsertIntoMiddle(outer2, inner2);
+
+        // Assert
+        Assert.AreEqual("[[Hello]]", result1);
+        Assert.AreEqual("((Hi))", result2);
+    }
+
+    [TestMethod]
+    public void InsertIntoMiddle_EdgeCases()
+    {
+        // Arrange
+        string outer1 = "abcd", inner1 = "XYZ";
+        string outer2 = "1234", inner2 = "";
+        string outer3 = "****", inner3 = "test";
+        string outer4 = "    ", inner4 = "mid";
+        string outer5 = "ABCD", inner5 = "123";
+
+        // Act
+        string result1 = BasicAlgorithm.InsertIntoMiddle(outer1, inner1);
+        string result2 = BasicAlgorithm.InsertIntoMiddle(outer2, inner2);
+        string result3 = BasicAlgorithm.InsertIntoMiddle(outer3, inner3);
+        string result4 = BasicAlgorithm.InsertIntoMiddle(outer4, inner4);
+        string result5 = BasicAlgorithm.InsertIntoMiddle(outer5, inner5);
+
+        // Assert
+        Assert.AreEqual("abXYZcd", result1);
+        Assert.AreEqual("1234", result2); 
+        Assert.AreEqual("**test**", result3);
+        Assert.AreEqual("  mid  ", result4);
+        Assert.AreEqual("AB123CD", result5);
+    }
+
+    [TestMethod]
+    public void InsertIntoMiddle_WithNon4Length()
+    {
+        // Arrange
+        string outer1 = "abc", inner1 = "test"; 
+        string outer2 = "abcde", inner2 = "test"; 
+
+        // Act
+        string result1 = BasicAlgorithm.InsertIntoMiddle(outer1, inner1);
+        string result2 = BasicAlgorithm.InsertIntoMiddle(outer2, inner2);
+
+        // Assert
+        Assert.AreEqual("abc", result1);
+        Assert.AreEqual("abcde", result2);
+    }
+
+    // Exercise 62 - Three Copies of Last Two Characters
+
+    [TestMethod]
+    public void ThreeCopiesOfLastTwoChars_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "Hi";
+
+        // Act
+        string result1 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input1);
+        string result2 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input2);
+
+        // Assert
+        Assert.AreEqual("lololo", result1);
+        Assert.AreEqual("HiHiHi", result2);
+    }
+
+    [TestMethod]
+    public void ThreeCopiesOfLastTwoChars_EdgeCases()
+    {
+        // Arrange
+        string input1 = "ab";
+        string input2 = "123";
+        string input3 = "A";
+        string input4 = "";
+        string input5 = "test";
+        string input6 = "xyz";
+
+        // Act
+        string result1 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input1);
+        string result2 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input2);
+        string result3 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input3);
+        string result4 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input4);
+        string result5 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input5);
+        string result6 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input6);
+
+        // Assert
+        Assert.AreEqual("ababab", result1);    
+        Assert.AreEqual("232323", result2);     
+        Assert.AreEqual("A", result3);          
+        Assert.AreEqual("", result4);           
+        Assert.AreEqual("ststst", result5);     
+        Assert.AreEqual("yzyzyz", result6);     
+    }
+
+    [TestMethod]
+    public void ThreeCopiesOfLastTwoChars_LongerStrings()
+    {
+        // Arrange
+        string input1 = "programming";
+        string input2 = "abcdefgh";
+        string input3 = "Hello World";
+
+        // Act
+        string result1 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input1);
+        string result2 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input2);
+        string result3 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input3);
+
+        // Assert
+        Assert.AreEqual("ngngng", result1);    
+        Assert.AreEqual("ghghgh", result2);    
+        Assert.AreEqual("ldldld", result3);    
+    }
+
+    // Exercise 63 - First Two Characters or Original String
+
+    [TestMethod]
+    public void FirstTwoCharsOrOriginal_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "Hi";
+        string input3 = "H";
+        string input4 = " ";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstTwoCharsOrOriginal(input1);
+        string result2 = BasicAlgorithm.FirstTwoCharsOrOriginal(input2);
+        string result3 = BasicAlgorithm.FirstTwoCharsOrOriginal(input3);
+        string result4 = BasicAlgorithm.FirstTwoCharsOrOriginal(input4);
+
+        // Assert
+        Assert.AreEqual("He", result1);
+        Assert.AreEqual("Hi", result2);
+        Assert.AreEqual("H", result3);
+        Assert.AreEqual(" ", result4);
+    }
+
+    [TestMethod]
+    public void FirstTwoCharsOrOriginal_EdgeCases()
+    {
+        // Arrange
+        string input1 = "";
+        string input2 = "ab";
+        string input3 = "123";
+        string input4 = "A";
+        string input5 = "  ";
+        string input6 = "test";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstTwoCharsOrOriginal(input1);
+        string result2 = BasicAlgorithm.FirstTwoCharsOrOriginal(input2);
+        string result3 = BasicAlgorithm.FirstTwoCharsOrOriginal(input3);
+        string result4 = BasicAlgorithm.FirstTwoCharsOrOriginal(input4);
+        string result5 = BasicAlgorithm.FirstTwoCharsOrOriginal(input5);
+        string result6 = BasicAlgorithm.FirstTwoCharsOrOriginal(input6);
+
+        // Assert
+        Assert.AreEqual("", result1);           
+        Assert.AreEqual("ab", result2);         
+        Assert.AreEqual("12", result3);         
+        Assert.AreEqual("A", result4);          
+        Assert.AreEqual("  ", result5);         
+        Assert.AreEqual("te", result6);         
+    }
+
+    [TestMethod]
+    public void FirstTwoCharsOrOriginal_LongerStrings()
+    {
+        // Arrange
+        string input1 = "programming";
+        string input2 = "abcdefgh";
+        string input3 = "Hello World";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstTwoCharsOrOriginal(input1);
+        string result2 = BasicAlgorithm.FirstTwoCharsOrOriginal(input2);
+        string result3 = BasicAlgorithm.FirstTwoCharsOrOriginal(input3);
+
+        // Assert
+        Assert.AreEqual("pr", result1);     
+        Assert.AreEqual("ab", result2);     
+        Assert.AreEqual("He", result3);     
+    }
+
+    // Exercise 64 - First Half of Even-Length String
+
+    [TestMethod]
+    public void FirstHalfOfEvenString_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "Hi";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstHalfOfEvenString(input1);
+        string result2 = BasicAlgorithm.FirstHalfOfEvenString(input2);
+
+        // Assert
+        Assert.AreEqual("Hello", result1); 
+        Assert.AreEqual("H", result2);  
+    }
+
+    [TestMethod]
+    public void FirstHalfOfEvenString_EvenLengthStrings()
+    {
+        // Arrange
+        string input1 = "abcd";
+        string input2 = "test";
+        string input3 = "123456";
+        string input4 = "    ";
+        string input5 = "AB";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstHalfOfEvenString(input1);
+        string result2 = BasicAlgorithm.FirstHalfOfEvenString(input2);
+        string result3 = BasicAlgorithm.FirstHalfOfEvenString(input3);
+        string result4 = BasicAlgorithm.FirstHalfOfEvenString(input4);
+        string result5 = BasicAlgorithm.FirstHalfOfEvenString(input5);
+
+        // Assert
+        Assert.AreEqual("ab", result1);     
+        Assert.AreEqual("te", result2);     
+        Assert.AreEqual("123", result3);    
+        Assert.AreEqual("  ", result4);     
+        Assert.AreEqual("A", result5);      
+    }
+
+    [TestMethod]
+    public void FirstHalfOfEvenString_OddLengthStrings()
+    {
+        // Arrange
+        string input1 = "abc";
+        string input2 = "hello";
+        string input3 = "1";
+        string input4 = "A";
+        string input5 = "12345";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstHalfOfEvenString(input1);
+        string result2 = BasicAlgorithm.FirstHalfOfEvenString(input2);
+        string result3 = BasicAlgorithm.FirstHalfOfEvenString(input3);
+        string result4 = BasicAlgorithm.FirstHalfOfEvenString(input4);
+        string result5 = BasicAlgorithm.FirstHalfOfEvenString(input5);
+
+        // Assert
+        Assert.AreEqual("abc", result1);    
+        Assert.AreEqual("hello", result2);  
+        Assert.AreEqual("1", result3);      
+        Assert.AreEqual("A", result4);      
+        Assert.AreEqual("12345", result5);  
+    }
+
+    [TestMethod]
+    public void FirstHalfOfEvenString_EdgeCases()
+    {
+        // Arrange
+        string input1 = "";
+        string input2 = "  ";
+        string input3 = "programming";
+
+        // Act
+        string result1 = BasicAlgorithm.FirstHalfOfEvenString(input1);
+        string result2 = BasicAlgorithm.FirstHalfOfEvenString(input2);
+        string result3 = BasicAlgorithm.FirstHalfOfEvenString(input3);
+
+        // Assert
+        Assert.AreEqual("", result1);           
+        Assert.AreEqual(" ", result2);          
+        Assert.AreEqual("programming", result3); 
+    }
+
+    // Exercise 65 - Remove First and Last Character
+
+    [TestMethod]
+    public void RemoveFirstAndLastChar_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "Hi";
+        string input3 = "Python";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstAndLastChar(input1);
+        string result2 = BasicAlgorithm.RemoveFirstAndLastChar(input2);
+        string result3 = BasicAlgorithm.RemoveFirstAndLastChar(input3);
+
+        // Assert
+        Assert.AreEqual("ell", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("ytho", result3);
+    }
+
+    [TestMethod]
+    public void RemoveFirstAndLastChar_EdgeCases()
+    {
+        // Arrange
+        string input1 = "ab";
+        string input2 = "a";
+        string input3 = "";
+        string input4 = "12345";
+        string input5 = " test ";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstAndLastChar(input1);
+        string result2 = BasicAlgorithm.RemoveFirstAndLastChar(input2);
+        string result3 = BasicAlgorithm.RemoveFirstAndLastChar(input3);
+        string result4 = BasicAlgorithm.RemoveFirstAndLastChar(input4);
+        string result5 = BasicAlgorithm.RemoveFirstAndLastChar(input5);
+
+        // Assert
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("a", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("234", result4);
+        Assert.AreEqual("test", result5);
+    }
+
+    // Exercise 66 - Format Long+Short+Long Strings
+
+    [TestMethod]
+    public void FormatLongShortLong_TestCases()
+    {
+        // Arrange
+        string a1 = "Hello", b1 = "Hi";
+        string a2 = "JS", b2 = "Python";
+
+        // Act
+        string result1 = BasicAlgorithm.FormatLongShortLong(a1, b1);
+        string result2 = BasicAlgorithm.FormatLongShortLong(a2, b2);
+
+        // Assert
+        Assert.AreEqual("HelloHiHello", result1);
+        Assert.AreEqual("PythonJSPython", result2);
+    }
+
+    [TestMethod]
+    public void FormatLongShortLong_EdgeCases()
+    {
+        // Arrange
+        string a1 = "a", b1 = "bb";
+        string a2 = "same", b2 = "same";
+        string a3 = "", b3 = "non-empty";
+        string a4 = "123", b4 = "45";
+        string a5 = "longer", b5 = "short";
+
+        // Act
+        string result1 = BasicAlgorithm.FormatLongShortLong(a1, b1);
+        string result2 = BasicAlgorithm.FormatLongShortLong(a2, b2);
+        string result3 = BasicAlgorithm.FormatLongShortLong(a3, b3);
+        string result4 = BasicAlgorithm.FormatLongShortLong(a4, b4);
+        string result5 = BasicAlgorithm.FormatLongShortLong(a5, b5);
+
+        // Assert
+        Assert.AreEqual("bbabb", result1);
+        Assert.AreEqual("samesamesame", result2);
+        Assert.AreEqual("non-emptynon-empty", result3);
+        Assert.AreEqual("12345123", result4);
+        Assert.AreEqual("longershortlonger", result5);
+    }
+
+    [TestMethod]
+    public void FormatLongShortLong_EqualLength()
+    {
+        // Arrange
+        string a1 = "ab", b1 = "cd";
+        string a2 = "12", b2 = "34";
+
+        // Act
+        string result1 = BasicAlgorithm.FormatLongShortLong(a1, b1);
+        string result2 = BasicAlgorithm.FormatLongShortLong(a2, b2);
+
+        // Assert
+        Assert.AreEqual("abcdab", result1);
+        Assert.AreEqual("123412", result2);
+    }
+
+    // Exercise 67 - Combine Strings After Removing First Char
+
+    [TestMethod]
+    public void CombineAfterRemovingFirstChar_TestCases()
+    {
+        // Arrange
+        string a1 = "Hello", b1 = "Hi";
+        string a2 = "JS", b2 = "Python";
+
+        // Act
+        string result1 = BasicAlgorithm.CombineAfterRemovingFirstChar(a1, b1);
+        string result2 = BasicAlgorithm.CombineAfterRemovingFirstChar(a2, b2);
+
+        // Assert
+        Assert.AreEqual("elloi", result1);
+        Assert.AreEqual("Sython", result2);
+    }
+
+    [TestMethod]
+    public void CombineAfterRemovingFirstChar_EdgeCases()
+    {
+        // Arrange
+        string a1 = "a", b1 = "b";
+        string a2 = "1", b2 = "23";
+        string a3 = "", b3 = "test";
+        string a4 = "hello", b4 = "";
+        string a5 = "x", b5 = "y";
+
+        // Act
+        string result1 = BasicAlgorithm.CombineAfterRemovingFirstChar(a1, b1);
+        string result2 = BasicAlgorithm.CombineAfterRemovingFirstChar(a2, b2);
+        string result3 = BasicAlgorithm.CombineAfterRemovingFirstChar(a3, b3);
+        string result4 = BasicAlgorithm.CombineAfterRemovingFirstChar(a4, b4);
+        string result5 = BasicAlgorithm.CombineAfterRemovingFirstChar(a5, b5);
+
+        // Assert
+        Assert.AreEqual("", result1); // "a".Substring(1) = "", "b".Substring(1) = ""
+        Assert.AreEqual("3", result2); // "1".Substring(1) = "", "23".Substring(1) = "3"
+        Assert.AreEqual("test", result3); // "".Substring(1) = "", "test".Substring(1) = "test"
+        Assert.AreEqual("hello", result4); // "hello".Substring(1) = "hello", "".Substring(1) = ""
+        Assert.AreEqual("", result5); // "x".Substring(1) = "", "y".Substring(1) = ""
+    }
+
+    [TestMethod]
+    public void CombineAfterRemovingFirstChar_SingleCharStrings()
+    {
+        // Arrange
+        string a1 = "X", b1 = "Y";
+        string a2 = "1", b2 = "2";
+
+        // Act
+        string result1 = BasicAlgorithm.CombineAfterRemovingFirstChar(a1, b1);
+        string result2 = BasicAlgorithm.CombineAfterRemovingFirstChar(a2, b2);
+
+        // Assert
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("", result2);
+    }
+
+    // Exercise 68 - Move First Two Characters to End
+
+    [TestMethod]
+    public void MoveFirstTwoToEnd_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "JS";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveFirstTwoToEnd(input1);
+        string result2 = BasicAlgorithm.MoveFirstTwoToEnd(input2);
+
+        // Assert
+        Assert.AreEqual("lloHe", result1);
+        Assert.AreEqual("JS", result2);
+    }
+
+    [TestMethod]
+    public void MoveFirstTwoToEnd_EdgeCases()
+    {
+        // Arrange
+        string input1 = "ab";
+        string input2 = "abc";
+        string input3 = "a";
+        string input4 = "";
+        string input5 = "1234";
+        string input6 = "test";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveFirstTwoToEnd(input1);
+        string result2 = BasicAlgorithm.MoveFirstTwoToEnd(input2);
+        string result3 = BasicAlgorithm.MoveFirstTwoToEnd(input3);
+        string result4 = BasicAlgorithm.MoveFirstTwoToEnd(input4);
+        string result5 = BasicAlgorithm.MoveFirstTwoToEnd(input5);
+        string result6 = BasicAlgorithm.MoveFirstTwoToEnd(input6);
+
+        // Assert
+        Assert.AreEqual("ab", result1);     
+        Assert.AreEqual("cab", result2);    
+        Assert.AreEqual("a", result3);      
+        Assert.AreEqual("", result4);       
+        Assert.AreEqual("3412", result5);   
+        Assert.AreEqual("stte", result6);   
+    }
+
+    [TestMethod]
+    public void MoveFirstTwoToEnd_LongerStrings()
+    {
+        // Arrange
+        string input1 = "programming";
+        string input2 = "abcdef";
+        string input3 = "HelloWorld";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveFirstTwoToEnd(input1);
+        string result2 = BasicAlgorithm.MoveFirstTwoToEnd(input2);
+        string result3 = BasicAlgorithm.MoveFirstTwoToEnd(input3);
+
+        // Assert
+        Assert.AreEqual("ogrammingpr", result1);     
+        Assert.AreEqual("cdefab", result2);          
+        Assert.AreEqual("lloWorldHe", result3);      
+    }
+
+    // Exercise 69 - Move Last Two Characters to Start
+
+    [TestMethod]
+    public void MoveLastTwoToStart_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "JS";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveLastTwoToStart(input1);
+        string result2 = BasicAlgorithm.MoveLastTwoToStart(input2);
+
+        // Assert
+        Assert.AreEqual("loHel", result1);
+        Assert.AreEqual("JS", result2);
+    }
+
+    [TestMethod]
+    public void MoveLastTwoToStart_EdgeCases()
+    {
+        // Arrange
+        string input1 = "ab";
+        string input2 = "abc";
+        string input3 = "a";
+        string input4 = "";
+        string input5 = "1234";
+        string input6 = "test";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveLastTwoToStart(input1);
+        string result2 = BasicAlgorithm.MoveLastTwoToStart(input2);
+        string result3 = BasicAlgorithm.MoveLastTwoToStart(input3);
+        string result4 = BasicAlgorithm.MoveLastTwoToStart(input4);
+        string result5 = BasicAlgorithm.MoveLastTwoToStart(input5);
+        string result6 = BasicAlgorithm.MoveLastTwoToStart(input6);
+
+        // Assert
+        Assert.AreEqual("ab", result1);     
+        Assert.AreEqual("bca", result2);    
+        Assert.AreEqual("a", result3);      
+        Assert.AreEqual("", result4);       
+        Assert.AreEqual("3412", result5);   
+        Assert.AreEqual("stte", result6);   
+    }
+
+    [TestMethod]
+    public void MoveLastTwoToStart_LongerStrings()
+    {
+        // Arrange
+        string input1 = "programming";
+        string input2 = "abcdef";
+        string input3 = "HelloWorld";
+
+        // Act
+        string result1 = BasicAlgorithm.MoveLastTwoToStart(input1);
+        string result2 = BasicAlgorithm.MoveLastTwoToStart(input2);
+        string result3 = BasicAlgorithm.MoveLastTwoToStart(input3);
+
+        // Assert
+        Assert.AreEqual("ngprogrammi", result1);    
+        Assert.AreEqual("efabcd", result2);         
+        Assert.AreEqual("ldHelloWor", result3);     
+    }
+
+    // Exercise 70 - Remove First and Last Char
+
+    [TestMethod]
+    public void RemoveFirstAndLastChars_TestCases()
+    {
+        // Arrange
+        string input1 = "Hello";
+        string input2 = "JS";
+        string input3 = "";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstAndLastChars(input1);
+        string result2 = BasicAlgorithm.RemoveFirstAndLastChars(input2);
+        string result3 = BasicAlgorithm.RemoveFirstAndLastChars(input3);
+
+        // Assert
+        Assert.AreEqual("ell", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("", result3);
+    }
+
+    [TestMethod]
+    public void RemoveFirstAndLastChars_EdgeCases()
+    {
+        // Arrange
+        string input1 = "a";
+        string input2 = "ab";
+        string input3 = "abc";
+        string input4 = "abcd";
+        string input5 = "test";
+        string input6 = "12345";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstAndLastChars(input1);
+        string result2 = BasicAlgorithm.RemoveFirstAndLastChars(input2);
+        string result3 = BasicAlgorithm.RemoveFirstAndLastChars(input3);
+        string result4 = BasicAlgorithm.RemoveFirstAndLastChars(input4);
+        string result5 = BasicAlgorithm.RemoveFirstAndLastChars(input5);
+        string result6 = BasicAlgorithm.RemoveFirstAndLastChars(input6);
+
+        // Assert
+        Assert.AreEqual("", result1);      
+        Assert.AreEqual("", result2);       
+        Assert.AreEqual("b", result3);      
+        Assert.AreEqual("bc", result4);     
+        Assert.AreEqual("es", result5);     
+        Assert.AreEqual("234", result6);    
+    }
+
+    [TestMethod]
+    public void RemoveFirstAndLastChar_LongerStrings()
+    {
+        // Arrange
+        string input1 = "programming";
+        string input2 = "Hello World";
+        string input3 = "abcdefghijk";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstAndLastChar(input1);
+        string result2 = BasicAlgorithm.RemoveFirstAndLastChar(input2);
+        string result3 = BasicAlgorithm.RemoveFirstAndLastChar(input3);
+
+        // Assert
+        Assert.AreEqual("rogrammin", result1);  
+        Assert.AreEqual("ello Worl", result2);  
+        Assert.AreEqual("bcdefghij", result3);  
+    }
+
+    // Exercise 71 - Two Middle Characters of Even-Length String
+
+    [TestMethod]
+    public void TwoMiddleChars_TestCases()
+    {
+        string input1 = "Hell";
+        string input2 = "JS";
+
+        string result1 = BasicAlgorithm.TwoMiddleChars(input1);
+        string result2 = BasicAlgorithm.TwoMiddleChars(input2);
+
+        Assert.AreEqual("el", result1);
+        Assert.AreEqual("JS", result2);
+    }
+
+    [TestMethod]
+    public void TwoMiddleChars_EdgeCases()
+    {
+        string input1 = "abcd";
+        string input2 = "test";
+        string input3 = "123456";
+        string input4 = "a";
+        string input5 = "abc";
+
+        string result1 = BasicAlgorithm.TwoMiddleChars(input1);
+        string result2 = BasicAlgorithm.TwoMiddleChars(input2);
+        string result3 = BasicAlgorithm.TwoMiddleChars(input3);
+        string result4 = BasicAlgorithm.TwoMiddleChars(input4);
+        string result5 = BasicAlgorithm.TwoMiddleChars(input5);
+
+        Assert.AreEqual("bc", result1);
+        Assert.AreEqual("es", result2);
+        Assert.AreEqual("34", result3);
+        Assert.AreEqual("a", result4);
+        Assert.AreEqual("abc", result5);
+    }
+
+    // Exercise 72 - Ends with 'on'
+
+    [TestMethod]
+    public void EndsWithOn_TestCases()
+    {
+        string input1 = "Hello";
+        string input2 = "Python";
+        string input3 = "on";
+        string input4 = "o";
+
+        bool result1 = BasicAlgorithm.EndsWithOn(input1);
+        bool result2 = BasicAlgorithm.EndsWithOn(input2);
+        bool result3 = BasicAlgorithm.EndsWithOn(input3);
+        bool result4 = BasicAlgorithm.EndsWithOn(input4);
+
+        Assert.IsFalse(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsFalse(result4);
+    }
+
+    [TestMethod]
+    public void EndsWithOn_EdgeCases()
+    {
+        string input1 = "";
+        string input2 = "n";
+        string input3 = "onon";
+        string input4 = "python";
+        string input5 = "ON";
+
+        bool result1 = BasicAlgorithm.EndsWithOn(input1);
+        bool result2 = BasicAlgorithm.EndsWithOn(input2);
+        bool result3 = BasicAlgorithm.EndsWithOn(input3);
+        bool result4 = BasicAlgorithm.EndsWithOn(input4);
+        bool result5 = BasicAlgorithm.EndsWithOn(input5);
+
+        Assert.IsFalse(result1);
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsFalse(result5);
+    }
+
+    // Exercise 73 - First and Last n Characters of String
+
+    [TestMethod]
+    public void FirstLastNChars_TestCases()
+    {
+        string input1 = "Hello";
+        int n1 = 1;
+        string input2 = "Python";
+        int n2 = 2;
+        string input3 = "on";
+        int n3 = 1;
+        string input4 = "o";
+        int n4 = 1;
+
+        string result1 = BasicAlgorithm.FirstLastNChars(input1, n1);
+        string result2 = BasicAlgorithm.FirstLastNChars(input2, n2);
+        string result3 = BasicAlgorithm.FirstLastNChars(input3, n3);
+        string result4 = BasicAlgorithm.FirstLastNChars(input4, n4);
+
+        Assert.AreEqual("Ho", result1);
+        Assert.AreEqual("Pyon", result2);
+        Assert.AreEqual("on", result3);
+        Assert.AreEqual("oo", result4);
+    }
+
+    [TestMethod]
+    public void FirstLastNChars_EdgeCases()
+    {
+        string input1 = "abcd";
+        int n1 = 2;
+        string input2 = "test";
+        int n2 = 3;
+        string input3 = "x";
+        int n3 = 2;
+        string input4 = "programming";
+        int n4 = 4;
+
+        string result1 = BasicAlgorithm.FirstLastNChars(input1, n1);
+        string result2 = BasicAlgorithm.FirstLastNChars(input2, n2);
+        string result3 = BasicAlgorithm.FirstLastNChars(input3, n3);
+        string result4 = BasicAlgorithm.FirstLastNChars(input4, n4);
+
+        Assert.AreEqual("abcd", result1);
+        Assert.AreEqual("tesest", result2);
+        Assert.AreEqual("x", result3);
+        Assert.AreEqual("progming", result4);
+    }
+
+    // Exercise 74 - Two Characters Starting at Index
+
+    [TestMethod]
+    public void TwoCharsFromIndex_TestCases()
+    {
+        string input1 = "Hello";
+        int index1 = 1;
+        string input2 = "Python";
+        int index2 = 2;
+        string input3 = "on";
+        int index3 = 1;
+
+        string result1 = BasicAlgorithm.TwoCharsFromIndex(input1, index1);
+        string result2 = BasicAlgorithm.TwoCharsFromIndex(input2, index2);
+        string result3 = BasicAlgorithm.TwoCharsFromIndex(input3, index3);
+
+        Assert.AreEqual("el", result1);
+        Assert.AreEqual("th", result2);
+        Assert.AreEqual("n", result3);
+    }
+
+    [TestMethod]
+    public void TwoCharsFromIndex_EdgeCases()
+    {
+        string input1 = "abcd";
+        int index1 = 3;
+        string input2 = "test";
+        int index2 = 0;
+        string input3 = "x";
+        int index3 = 0;
+        string input4 = "programming";
+        int index4 = 5;
+
+        string result1 = BasicAlgorithm.TwoCharsFromIndex(input1, index1);
+        string result2 = BasicAlgorithm.TwoCharsFromIndex(input2, index2);
+        string result3 = BasicAlgorithm.TwoCharsFromIndex(input3, index3);
+        string result4 = BasicAlgorithm.TwoCharsFromIndex(input4, index4);
+
+        Assert.AreEqual("d", result1);
+        Assert.AreEqual("te", result2);
+        Assert.AreEqual("x", result3);
+        Assert.AreEqual("am", result4);
+    }
+
+    // Exercise 75 - Three Characters from Middle of String
+
+    [TestMethod]
+    public void ThreeCharsFromMiddle_TestCases()
+    {
+        string input1 = "Hello";
+        string input2 = "Python";
+        string input3 = "abc";
+
+        string result1 = BasicAlgorithm.ThreeCharsFromMiddle(input1);
+        string result2 = BasicAlgorithm.ThreeCharsFromMiddle(input2);
+        string result3 = BasicAlgorithm.ThreeCharsFromMiddle(input3);
+
+        Assert.AreEqual("ell", result1);
+        Assert.AreEqual("tho", result2);
+        Assert.AreEqual("abc", result3);
+    }
+
+    [TestMethod]
+    public void ThreeCharsFromMiddle_EdgeCases()
+    {
+        string input1 = "abcd";
+        string input2 = "abcde";
+        string input3 = "abcdef";
+        string input4 = "a";
+        string input5 = "ab";
+
+        string result1 = BasicAlgorithm.ThreeCharsFromMiddle(input1);
+        string result2 = BasicAlgorithm.ThreeCharsFromMiddle(input2);
+        string result3 = BasicAlgorithm.ThreeCharsFromMiddle(input3);
+        string result4 = BasicAlgorithm.ThreeCharsFromMiddle(input4);
+        string result5 = BasicAlgorithm.ThreeCharsFromMiddle(input5);
+
+        Assert.AreEqual("bcd", result1);
+        Assert.AreEqual("bcd", result2);
+        Assert.AreEqual("cde", result3);
+        Assert.AreEqual("a", result4);
+        Assert.AreEqual("ab", result5);
+    }
+
+    // Exercise 76 - First Two Characters with Missing '#' if Short
+
+    [TestMethod]
+    public void FirstTwoCharsWithHash_TestCases()
+    {
+        string input1 = "Hello";
+        string input2 = "Python";
+        string input3 = "a";
+        string input4 = "";
+
+        string result1 = BasicAlgorithm.FirstTwoCharsWithHash(input1);
+        string result2 = BasicAlgorithm.FirstTwoCharsWithHash(input2);
+        string result3 = BasicAlgorithm.FirstTwoCharsWithHash(input3);
+        string result4 = BasicAlgorithm.FirstTwoCharsWithHash(input4);
+
+        Assert.AreEqual("He", result1);
+        Assert.AreEqual("Py", result2);
+        Assert.AreEqual("a#", result3);
+        Assert.AreEqual("##", result4);
+    }
+
+    [TestMethod]
+    public void FirstTwoCharsWithHash_EdgeCases()
+    {
+        string input1 = "ab";
+        string input2 = "x";
+        string input3 = "123";
+        string input4 = "  ";
+
+        string result1 = BasicAlgorithm.FirstTwoCharsWithHash(input1);
+        string result2 = BasicAlgorithm.FirstTwoCharsWithHash(input2);
+        string result3 = BasicAlgorithm.FirstTwoCharsWithHash(input3);
+        string result4 = BasicAlgorithm.FirstTwoCharsWithHash(input4);
+
+        Assert.AreEqual("ab", result1);
+        Assert.AreEqual("x#", result2);
+        Assert.AreEqual("12", result3);
+        Assert.AreEqual("  ", result4);
+    }
+
+    // Exercise 77 - First and Last Char of Two Strings
+
+    [TestMethod]
+    public void FirstAndLastChar_TestCases()
+    {
+        string a1 = "Hello", b1 = "Hi";
+        string a2 = "Python", b2 = "PHP";
+        string a3 = "JS", b3 = "JS";
+        string a4 = "Csharp", b4 = "";
+
+        string result1 = BasicAlgorithm.FirstAndLastChar(a1, b1);
+        string result2 = BasicAlgorithm.FirstAndLastChar(a2, b2);
+        string result3 = BasicAlgorithm.FirstAndLastChar(a3, b3);
+        string result4 = BasicAlgorithm.FirstAndLastChar(a4, b4);
+
+        Assert.AreEqual("Hi", result1);
+        Assert.AreEqual("PP", result2);
+        Assert.AreEqual("JS", result3);
+        Assert.AreEqual("C#", result4);
+    }
+
+    [TestMethod]
+    public void FirstAndLastChar_EdgeCases()
+    {
+        string a1 = "", b1 = "test";
+        string a2 = "x", b2 = "";
+        string a3 = "", b3 = "";
+        string a4 = "abc", b4 = "xyz";
+
+        string result1 = BasicAlgorithm.FirstAndLastChar(a1, b1);
+        string result2 = BasicAlgorithm.FirstAndLastChar(a2, b2);
+        string result3 = BasicAlgorithm.FirstAndLastChar(a3, b3);
+        string result4 = BasicAlgorithm.FirstAndLastChar(a4, b4);
+
+        Assert.AreEqual("#t", result1);
+        Assert.AreEqual("x#", result2);
+        Assert.AreEqual("##", result3);
+        Assert.AreEqual("az", result4);
+    }
+
+    // Exercise 78 - Combine Strings Removing Duplicates
+
+    [TestMethod]
+    public void CombineRemoveDuplicates_TestCases()
+    {
+        string a1 = "abc", b1 = "cat";
+        string a2 = "python", b2 = "php";
+        string a3 = "php", b3 = "php";
+
+        string result1 = BasicAlgorithm.CombineRemoveDuplicates(a1, b1);
+        string result2 = BasicAlgorithm.CombineRemoveDuplicates(a2, b2);
+        string result3 = BasicAlgorithm.CombineRemoveDuplicates(a3, b3);
+
+        Assert.AreEqual("abcat", result1);
+        Assert.AreEqual("pythonphp", result2);
+        Assert.AreEqual("phphp", result3);
+    }
+
+    [TestMethod]
+    public void CombineRemoveDuplicates_EdgeCases()
+    {
+        string a1 = "hello", b1 = "world";
+        string a2 = "test", b2 = "string";
+        string a3 = "x", b3 = "x";
+        string a4 = "", b4 = "abc";
+        string a5 = "abc", b5 = "";
+
+        string result1 = BasicAlgorithm.CombineRemoveDuplicates(a1, b1);
+        string result2 = BasicAlgorithm.CombineRemoveDuplicates(a2, b2);
+        string result3 = BasicAlgorithm.CombineRemoveDuplicates(a3, b3);
+        string result4 = BasicAlgorithm.CombineRemoveDuplicates(a4, b4);
+        string result5 = BasicAlgorithm.CombineRemoveDuplicates(a5, b5);
+
+        Assert.AreEqual("helloworld", result1);
+        Assert.AreEqual("teststring", result2);
+        Assert.AreEqual("x", result3);
+        Assert.AreEqual("abc", result4);
+        Assert.AreEqual("abc", result5);
+    }
+
+    // Exercise 79 - Swap Last Two Characters
+
+    [TestMethod]
+    public void SwapLastTwoChars_TestCases()
+    {
+        string input1 = "Hello";
+        string input2 = "Python";
+        string input3 = "PHP";
+        string input4 = "JS";
+        string input5 = "C";
+
+        string result1 = BasicAlgorithm.SwapLastTwoChars(input1);
+        string result2 = BasicAlgorithm.SwapLastTwoChars(input2);
+        string result3 = BasicAlgorithm.SwapLastTwoChars(input3);
+        string result4 = BasicAlgorithm.SwapLastTwoChars(input4);
+        string result5 = BasicAlgorithm.SwapLastTwoChars(input5);
+
+        Assert.AreEqual("Helol", result1);
+        Assert.AreEqual("Pythno", result2);
+        Assert.AreEqual("PPH", result3);
+        Assert.AreEqual("SJ", result4);
+        Assert.AreEqual("C", result5);
+    }
+
+    [TestMethod]
+    public void SwapLastTwoChars_EdgeCases()
+    {
+        string input1 = "ab";
+        string input2 = "abc";
+        string input3 = "";
+        string input4 = "test";
+        string input5 = "xy";
+
+        string result1 = BasicAlgorithm.SwapLastTwoChars(input1);
+        string result2 = BasicAlgorithm.SwapLastTwoChars(input2);
+        string result3 = BasicAlgorithm.SwapLastTwoChars(input3);
+        string result4 = BasicAlgorithm.SwapLastTwoChars(input4);
+        string result5 = BasicAlgorithm.SwapLastTwoChars(input5);
+
+        Assert.AreEqual("ba", result1);
+        Assert.AreEqual("acb", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("tets", result4);
+        Assert.AreEqual("yx", result5);
+    }
+
+    // Exercise 80 - Starts with 'abc' or 'xyz'
+
+    [TestMethod]
+    public void StartsWithAbcOrXyz_TestCases()
+    {
+        string input1 = "abc";
+        string input2 = "abcdef";
+        string input3 = "C";
+        string input4 = "xyz";
+        string input5 = "xyzsder";
+
+        string result1 = BasicAlgorithm.StartsWithAbcOrXyz(input1);
+        string result2 = BasicAlgorithm.StartsWithAbcOrXyz(input2);
+        string result3 = BasicAlgorithm.StartsWithAbcOrXyz(input3);
+        string result4 = BasicAlgorithm.StartsWithAbcOrXyz(input4);
+        string result5 = BasicAlgorithm.StartsWithAbcOrXyz(input5);
+
+        Assert.AreEqual("abc", result1);
+        Assert.AreEqual("abc", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("xyz", result4);
+        Assert.AreEqual("xyz", result5);
+    }
+
+    [TestMethod]
+    public void StartsWithAbcOrXyz_EdgeCases()
+    {
+        string input1 = "abcd";
+        string input2 = "xy";
+        string input3 = "";
+        string input4 = "abc123";
+        string input5 = "xyzabc";
+
+        string result1 = BasicAlgorithm.StartsWithAbcOrXyz(input1);
+        string result2 = BasicAlgorithm.StartsWithAbcOrXyz(input2);
+        string result3 = BasicAlgorithm.StartsWithAbcOrXyz(input3);
+        string result4 = BasicAlgorithm.StartsWithAbcOrXyz(input4);
+        string result5 = BasicAlgorithm.StartsWithAbcOrXyz(input5);
+
+        Assert.AreEqual("abc", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("abc", result4);
+        Assert.AreEqual("xyz", result5);
+    }
+
+    // Exercise 81 - First Two and Last Two Characters Same
+
+    [TestMethod]
+    public void FirstTwoLastTwoSame_TestCases()
+    {
+        string input1 = "abab";
+        string input2 = "abcdef";
+        string input3 = "xyzsderxy";
+
+        bool result1 = BasicAlgorithm.FirstTwoLastTwoSame(input1);
+        bool result2 = BasicAlgorithm.FirstTwoLastTwoSame(input2);
+        bool result3 = BasicAlgorithm.FirstTwoLastTwoSame(input3);
+
+        Assert.IsTrue(result1);
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
+    }
+
+    [TestMethod]
+    public void FirstTwoLastTwoSame_EdgeCases()
+    {
+        string input1 = "ab";
+        string input2 = "aa";
+        string input3 = "a";
+        string input4 = "";
+        string input5 = "abcab";
+        string input6 = "xyzxyz";
+
+        bool result1 = BasicAlgorithm.FirstTwoLastTwoSame(input1);
+        bool result2 = BasicAlgorithm.FirstTwoLastTwoSame(input2);
+        bool result3 = BasicAlgorithm.FirstTwoLastTwoSame(input3);
+        bool result4 = BasicAlgorithm.FirstTwoLastTwoSame(input4);
+        bool result5 = BasicAlgorithm.FirstTwoLastTwoSame(input5);
+        bool result6 = BasicAlgorithm.FirstTwoLastTwoSame(input6);
+
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsFalse(result3);
+        Assert.IsFalse(result4);
+        Assert.IsTrue(result5);
+        Assert.IsFalse(result6);
+    }
+
+    // Exercise 82 - Combine Strings After Adjusting Lengths
+
+    [TestMethod]
+    public void CombineAdjustLengths_TestCases()
+    {
+        string a1 = "abc", b1 = "abcd";
+        string a2 = "Python", b2 = "Python";
+        string a3 = "JS", b3 = "Python";
+
+        string result1 = BasicAlgorithm.CombineAdjustLengths(a1, b1);
+        string result2 = BasicAlgorithm.CombineAdjustLengths(a2, b2);
+        string result3 = BasicAlgorithm.CombineAdjustLengths(a3, b3);
+
+        Assert.AreEqual("abcabc", result1);
+        Assert.AreEqual("PythonPython", result2);
+        Assert.AreEqual("JSPy", result3);
+    }
+
+    [TestMethod]
+    public void CombineAdjustLengths_EdgeCases()
+    {
+        string a1 = "a", b1 = "bc";
+        string a2 = "test", b2 = "x";
+        string a3 = "", b3 = "abc";
+        string a4 = "123", b4 = "4567";
+        string a5 = "long", b5 = "short";
+
+        string result1 = BasicAlgorithm.CombineAdjustLengths(a1, b1);
+        string result2 = BasicAlgorithm.CombineAdjustLengths(a2, b2);
+        string result3 = BasicAlgorithm.CombineAdjustLengths(a3, b3);
+        string result4 = BasicAlgorithm.CombineAdjustLengths(a4, b4);
+        string result5 = BasicAlgorithm.CombineAdjustLengths(a5, b5);
+
+        Assert.AreEqual("ab", result1);
+        Assert.AreEqual("tx", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("123456", result4);
+        Assert.AreEqual("longshor", result5);
+    }
+
+    // Exercise 83 - Three Copies of First Two Characters
+
+    [TestMethod]
+    public void ThreeCopiesFirstTwo_TestCases()
+    {
+        string input1 = "abc";
+        string input2 = "Python";
+        string input3 = "J";
+
+        string result1 = BasicAlgorithm.ThreeCopiesFirstTwo(input1);
+        string result2 = BasicAlgorithm.ThreeCopiesFirstTwo(input2);
+        string result3 = BasicAlgorithm.ThreeCopiesFirstTwo(input3);
+
+        Assert.AreEqual("ababab", result1);
+        Assert.AreEqual("PyPyPy", result2);
+        Assert.AreEqual("JJJ", result3);
+    }
+
+    [TestMethod]
+    public void ThreeCopiesFirstTwo_EdgeCases()
+    {
+        string input1 = "ab";
+        string input2 = "a";
+        string input3 = "";
+        string input4 = "test";
+        string input5 = "12345";
+
+        string result1 = BasicAlgorithm.ThreeCopiesFirstTwo(input1);
+        string result2 = BasicAlgorithm.ThreeCopiesFirstTwo(input2);
+        string result3 = BasicAlgorithm.ThreeCopiesFirstTwo(input3);
+        string result4 = BasicAlgorithm.ThreeCopiesFirstTwo(input4);
+        string result5 = BasicAlgorithm.ThreeCopiesFirstTwo(input5);
+
+        Assert.AreEqual("ababab", result1);
+        Assert.AreEqual("aaa", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("tetete", result4);
+        Assert.AreEqual("121212", result5);
+    }
+
+    // Exercise 84 - Remove First Two if Start and End Match
+
+    [TestMethod]
+    public void RemoveFirstTwoIfEndsMatch_TestCases()
+    {
+        string input1 = "abcab";
+        string input2 = "Python";
+
+        string result1 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input2);
+
+        Assert.AreEqual("abcab", result1);
+        Assert.AreEqual("Python", result2);
+    }
+
+    [TestMethod]
+    public void RemoveFirstTwoIfEndsMatch_EdgeCases()
+    {
+        string input1 = "abca";
+        string input2 = "xx";
+        string input3 = "x";
+        string input4 = "";
+        string input5 = "aabaa";
+        string input6 = "testt";
+
+        string result1 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input2);
+        string result3 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input3);
+        string result4 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input4);
+        string result5 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input5);
+        string result6 = BasicAlgorithm.RemoveFirstTwoIfEndsMatch(input6);
+
+        Assert.AreEqual("ca", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("x", result3);
+        Assert.AreEqual("", result4);
+        Assert.AreEqual("baa", result5);
+        Assert.AreEqual("stt", result6);
+    }
+
+    // Exercise 85 - Remove First Two Except 'p' and 'y'
+
+    [TestMethod]
+    public void RemoveFirstTwoExceptPY_TestCases()
+    {
+        // Arrange
+        string input1 = "abcab";
+        string input2 = "python";
+        string input3 = "press";
+        string input4 = "jython";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstTwoExceptPY(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoExceptPY(input2);
+        string result3 = BasicAlgorithm.RemoveFirstTwoExceptPY(input3);
+        string result4 = BasicAlgorithm.RemoveFirstTwoExceptPY(input4);
+
+        // Assert
+        Assert.AreEqual("cab", result1);
+        Assert.AreEqual("python", result2);
+        Assert.AreEqual("pess", result3);
+        Assert.AreEqual("ython", result4);
+    }
+
+    [TestMethod]
+    public void RemoveFirstTwoExceptPY_EdgeCases()
+    {
+        // Arrange
+        string input1 = "py";
+        string input2 = "p";
+        string input3 = "";
+        string input4 = "xylophone";
+        string input5 = "pythonic";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstTwoExceptPY(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoExceptPY(input2);
+        string result3 = BasicAlgorithm.RemoveFirstTwoExceptPY(input3);
+        string result4 = BasicAlgorithm.RemoveFirstTwoExceptPY(input4);
+        string result5 = BasicAlgorithm.RemoveFirstTwoExceptPY(input5);
+
+        // Assert
+        Assert.AreEqual("py", result1);
+        Assert.AreEqual("p", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("ylophone", result4);
+        Assert.AreEqual("pythonic", result5);
+    }
+
+    // Exercise 86 - Remove 'a' if at Start or End
+
+    [TestMethod]
+    public void RemoveAIfAtStartOrEnd_TestCases()
+    {
+        // Arrange
+        string input1 = "abcab";
+        string input2 = "python";
+        string input3 = "abcda";
+        string input4 = "jython";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input1);
+        string result2 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input2);
+        string result3 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input3);
+        string result4 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input4);
+
+        // Assert
+        Assert.AreEqual("bcab", result1);
+        Assert.AreEqual("python", result2);
+        Assert.AreEqual("bcd", result3);
+        Assert.AreEqual("jython", result4);
+    }
+
+    [TestMethod]
+    public void RemoveAIfAtStartOrEnd_EdgeCases()
+    {
+        // Arrange
+        string input1 = "a";
+        string input2 = "aa";
+        string input3 = "aba";
+        string input4 = "";
+        string input5 = "banana";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input1);
+        string result2 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input2);
+        string result3 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input3);
+        string result4 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input4);
+        string result5 = BasicAlgorithm.RemoveAIfAtStartOrEnd(input5);
+
+        // Assert
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("b", result3);
+        Assert.AreEqual("", result4);
+        Assert.AreEqual("banan", result5);
+    }
+
+    // Exercise 87 - Remove First Two 'a's if Present
+
+    [TestMethod]
+    public void RemoveFirstTwoAs_TestCases()
+    {
+        // Arrange
+        string input1 = "abcab";
+        string input2 = "python";
+        string input3 = "aacda";
+        string input4 = "jython";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstTwoAs(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoAs(input2);
+        string result3 = BasicAlgorithm.RemoveFirstTwoAs(input3);
+        string result4 = BasicAlgorithm.RemoveFirstTwoAs(input4);
+
+        // Assert
+        Assert.AreEqual("bcab", result1);
+        Assert.AreEqual("python", result2);
+        Assert.AreEqual("cda", result3);
+        Assert.AreEqual("jython", result4);
+    }
+
+    [TestMethod]
+    public void RemoveFirstTwoAs_EdgeCases()
+    {
+        // Arrange
+        string input1 = "aa";
+        string input2 = "a";
+        string input3 = "";
+        string input4 = "banana";
+        string input5 = "aabaa";
+
+        // Act
+        string result1 = BasicAlgorithm.RemoveFirstTwoAs(input1);
+        string result2 = BasicAlgorithm.RemoveFirstTwoAs(input2);
+        string result3 = BasicAlgorithm.RemoveFirstTwoAs(input3);
+        string result4 = BasicAlgorithm.RemoveFirstTwoAs(input4);
+        string result5 = BasicAlgorithm.RemoveFirstTwoAs(input5);
+
+        // Assert
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("", result3);
+        Assert.AreEqual("banana", result4);
+        Assert.AreEqual("baa", result5);
+    }
+
+    // Exercise 88 - 10 as First or Last Element in Array
+
+    [TestMethod]
+    public void Check10FirstOrLast_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 10, 20, 40, 50 };
+        int[] nums2 = { 5, 20, 40, 10 };
+        int[] nums3 = { 10, 20, 40, 10 };
+        int[] nums4 = { 12, 24, 35, 55 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Check10FirstOrLast(nums1);
+        bool result2 = BasicAlgorithm.Check10FirstOrLast(nums2);
+        bool result3 = BasicAlgorithm.Check10FirstOrLast(nums3);
+        bool result4 = BasicAlgorithm.Check10FirstOrLast(nums4);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsFalse(result4);
+    }
+
+    [TestMethod]
+    public void Check10FirstOrLast_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 10 };
+        int[] nums2 = { 10, 10 };
+        int[] nums3 = { 5, 10 };
+        int[] nums4 = { 10, 5 };
+        int[] nums5 = { 1, 2, 3 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Check10FirstOrLast(nums1);
+        bool result2 = BasicAlgorithm.Check10FirstOrLast(nums2);
+        bool result3 = BasicAlgorithm.Check10FirstOrLast(nums3);
+        bool result4 = BasicAlgorithm.Check10FirstOrLast(nums4);
+        bool result5 = BasicAlgorithm.Check10FirstOrLast(nums5);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsFalse(result5);
+    }
+
+    // Exercise 89 - First and Last Array Elements Equal
+
+    [TestMethod]
+    public void FirstLastEqual_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 10, 20, 40, 50 };
+        int[] nums2 = { 10, 20, 40, 10 };
+        int[] nums3 = { 12, 24, 35, 55 };
+
+        // Act
+        bool result1 = BasicAlgorithm.FirstLastEqual(nums1);
+        bool result2 = BasicAlgorithm.FirstLastEqual(nums2);
+        bool result3 = BasicAlgorithm.FirstLastEqual(nums3);
+
+        // Assert
+        Assert.IsFalse(result1);
+        Assert.IsTrue(result2);
+        Assert.IsFalse(result3);
+    }
+
+    [TestMethod]
+    public void FirstLastEqual_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5 };
+        int[] nums2 = { 10, 10 };
+        int[] nums3 = { 1, 2, 1 };
+        int[] nums4 = { 7, 8, 9, 7 };
+        int[] nums5 = { 3, 4, 5, 6 };
+
+        // Act
+        bool result1 = BasicAlgorithm.FirstLastEqual(nums1);
+        bool result2 = BasicAlgorithm.FirstLastEqual(nums2);
+        bool result3 = BasicAlgorithm.FirstLastEqual(nums3);
+        bool result4 = BasicAlgorithm.FirstLastEqual(nums4);
+        bool result5 = BasicAlgorithm.FirstLastEqual(nums5);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsFalse(result5);
+    }
+
+    // Exercise 90 - Same First or Last Element in Two Arrays
+
+    [TestMethod]
+    public void SameFirstOrLast_TestCases()
+    {
+        // Arrange
+        int[] a1 = { 10, 20, 40, 50 };
+        int[] b1 = { 10, 20, 40, 50 };
+        int[] a2 = { 10, 20, 40, 50 };
+        int[] b2 = { 10, 20, 40, 5 };
+        int[] a3 = { 10, 20, 40, 50 };
+        int[] b3 = { 1, 20, 40, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.SameFirstOrLast(a1, b1);
+        bool result2 = BasicAlgorithm.SameFirstOrLast(a2, b2);
+        bool result3 = BasicAlgorithm.SameFirstOrLast(a3, b3);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsFalse(result3);
+    }
+
+    [TestMethod]
+    public void SameFirstOrLast_EdgeCases()
+    {
+        // Arrange
+        int[] a1 = { 5 };
+        int[] b1 = { 5 };
+        int[] a2 = { 1, 2 };
+        int[] b2 = { 3, 2 };
+        int[] a3 = { 7, 8, 9 };
+        int[] b3 = { 7, 1, 1 };
+        int[] a4 = { 4, 5, 6 };
+        int[] b4 = { 1, 2, 6 };
+        int[] a5 = { 1, 2, 3 };
+        int[] b5 = { 4, 5, 6 };
+
+        // Act
+        bool result1 = BasicAlgorithm.SameFirstOrLast(a1, b1);
+        bool result2 = BasicAlgorithm.SameFirstOrLast(a2, b2);
+        bool result3 = BasicAlgorithm.SameFirstOrLast(a3, b3);
+        bool result4 = BasicAlgorithm.SameFirstOrLast(a4, b4);
+        bool result5 = BasicAlgorithm.SameFirstOrLast(a5, b5);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsFalse(result5);
+    }
+
+    // Exercise 91 - Sum of Array Elements
+
+    [TestMethod]
+    public void SumArray_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 10, 20, 30, 40, 50 };
+        int[] nums2 = { 10, 20, -30, -40, 50 };
+
+        // Act
+        int result1 = BasicAlgorithm.SumArray(nums1);
+        int result2 = BasicAlgorithm.SumArray(nums2);
+
+        // Assert
+        Assert.AreEqual(150, result1);
+        Assert.AreEqual(10, result2);
+    }
+
+    [TestMethod]
+    public void SumArray_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5 };
+        int[] nums2 = { };
+        int[] nums3 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int[] nums4 = { -1, -2, -3, -4, -5 };
+        int[] nums5 = { 0, 0, 0, 0 };
+
+        // Act
+        int result1 = BasicAlgorithm.SumArray(nums1);
+        int result2 = BasicAlgorithm.SumArray(nums2);
+        int result3 = BasicAlgorithm.SumArray(nums3);
+        int result4 = BasicAlgorithm.SumArray(nums4);
+        int result5 = BasicAlgorithm.SumArray(nums5);
+
+        // Assert
+        Assert.AreEqual(5, result1);
+        Assert.AreEqual(0, result2);
+        Assert.AreEqual(55, result3);
+        Assert.AreEqual(-15, result4);
+        Assert.AreEqual(0, result5);
+    }
+
+    // Exercise 92 - Rotate Array Left
+
+    [TestMethod]
+    public void RotateLeft_TestCases()
+    {
+        // Arrange
+        int[] nums = { 10, 20, -30, -40 };
+
+        // Act
+        int[] result = BasicAlgorithm.RotateLeft(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 20, -30, -40, 10 }, result);
+    }
+
+    [TestMethod]
+    public void RotateLeft_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1, 2, 3, 4 };
+        int[] nums2 = { 5 };
+        int[] nums3 = { };
+        int[] nums4 = { -1, -2, -3, -4 };
+        int[] nums5 = { 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.RotateLeft(nums1);
+        int[] result2 = BasicAlgorithm.RotateLeft(nums2);
+        int[] result3 = BasicAlgorithm.RotateLeft(nums3);
+        int[] result4 = BasicAlgorithm.RotateLeft(nums4);
+        int[] result5 = BasicAlgorithm.RotateLeft(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 2, 3, 4, 1 }, result1);
+        CollectionAssert.AreEqual(new int[] { 5 }, result2);
+        CollectionAssert.AreEqual(new int[] { }, result3);
+        CollectionAssert.AreEqual(new int[] { -2, -3, -4, -1 }, result4);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0 }, result5);
+    }
+
+    // Exercise 93 - Reverse Array
+
+    [TestMethod]
+    public void ReverseArray_TestCases()
+    {
+        // Arrange
+        int[] nums = { 10, 20, -30, -40, 50 };
+
+        // Act
+        int[] result = BasicAlgorithm.ReverseArray(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 50, -40, -30, 20, 10 }, result);
+    }
+
+    [TestMethod]
+    public void ReverseArray_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1, 2, 3, 4, 5 };
+        int[] nums2 = { 5 };
+        int[] nums3 = { };
+        int[] nums4 = { -1, -2, -3, -4, -5 };
+        int[] nums5 = { 0, 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.ReverseArray(nums1);
+        int[] result2 = BasicAlgorithm.ReverseArray(nums2);
+        int[] result3 = BasicAlgorithm.ReverseArray(nums3);
+        int[] result4 = BasicAlgorithm.ReverseArray(nums4);
+        int[] result5 = BasicAlgorithm.ReverseArray(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 5, 4, 3, 2, 1 }, result1);
+        CollectionAssert.AreEqual(new int[] { 5 }, result2);
+        CollectionAssert.AreEqual(new int[] { }, result3);
+        CollectionAssert.AreEqual(new int[] { -5, -4, -3, -2, -1 }, result4);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0, 0 }, result5);
+    }
+
+    // Exercise 94 - Replace All Elements with Max of First/Last
+
+    [TestMethod]
+    public void ReplaceWithMax_TestCases()
+    {
+        // Arrange
+        int[] nums = { 10, 20, -30, -40 };
+
+        // Act
+        int[] result = BasicAlgorithm.ReplaceWithMax(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 20, 20, 20, 20 }, result);
+    }
+
+    [TestMethod]
+    public void ReplaceWithMax_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5, 2, 3, 4 };
+        int[] nums2 = { 10 };
+        int[] nums3 = { -5, -10, -3, -1 };
+        int[] nums4 = { 0, 0, 0, 0 };
+        int[] nums5 = { 100, 50, 75, 200 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.ReplaceWithMax(nums1);
+        int[] result2 = BasicAlgorithm.ReplaceWithMax(nums2);
+        int[] result3 = BasicAlgorithm.ReplaceWithMax(nums3);
+        int[] result4 = BasicAlgorithm.ReplaceWithMax(nums4);
+        int[] result5 = BasicAlgorithm.ReplaceWithMax(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 5, 5, 5, 5 }, result1);
+        CollectionAssert.AreEqual(new int[] { 10 }, result2);
+        CollectionAssert.AreEqual(new int[] { -1, -1, -1, -1 }, result3);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0 }, result4);
+        CollectionAssert.AreEqual(new int[] { 200, 200, 200, 200 }, result5);
+    }
+
+    // Exercise 95 - Middle Elements from Two Arrays
+
+    [TestMethod]
+    public void GetMiddleElements_TestCases()
+    {
+        // Arrange
+        int[] a = { 10, 20, -30, -40, 30 };
+        int[] b = { 10, 20, 30, 40, 30 };
+
+        // Act
+        int[] result = BasicAlgorithm.GetMiddleElements(a, b);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { -30, 30 }, result);
+    }
+
+    [TestMethod]
+    public void GetMiddleElements_EdgeCases()
+    {
+        // Arrange
+        int[] a1 = { 1, 2, 3, 4, 5 };
+        int[] b1 = { 5, 4, 3, 2, 1 };
+        int[] a2 = { 0, 0, 0, 0, 0 };
+        int[] b2 = { 1, 1, 1, 1, 1 };
+        int[] a3 = { -1, -2, -3, -4, -5 };
+        int[] b3 = { -5, -4, -3, -2, -1 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.GetMiddleElements(a1, b1);
+        int[] result2 = BasicAlgorithm.GetMiddleElements(a2, b2);
+        int[] result3 = BasicAlgorithm.GetMiddleElements(a3, b3);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 3, 3 }, result1);
+        CollectionAssert.AreEqual(new int[] { 0, 1 }, result2);
+        CollectionAssert.AreEqual(new int[] { -3, -3 }, result3);
+    }
+
+    // Exercise 96 - First and Last Elements of Array
+
+    [TestMethod]
+    public void GetFirstLastElements_TestCases()
+    {
+        // Arrange
+        int[] nums = { 10, 20, -30, -40, 30 };
+
+        // Act
+        int[] result = BasicAlgorithm.GetFirstLastElements(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 10, 30 }, result);
+    }
+
+    [TestMethod]
+    public void GetFirstLastElements_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5 };
+        int[] nums2 = { 1, 2 };
+        int[] nums3 = { -1, -2, -3 };
+        int[] nums4 = { 0, 0, 0, 0 };
+        int[] nums5 = { 100, 200, 300, 400, 500 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.GetFirstLastElements(nums1);
+        int[] result2 = BasicAlgorithm.GetFirstLastElements(nums2);
+        int[] result3 = BasicAlgorithm.GetFirstLastElements(nums3);
+        int[] result4 = BasicAlgorithm.GetFirstLastElements(nums4);
+        int[] result5 = BasicAlgorithm.GetFirstLastElements(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 5, 5 }, result1);
+        CollectionAssert.AreEqual(new int[] { 1, 2 }, result2);
+        CollectionAssert.AreEqual(new int[] { -1, -3 }, result3);
+        CollectionAssert.AreEqual(new int[] { 0, 0 }, result4);
+        CollectionAssert.AreEqual(new int[] { 100, 500 }, result5);
+    }
+
+    // Exercise 97 - Array of Length 2 Contains 15 or 20
+
+    [TestMethod]
+    public void Contains15Or20_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 12, 20 };
+        int[] nums2 = { 14, 15 };
+        int[] nums3 = { 11, 21 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Contains15Or20(nums1);
+        bool result2 = BasicAlgorithm.Contains15Or20(nums2);
+        bool result3 = BasicAlgorithm.Contains15Or20(nums3);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsFalse(result3);
+    }
+
+    [TestMethod]
+    public void Contains15Or20_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 15, 15 };
+        int[] nums2 = { 20, 20 };
+        int[] nums3 = { 15, 20 };
+        int[] nums4 = { 0, 15 };
+        int[] nums5 = { 20, 0 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Contains15Or20(nums1);
+        bool result2 = BasicAlgorithm.Contains15Or20(nums2);
+        bool result3 = BasicAlgorithm.Contains15Or20(nums3);
+        bool result4 = BasicAlgorithm.Contains15Or20(nums4);
+        bool result5 = BasicAlgorithm.Contains15Or20(nums5);
+
+        // Assert
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsTrue(result5);
+    }
+
+    // Exercise 98 - Array of Length 2 Does Not Contain 15 or 20
+
+    [TestMethod]
+    public void NotContains15Or20_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 12, 20 };
+        int[] nums2 = { 14, 15 };
+        int[] nums3 = { 11, 21 };
+
+        // Act
+        bool result1 = BasicAlgorithm.NotContains15Or20(nums1);
+        bool result2 = BasicAlgorithm.NotContains15Or20(nums2);
+        bool result3 = BasicAlgorithm.NotContains15Or20(nums3);
+
+        // Assert
+        Assert.IsFalse(result1);
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
+    }
+
+    [TestMethod]
+    public void NotContains15Or20_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 15, 15 };
+        int[] nums2 = { 20, 20 };
+        int[] nums3 = { 15, 20 };
+        int[] nums4 = { 10, 25 };
+        int[] nums5 = { 0, 30 };
+
+        // Act
+        bool result1 = BasicAlgorithm.NotContains15Or20(nums1);
+        bool result2 = BasicAlgorithm.NotContains15Or20(nums2);
+        bool result3 = BasicAlgorithm.NotContains15Or20(nums3);
+        bool result4 = BasicAlgorithm.NotContains15Or20(nums4);
+        bool result5 = BasicAlgorithm.NotContains15Or20(nums5);
+
+        // Assert
+        Assert.IsFalse(result1);
+        Assert.IsFalse(result2);
+        Assert.IsFalse(result3);
+        Assert.IsTrue(result4);
+        Assert.IsTrue(result5);
+    }
+
+    // Exercise 99 - Double Length Array with First Element Copied
+
+    [TestMethod]
+    public void DoubleLengthArray_TestCases()
+    {
+        // Arrange
+        int[] nums = { 10, 20, -30, -40, 30 };
+
+        // Act
+        int[] result = BasicAlgorithm.DoubleLengthArray(nums);
+
+        // Assert
+        int[] expected = { 10, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    [TestMethod]
+    public void DoubleLengthArray_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5 };
+        int[] nums2 = { 1, 2 };
+        int[] nums3 = { -1, -2, -3 };
+        int[] nums4 = { 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.DoubleLengthArray(nums1);
+        int[] result2 = BasicAlgorithm.DoubleLengthArray(nums2);
+        int[] result3 = BasicAlgorithm.DoubleLengthArray(nums3);
+        int[] result4 = BasicAlgorithm.DoubleLengthArray(nums4);
+
+        // Assert
+        int[] expected1 = { 5, 0 };
+        int[] expected2 = { 1, 0, 0, 0 };
+        int[] expected3 = { -1, 0, 0, 0, 0, 0 };
+        int[] expected4 = { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        CollectionAssert.AreEqual(expected1, result1);
+        CollectionAssert.AreEqual(expected2, result2);
+        CollectionAssert.AreEqual(expected3, result3);
+        CollectionAssert.AreEqual(expected4, result4);
+    }
+
+    // Exercise 100 - Check if 10 or 20 Appears Twice in Array
+
+    [TestMethod]
+    public void Contains10Or20Twice_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 12, 20 };
+        int[] nums2 = { 20, 20 };
+        int[] nums3 = { 10, 10 };
+        int[] nums4 = { 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Contains10Or20Twice(nums1);
+        bool result2 = BasicAlgorithm.Contains10Or20Twice(nums2);
+        bool result3 = BasicAlgorithm.Contains10Or20Twice(nums3);
+        bool result4 = BasicAlgorithm.Contains10Or20Twice(nums4);
+
+        // Assert
+        Assert.IsFalse(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsFalse(result4);
+    }
+
+    [TestMethod]
+    public void Contains10Or20Twice_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { };
+        int[] nums2 = { 10, 20 };
+        int[] nums3 = { 10, 10, 10 };
+        int[] nums4 = { 20, 20, 20 };
+        int[] nums5 = { 5, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Contains10Or20Twice(nums1);
+        bool result2 = BasicAlgorithm.Contains10Or20Twice(nums2);
+        bool result3 = BasicAlgorithm.Contains10Or20Twice(nums3);
+        bool result4 = BasicAlgorithm.Contains10Or20Twice(nums4);
+        bool result5 = BasicAlgorithm.Contains10Or20Twice(nums5);
+
+        // Assert
+        Assert.IsFalse(result1);
+        Assert.IsFalse(result2);
+        Assert.IsFalse(result3);
+        Assert.IsFalse(result4);
+        Assert.IsFalse(result5);
+    }
+
+    // Exercise 101 - Set 7 to 1 if Followed by 5
+
+    [TestMethod]
+    public void Set7To1IfFollowedBy5_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7 };
+
+        // Act
+        int[] result = BasicAlgorithm.Set7To1IfFollowedBy5(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1, 5, 1 }, result);
+    }
+
+    [TestMethod]
+    public void Set7To1IfFollowedBy5_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5, 7, 8 };
+        int[] nums2 = { 5, 7, 7 };
+        int[] nums3 = { 1, 2, 3 };
+        int[] nums4 = { 5, 5, 7 };
+        int[] nums5 = { 7, 5, 7 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.Set7To1IfFollowedBy5(nums1);
+        int[] result2 = BasicAlgorithm.Set7To1IfFollowedBy5(nums2);
+        int[] result3 = BasicAlgorithm.Set7To1IfFollowedBy5(nums3);
+        int[] result4 = BasicAlgorithm.Set7To1IfFollowedBy5(nums4);
+        int[] result5 = BasicAlgorithm.Set7To1IfFollowedBy5(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 5, 1, 8 }, result1);
+        CollectionAssert.AreEqual(new int[] { 5, 1, 7 }, result2);
+        CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, result3);
+        CollectionAssert.AreEqual(new int[] { 5, 5, 1 }, result4);
+        CollectionAssert.AreEqual(new int[] { 7, 5, 1 }, result5);
+    }
+
+    // Exercise 102 - Largest Sum Between Two Arrays
+
+    [TestMethod]
+    public void GetLargerSumArray_TestCases()
+    {
+        // Arrange
+        int[] a = { 10, 20, -30 };
+        int[] b = { 10, 20, 30 };
+
+        // Act
+        int[] result = BasicAlgorithm.GetLargerSumArray(a, b);
+
+        // Assert
+        CollectionAssert.AreEqual(b, result);
+    }
+
+    [TestMethod]
+    public void GetLargerSumArray_EdgeCases()
+    {
+        // Arrange
+        int[] a1 = { 1, 2, 3 };
+        int[] b1 = { 4, 5, 6 };
+        int[] a2 = { 10, 10, 10 };
+        int[] b2 = { 5, 15, 10 };
+        int[] a3 = { -1, -2, -3 };
+        int[] b3 = { -4, -5, -6 };
+        int[] a4 = { 0, 0, 0 };
+        int[] b4 = { 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.GetLargerSumArray(a1, b1);
+        int[] result2 = BasicAlgorithm.GetLargerSumArray(a2, b2);
+        int[] result3 = BasicAlgorithm.GetLargerSumArray(a3, b3);
+        int[] result4 = BasicAlgorithm.GetLargerSumArray(a4, b4);
+
+        // Assert
+        CollectionAssert.AreEqual(b1, result1);
+        CollectionAssert.AreEqual(a2, result2);
+        CollectionAssert.AreEqual(a3, result3);
+        CollectionAssert.AreEqual(a4, result4);
+    }
+
+    // Exercise 103 - Middle Elements of Even-Length Array
+
+    [TestMethod]
+    public void GetMiddleElement_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 11, 13 };
+
+        // Act
+        int[] result = BasicAlgorithm.GetMiddleElements(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 7, 9 }, result);
+    }
+
+    [TestMethod]
+    public void GetMiddleElement_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1, 2 };
+        int[] nums2 = { 1, 2, 3, 4 };
+        int[] nums3 = { 10, 20, 30, 40, 50, 60 };
+        int[] nums4 = { -1, -2, -3, -4 };
+        int[] nums5 = { 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.GetMiddleElements(nums1);
+        int[] result2 = BasicAlgorithm.GetMiddleElements(nums2);
+        int[] result3 = BasicAlgorithm.GetMiddleElements(nums3);
+        int[] result4 = BasicAlgorithm.GetMiddleElements(nums4);
+        int[] result5 = BasicAlgorithm.GetMiddleElements(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1, 2 }, result1);
+        CollectionAssert.AreEqual(new int[] { 2, 3 }, result2);
+        CollectionAssert.AreEqual(new int[] { 30, 40 }, result3);
+        CollectionAssert.AreEqual(new int[] { -2, -3 }, result4);
+        CollectionAssert.AreEqual(new int[] { 0, 0 }, result5);
+    }
+
+    // Exercise 104 - Merge Two Arrays of Length 3
+
+    [TestMethod]
+    public void MergeArrays_TestCases()
+    {
+        // Arrange
+        int[] a = { 10, 20, 30 };
+        int[] b = { 40, 50, 60 };
+
+        // Act
+        int[] result = BasicAlgorithm.MergeArrays(a, b);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 10, 20, 30, 40, 50, 60 }, result);
+    }
+
+    [TestMethod]
+    public void MergeArrays_EdgeCases()
+    {
+        // Arrange
+        int[] a1 = { 1, 2, 3 };
+        int[] b1 = { 4, 5, 6 };
+        int[] a2 = { -1, -2, -3 };
+        int[] b2 = { -4, -5, -6 };
+        int[] a3 = { 0, 0, 0 };
+        int[] b3 = { 0, 0, 0 };
+        int[] a4 = { 100, 200, 300 };
+        int[] b4 = { 400, 500, 600 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.MergeArrays(a1, b1);
+        int[] result2 = BasicAlgorithm.MergeArrays(a2, b2);
+        int[] result3 = BasicAlgorithm.MergeArrays(a3, b3);
+        int[] result4 = BasicAlgorithm.MergeArrays(a4, b4);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5, 6 }, result1);
+        CollectionAssert.AreEqual(new int[] { -1, -2, -3, -4, -5, -6 }, result2);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0, 0, 0 }, result3);
+        CollectionAssert.AreEqual(new int[] { 100, 200, 300, 400, 500, 600 }, result4);
+    }
+
+    // Exercise 105 - Swap First and Last Array Elements
+
+    [TestMethod]
+    public void SwapFirstLast_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 11, 13 };
+
+        // Act
+        int[] result = BasicAlgorithm.SwapFirstLast(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 13, 5, 7, 9, 11, 1 }, result);
+    }
+
+    [TestMethod]
+    public void SwapFirstLast_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1 };
+        int[] nums2 = { 1, 2 };
+        int[] nums3 = { 10, 20, 30 };
+        int[] nums4 = { -1, -2, -3, -4 };
+        int[] nums5 = { 0, 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.SwapFirstLast(nums1);
+        int[] result2 = BasicAlgorithm.SwapFirstLast(nums2);
+        int[] result3 = BasicAlgorithm.SwapFirstLast(nums3);
+        int[] result4 = BasicAlgorithm.SwapFirstLast(nums4);
+        int[] result5 = BasicAlgorithm.SwapFirstLast(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1 }, result1);
+        CollectionAssert.AreEqual(new int[] { 2, 1 }, result2);
+        CollectionAssert.AreEqual(new int[] { 30, 20, 10 }, result3);
+        CollectionAssert.AreEqual(new int[] { -4, -2, -3, -1 }, result4);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0, 0, 0 }, result5);
+    }
+
+    // Exercise 106 - Middle Elements in New Array of Length 3
+
+    [TestMethod]
+    public void MiddleElementsToNewArray_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 11, 13 };
+
+        // Act
+        int[] result = BasicAlgorithm.MiddleElementsToNewArray(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 7, 9, 11 }, result);
+    }
+
+    [TestMethod]
+    public void MiddleElementsToNewArray_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1, 2, 3, 4, 5 };
+        int[] nums2 = { 10, 20, 30, 40, 50, 60, 70 };
+        int[] nums3 = { -1, -2, -3, -4, -5 };
+        int[] nums4 = { 0, 0, 0, 0, 0, 0 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.MiddleElementsToNewArray(nums1);
+        int[] result2 = BasicAlgorithm.MiddleElementsToNewArray(nums2);
+        int[] result3 = BasicAlgorithm.MiddleElementsToNewArray(nums3);
+        int[] result4 = BasicAlgorithm.MiddleElementsToNewArray(nums4);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 2, 3, 4 }, result1);
+        CollectionAssert.AreEqual(new int[] { 30, 40, 50 }, result2);
+        CollectionAssert.AreEqual(new int[] { -2, -3, -4 }, result3);
+        CollectionAssert.AreEqual(new int[] { 0, 0, 0 }, result4);
+    }
+
+    // Exercise 107 - Largest Among First, Middle, and Last Elements
+
+    [TestMethod]
+    public void LargestFirstMiddleLast_TestCases()
+    {
+        // Arrange
+        int[] nums1 = { 1 };
+        int[] nums2 = { 1, 2, 9 };
+        int[] nums3 = { 1, 2, 9, 3, 3 };
+        int[] nums4 = { 1, 2, 3, 4, 5, 6, 7 };
+        int[] nums5 = { 1, 2, 2, 3, 7, 8, 9, 10, 6, 5, 4 };
+
+        // Act
+        int result1 = BasicAlgorithm.LargestFirstMiddleLast(nums1);
+        int result2 = BasicAlgorithm.LargestFirstMiddleLast(nums2);
+        int result3 = BasicAlgorithm.LargestFirstMiddleLast(nums3);
+        int result4 = BasicAlgorithm.LargestFirstMiddleLast(nums4);
+        int result5 = BasicAlgorithm.LargestFirstMiddleLast(nums5);
+
+        // Assert
+        Assert.AreEqual(1, result1);
+        Assert.AreEqual(9, result2);
+        Assert.AreEqual(9, result3);
+        Assert.AreEqual(7, result4);
+        Assert.AreEqual(8, result5);
+    }
+
+    [TestMethod]
+    public void LargestFirstMiddleLast_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5, 1, 5 };
+        int[] nums2 = { 10, 20, 30, 40, 50 };
+        int[] nums3 = { -5, -10, -3 };
+        int[] nums4 = { 0, 0, 0 };
+        int[] nums5 = { 100, 50, 75 };
+
+        // Act
+        int result1 = BasicAlgorithm.LargestFirstMiddleLast(nums1);
+        int result2 = BasicAlgorithm.LargestFirstMiddleLast(nums2);
+        int result3 = BasicAlgorithm.LargestFirstMiddleLast(nums3);
+        int result4 = BasicAlgorithm.LargestFirstMiddleLast(nums4);
+        int result5 = BasicAlgorithm.LargestFirstMiddleLast(nums5);
+
+        // Assert
+        Assert.AreEqual(5, result1);
+        Assert.AreEqual(50, result2);
+        Assert.AreEqual(-3, result3);
+        Assert.AreEqual(0, result4);
+        Assert.AreEqual(100, result5);
+    }
+
+    // Exercise 108 - First Two Elements or Full Array
+
+    [TestMethod]
+    public void FirstTwoElements_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 11, 13 };
+
+        // Act
+        int[] result = BasicAlgorithm.FirstTwoElements(nums);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1, 5 }, result);
+    }
+
+    [TestMethod]
+    public void FirstTwoElements_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 1 };
+        int[] nums2 = { 1, 2 };
+        int[] nums3 = { };
+        int[] nums4 = { 10, 20, 30, 40 };
+        int[] nums5 = { -1, -2, -3 };
+
+        // Act
+        int[] result1 = BasicAlgorithm.FirstTwoElements(nums1);
+        int[] result2 = BasicAlgorithm.FirstTwoElements(nums2);
+        int[] result3 = BasicAlgorithm.FirstTwoElements(nums3);
+        int[] result4 = BasicAlgorithm.FirstTwoElements(nums4);
+        int[] result5 = BasicAlgorithm.FirstTwoElements(nums5);
+
+        // Assert
+        CollectionAssert.AreEqual(new int[] { 1 }, result1);
+        CollectionAssert.AreEqual(new int[] { 1, 2 }, result2);
+        CollectionAssert.AreEqual(new int[] { }, result3);
+        CollectionAssert.AreEqual(new int[] { 10, 20 }, result4);
+        CollectionAssert.AreEqual(new int[] { -1, -2 }, result5);
+    }
+
+    // Exercise 109 - Count Even Elements in Array
+
+    [TestMethod]
+    public void CountEvenElements_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 10, 12 };
+
+        // Act
+        int result = BasicAlgorithm.CountEvenElements(nums);
+
+        // Assert
+        Assert.AreEqual(2, result);
+    }
+
+    [TestMethod]
+    public void CountEvenElements_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 2, 4, 6, 8 };
+        int[] nums2 = { 1, 3, 5, 7 };
+        int[] nums3 = { };
+        int[] nums4 = { 0 };
+        int[] nums5 = { 10, 15, 20, 25, 30 };
+
+        // Act
+        int result1 = BasicAlgorithm.CountEvenElements(nums1);
+        int result2 = BasicAlgorithm.CountEvenElements(nums2);
+        int result3 = BasicAlgorithm.CountEvenElements(nums3);
+        int result4 = BasicAlgorithm.CountEvenElements(nums4);
+        int result5 = BasicAlgorithm.CountEvenElements(nums5);
+
+        // Assert
+        Assert.AreEqual(4, result1);
+        Assert.AreEqual(0, result2);
+        Assert.AreEqual(0, result3);
+        Assert.AreEqual(1, result4);
+        Assert.AreEqual(3, result5);
+    }
+
+    // Exercise 110 - Difference Between Largest and Smallest Values
+
+    [TestMethod]
+    public void DifferenceMaxMin_TestCases()
+    {
+        // Arrange
+        int[] nums = { 1, 5, 7, 9, 10, 12 };
+
+        // Act
+        int result = BasicAlgorithm.DifferenceMaxMin(nums);
+
+        // Assert
+        Assert.AreEqual(11, result);
+    }
+
+    [TestMethod]
+    public void DifferenceMaxMin_EdgeCases()
+    {
+        // Arrange
+        int[] nums1 = { 5 };
+        int[] nums2 = { 10, 10 };
+        int[] nums3 = { -5, -10, -3 };
+        int[] nums4 = { 0, 0, 0 };
+        int[] nums5 = { 100, 50, 75, 200 };
+
+        // Act
+        int result1 = BasicAlgorithm.DifferenceMaxMin(nums1);
+        int result2 = BasicAlgorithm.DifferenceMaxMin(nums2);
+        int result3 = BasicAlgorithm.DifferenceMaxMin(nums3);
+        int result4 = BasicAlgorithm.DifferenceMaxMin(nums4);
+        int result5 = BasicAlgorithm.DifferenceMaxMin(nums5);
+
+        // Assert
+        Assert.AreEqual(0, result1);
+        Assert.AreEqual(0, result2);
+        Assert.AreEqual(7, result3);
+        Assert.AreEqual(0, result4);
+        Assert.AreEqual(150, result5);
     }
 }
