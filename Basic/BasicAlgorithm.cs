@@ -699,7 +699,7 @@ namespace Exercises
         public static string InsertIntoMiddle(string outer, string inner)
         {
             if (outer.Length != 4)
-                return outer; 
+                return outer;
 
             return outer.Substring(0, 2) + inner + outer.Substring(2);
         }
@@ -727,7 +727,7 @@ namespace Exercises
         public static string FirstHalfOfEvenString(string str)
         {
             if (str.Length % 2 != 0)
-                return str; 
+                return str;
 
             return str.Substring(0, str.Length / 2);
         }
@@ -1204,6 +1204,655 @@ namespace Exercises
             }
 
             return max - min;
+        }
+
+        // Exercise 111 - Sum Excluding 17
+        public static int SumExcluding17(int[] nums)
+        {
+            int sum = 0;
+
+            foreach (int num in nums)
+            {
+                if (num != 17)
+                {
+                    sum += num;
+                }
+            }
+
+            return sum;
+        }
+
+        // Exercise 112 - Sum Excluding Numbers Starting with 5 and 6
+        public static int SumExcluding5And6Sequence(int[] nums)
+        {
+            int sum = 0;
+            bool skipNext = false;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (skipNext)
+                {
+                    skipNext = false;
+                    continue;
+                }
+
+                if (i < nums.Length - 1 && nums[i] == 5 && nums[i + 1] == 6)
+                {
+                    skipNext = true;
+                    continue;
+                }
+
+                sum += nums[i];
+            }
+
+            return sum;
+        }
+
+        // Exercise 113 - Check for 5 Next to 5
+        public static bool CheckFor5NextTo5(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == 5 && nums[i + 1] == 5)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 114 - Check for Both 5's and 7's in Array
+        public static bool CheckFor5And7(int[] nums)
+        {
+            bool has5 = false;
+            bool has7 = false;
+
+            foreach (int num in nums)
+            {
+                if (num == 5) has5 = true;
+                if (num == 7) has7 = true;
+            }
+
+            return has5 && has7;
+        }
+
+        // Exercise 115 - Sum of 5's Equals 15
+        public static bool SumOf5sEquals15(int[] nums)
+        {
+            int sum = 0;
+
+            foreach (int num in nums)
+            {
+                if (num == 5)
+                {
+                    sum += 5;
+                }
+            }
+
+            return sum == 15;
+        }
+
+        // Exercise 116 - Check If 3's Outnumber 5's
+        public static bool ThreesOutnumberFives(int[] nums)
+        {
+            int count3 = 0;
+            int count5 = 0;
+
+            foreach (int num in nums)
+            {
+                if (num == 3) count3++;
+                if (num == 5) count5++;
+            }
+
+            return count3 > count5;
+        }
+
+        // Exercise 117 - Check If Array Contains 3 or 5
+        public static bool Contains3Or5(int[] nums)
+        {
+            foreach (int num in nums)
+            {
+                if (num == 3 || num == 5)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 118 - Check If Array Contains No 3 or 5
+        public static bool ContainsNo3Or5(int[] nums)
+        {
+            foreach (int num in nums)
+            {
+                if (num == 3 || num == 5)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Exercise 119 - Check for 3 or 5 Next to Each Other
+        public static bool Has3Or5Adjacent(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if ((nums[i] == 3 && nums[i + 1] == 3) || (nums[i] == 5 && nums[i + 1] == 5))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 120 - Check for Two 5's Adjacent or Separated by One
+        public static bool HasTwo5sAdjacentOrSeparated(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == 5 && nums[i + 1] == 5)
+                {
+                    return true;
+                }
+                if (i < nums.Length - 2 && nums[i] == 5 && nums[i + 2] == 5)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 121 - Check for 3 Before 5 in Array
+        public static bool Has3Before5(int[] nums)
+        {
+            bool found3 = false;
+
+            foreach (int num in nums)
+            {
+                if (num == 3)
+                {
+                    found3 = true;
+                }
+                if (found3 && num == 5)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 122 - Two Consecutive Even or Odd Values
+        public static bool HasTwoConsecutiveEvenOrOdd(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] % 2 == nums[i + 1] % 2)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 123 - Check for 5 Exactly Five Times Without Adjacent
+        public static bool HasFive5sNoAdjacent(int[] nums)
+        {
+            int count5 = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 5)
+                {
+                    count5++;
+                    if (i < nums.Length - 1 && nums[i + 1] == 5)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return count5 == 5;
+        }
+
+        // Exercise 124 - Check If Every 5 is Next to Another 5
+        public static bool Every5NextToAnother5(int[] nums)
+        {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 5)
+                {
+                    bool hasAdjacent5 = false;
+                    if (i > 0 && nums[i - 1] == 5) hasAdjacent5 = true;
+                    if (i < nums.Length - 1 && nums[i + 1] == 5) hasAdjacent5 = true;
+
+                    if (!hasAdjacent5)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        // Exercise 125 - Check Equal Elements at Start and End
+        public static bool EqualElementsAtStartAndEnd(int[] nums, int n)
+        {
+            if (n > nums.Length) return false;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] != nums[nums.Length - n + i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Exercise 126 - Check for Three Increasing Adjacent Numbers
+        public static bool HasThreeIncreasingAdjacent(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 2; i++)
+            {
+                if (nums[i + 1] == nums[i] + 1 && nums[i + 2] == nums[i] + 2)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 127 - Shift Elements Left in Array
+        public static int[] ShiftLeft(int[] nums)
+        {
+            if (nums.Length <= 1) return nums;
+
+            int first = nums[0];
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                nums[i] = nums[i + 1];
+            }
+            nums[nums.Length - 1] = first;
+
+            return nums;
+        }
+
+        // Exercise 128 - Elements Before 5 in Array
+        public static int[] ElementsBefore5(int[] nums)
+        {
+            List<int> result = new List<int>();
+
+            foreach (int num in nums)
+            {
+                if (num == 5) break;
+                result.Add(num);
+            }
+
+            return result.ToArray();
+        }
+
+        // Exercise 129 - Elements After 5 in Array
+        public static int[] ElementsAfter5(int[] nums)
+        {
+            List<int> result = new List<int>();
+            bool found5 = false;
+
+            foreach (int num in nums)
+            {
+                if (found5)
+                {
+                    result.Add(num);
+                }
+                if (num == 5)
+                {
+                    found5 = true;
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        // Exercise 130 - Shift Zeros to Left in Array
+        public static int[] ShiftZerosLeft(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+            int zeroCount = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 0)
+                {
+                    zeroCount++;
+                }
+            }
+
+            int index = zeroCount;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 0)
+                {
+                    result[index] = nums[i];
+                    index++;
+                }
+            }
+
+            for (int i = 0; i < zeroCount; i++)
+            {
+                result[i] = 0;
+            }
+
+            return result;
+        }
+
+        // Exercise 131 - Replace 5 with 0 and Shift Zeros Right
+        public static int[] Replace5With0AndShiftRight(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+            int index = 0;
+
+            foreach (int num in nums)
+            {
+                if (num != 5 && num != 0)
+                {
+                    result[index] = num;
+                    index++;
+                }
+            }
+
+            for (int i = index; i < nums.Length; i++)
+            {
+                result[i] = 0;
+            }
+
+            return result;
+        }
+
+        // Exercise 132 - Shift Even Numbers Before Odd Numbers
+        public static int[] ShiftEvenBeforeOdd(int[] nums)
+        {
+            List<int> evens = new List<int>();
+            List<int> odds = new List<int>();
+
+            foreach (int num in nums)
+            {
+                if (num % 2 == 0)
+                {
+                    evens.Add(num);
+                }
+                else
+                {
+                    odds.Add(num);
+                }
+            }
+
+            return evens.Concat(odds).ToArray();
+        }
+
+        // Exercise 133 - Check If Each Element ≥ Previous
+        public static bool IsEachElementGreaterOrEqual(int[] nums)
+        {
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] < nums[i - 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Exercise 134 - Check for Two 15's Next to Each Other
+        public static bool HasTwo15sNextToEachOther(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == 15 && nums[i + 1] == 15)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Exercise 135 - Largest Average Between Array Halves
+        public static int LargestAverageBetweenHalves(int[] nums)
+        {
+            int mid = nums.Length / 2;
+            int sum1 = 0;
+            int sum2 = 0;
+
+            for (int i = 0; i < mid; i++)
+            {
+                sum1 += nums[i];
+            }
+
+            for (int i = mid; i < nums.Length; i++)
+            {
+                sum2 += nums[i];
+            }
+
+            int avg1 = sum1 / mid;
+            int avg2 = sum2 / (nums.Length - mid);
+
+            return Math.Max(avg1, avg2);
+        }
+
+        // Exercise 136 - Count Strings Matching Length
+        public static int CountStringsWithLength(string[] strings, int length)
+        {
+            int count = 0;
+
+            foreach (string str in strings)
+            {
+                if (str.Length == length)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        // Exercise 137 - First n Strings from String Array
+        public static string[] FirstNStrings(string[] strings, int n)
+        {
+            string[] result = new string[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                result[i] = strings[i];
+            }
+
+            return result;
+        }
+
+        // Exercise 138 - Strings Matching Given Length
+        public static string[] StringsMatchingLength(string[] strings, int length)
+        {
+            List<string> result = new List<string>();
+
+            foreach (string str in strings)
+            {
+                if (str.Length == length)
+                {
+                    result.Add(str);
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        // Exercise 139 - Check If Number Contains 2
+        public static bool ContainsDigit2(int number)
+        {
+            while (number > 0)
+            {
+                if (number % 10 == 2)
+                {
+                    return true;
+                }
+                number /= 10;
+            }
+            return false;
+        }
+
+        // Exercise 140 - Array of Odd Numbers from Given Length
+        public static int[] OddNumbersFromArray(int[] nums, int length)
+        {
+            List<int> odds = new List<int>();
+
+            foreach (int num in nums)
+            {
+                if (num % 2 != 0)
+                {
+                    odds.Add(num);
+                }
+            }
+
+            int[] result = new int[Math.Min(length, odds.Count)];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = odds[i];
+            }
+
+            return result;
+        }
+
+        // Exercise 141 - Multiply Each Integer by 3
+        public static int[] MultiplyBy3(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result[i] = nums[i] * 3;
+            }
+
+            return result;
+        }
+
+        // Exercise 142 - Cube Each Integer
+        public static int[] CubeEachInteger(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result[i] = nums[i] * nums[i] * nums[i];
+            }
+
+            return result;
+        }
+
+        // Exercise 143 - Add # at Start and End of Strings
+        public static string[] AddHashToStartAndEnd(string[] strings)
+        {
+            string[] result = new string[strings.Length];
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                result[i] = "#" + strings[i] + "#";
+            }
+
+            return result;
+        }
+
+        // Exercise 144 - Repeat Strings Four Times
+        public static string[] RepeatStringsFourTimes(string[] strings)
+        {
+            string[] result = new string[strings.Length];
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                result[i] = strings[i] + strings[i] + strings[i] + strings[i];
+            }
+
+            return result;
+        }
+
+        // Exercise 145 - (Value+2) * 5 for Each Integer
+        public static int[] ValuePlus2Times5(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result[i] = (nums[i] + 2) * 5;
+            }
+
+            return result;
+        }
+
+        // Exercise 146 - Rightmost Digits of Integers
+        public static int[] RightmostDigits(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result[i] = nums[i] % 10;
+            }
+
+            return result;
+        }
+
+        // Exercise 147 - Convert Strings to Uppercase
+        public static string[] ConvertToUppercase(string[] strings)
+        {
+            string[] result = new string[strings.Length];
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                result[i] = strings[i].ToUpper();
+            }
+
+            return result;
+        }
+
+        // Exercise 148 - Remove 'a' from Each String
+        public static string[] RemoveAFromStrings(string[] strings)
+        {
+            string[] result = new string[strings.Length];
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                result[i] = strings[i].Replace("a", "");
+            }
+
+            return result;
+        }
+
+        // Exercise 149 - Remove Integers Less Than 4
+        public static int[] RemoveIntegersLessThan4(int[] nums)
+        {
+            List<int> result = new List<int>();
+
+            foreach (int num in nums)
+            {
+                if (num < 4)
+                {
+                    result.Add(num);
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        // Exercise 150 - Remove Integers Ending in 7
+        public static int[] RemoveIntegersEndingWith7(int[] nums)
+        {
+            List<int> result = new List<int>();
+
+            foreach (int num in nums)
+            {
+                if (num % 10 != 7)
+                {
+                    result.Add(num);
+                }
+            }
+
+            return result.ToArray();
         }
     }
 }

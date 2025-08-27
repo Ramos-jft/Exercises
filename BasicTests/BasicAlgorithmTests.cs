@@ -3925,9 +3925,9 @@ public class BasicAlgorithmTests
         int result3 = BasicAlgorithm.SumIfSameDigitCount(x3, y3);
 
         // Assert
-        Assert.AreEqual(5, result1); 
-        Assert.AreEqual(99, result2); 
-        Assert.AreEqual(100, result3); 
+        Assert.AreEqual(5, result1);
+        Assert.AreEqual(99, result2);
+        Assert.AreEqual(100, result3);
     }
 
     // Exercise 55 - Sum of Three Integers or Return Third if Two Match
@@ -3948,10 +3948,10 @@ public class BasicAlgorithmTests
         int result4 = BasicAlgorithm.SumOrThirdIfTwoMatch(a4, b4, c4);
 
         // Assert
-        Assert.AreEqual(16, result1);  
-        Assert.AreEqual(23, result2);  
-        Assert.AreEqual(12, result3);  
-        Assert.AreEqual(18, result4);  
+        Assert.AreEqual(16, result1);
+        Assert.AreEqual(23, result2);
+        Assert.AreEqual(12, result3);
+        Assert.AreEqual(18, result4);
     }
 
     [TestMethod]
@@ -3970,10 +3970,10 @@ public class BasicAlgorithmTests
         int result4 = BasicAlgorithm.SumOrThirdIfTwoMatch(a4, b4, c4);
 
         // Assert
-        Assert.AreEqual(5, result1);   
-        Assert.AreEqual(5, result2);   
-        Assert.AreEqual(10, result3);  
-        Assert.AreEqual(6, result4);   
+        Assert.AreEqual(5, result1);
+        Assert.AreEqual(5, result2);
+        Assert.AreEqual(10, result3);
+        Assert.AreEqual(6, result4);
     }
 
     // Exercise 56 - Sum of Three Integers Ignoring 13 and Right
@@ -3994,10 +3994,10 @@ public class BasicAlgorithmTests
         int result4 = BasicAlgorithm.SumIgnoring13AndRight(a4, b4, c4);
 
         // Assert
-        Assert.AreEqual(16, result1);  
-        Assert.AreEqual(23, result2);  
-        Assert.AreEqual(10, result3);  
-        Assert.AreEqual(0, result4);   
+        Assert.AreEqual(16, result1);
+        Assert.AreEqual(23, result2);
+        Assert.AreEqual(10, result3);
+        Assert.AreEqual(0, result4);
     }
 
     [TestMethod]
@@ -4018,11 +4018,11 @@ public class BasicAlgorithmTests
         int result5 = BasicAlgorithm.SumIgnoring13AndRight(a5, b5, c5);
 
         // Assert
-        Assert.AreEqual(0, result1);   
-        Assert.AreEqual(1, result2);   
-        Assert.AreEqual(11, result3);  
-        Assert.AreEqual(9, result4);   
-        Assert.AreEqual(0, result5);   
+        Assert.AreEqual(0, result1);
+        Assert.AreEqual(1, result2);
+        Assert.AreEqual(11, result3);
+        Assert.AreEqual(9, result4);
+        Assert.AreEqual(0, result5);
     }
 
     // Exercise 57 - Sum Ignoring 10-20 Except 13, 17
@@ -4043,10 +4043,10 @@ public class BasicAlgorithmTests
         int result4 = BasicAlgorithm.SumIgnoring10To20Except13And17(a4, b4, c4);
 
         // Assert
-        Assert.AreEqual(16, result1);  
-        Assert.AreEqual(11, result2);  
-        Assert.AreEqual(13, result3);  
-        Assert.AreEqual(0, result4);   
+        Assert.AreEqual(16, result1);
+        Assert.AreEqual(11, result2);
+        Assert.AreEqual(13, result3);
+        Assert.AreEqual(0, result4);
     }
 
     [TestMethod]
@@ -4067,11 +4067,11 @@ public class BasicAlgorithmTests
         int result5 = BasicAlgorithm.SumIgnoring10To20Except13And17(a5, b5, c5);
 
         // Assert
-        Assert.AreEqual(30, result1);  
-        Assert.AreEqual(9, result2);   
-        Assert.AreEqual(42, result3);  
-        Assert.AreEqual(17, result4);  
-        Assert.AreEqual(6, result5);   
+        Assert.AreEqual(30, result1);
+        Assert.AreEqual(9, result2);
+        Assert.AreEqual(42, result3);
+        Assert.AreEqual(17, result4);
+        Assert.AreEqual(6, result5);
     }
 
     // Exercise 58 - Nearest to 13 Without Crossing
@@ -4092,10 +4092,10 @@ public class BasicAlgorithmTests
         int result4 = BasicAlgorithm.NearestTo13WithoutCrossing(a4, b4);
 
         // Assert
-        Assert.AreEqual(5, result1);   
-        Assert.AreEqual(12, result2);  
-        Assert.AreEqual(13, result3);  
-        Assert.AreEqual(0, result4);   
+        Assert.AreEqual(5, result1);
+        Assert.AreEqual(12, result2);
+        Assert.AreEqual(13, result3);
+        Assert.AreEqual(0, result4);
     }
 
     [TestMethod]
@@ -4119,11 +4119,11 @@ public class BasicAlgorithmTests
 
         // Assert
         Assert.AreEqual(13, result1);
-        Assert.AreEqual(12, result2);  
-        Assert.AreEqual(11, result3);  
-        Assert.AreEqual(13, result4); 
-        Assert.AreEqual(0, result5);   
-        Assert.AreEqual(10, result6);  
+        Assert.AreEqual(12, result2);
+        Assert.AreEqual(11, result3);
+        Assert.AreEqual(13, result4);
+        Assert.AreEqual(0, result5);
+        Assert.AreEqual(10, result6);
     }
 
     // Exercise 59 - Check Equal Differences in Three Integers
@@ -4142,9 +4142,9 @@ public class BasicAlgorithmTests
         bool result3 = BasicAlgorithm.CheckEqualDifferences(a3, b3, c3);
 
         // Assert
-        Assert.IsTrue(result1);   
-        Assert.IsFalse(result2);  
-        Assert.IsTrue(result3);   
+        Assert.IsTrue(result1);
+        Assert.IsFalse(result2);
+        Assert.IsTrue(result3);
     }
 
     [TestMethod]
@@ -4165,11 +4165,11 @@ public class BasicAlgorithmTests
         bool result5 = BasicAlgorithm.CheckEqualDifferences(a5, b5, c5);
 
         // Assert
-        Assert.IsTrue(result1);  
-        Assert.IsTrue(result2);  
-        Assert.IsTrue(result3);  
-        Assert.IsTrue(result4);  
-        Assert.IsTrue(result5);   
+        Assert.IsTrue(result1);
+        Assert.IsTrue(result2);
+        Assert.IsTrue(result3);
+        Assert.IsTrue(result4);
+        Assert.IsTrue(result5);
     }
 
     [TestMethod]
@@ -4186,7 +4186,7 @@ public class BasicAlgorithmTests
         bool result3 = BasicAlgorithm.CheckEqualDifferences(a3, b3, c3);
 
         // Assert 
-        Assert.IsTrue(result1); 
+        Assert.IsTrue(result1);
         Assert.IsFalse(result2);
         Assert.IsTrue(result3);
     }
@@ -4227,11 +4227,11 @@ public class BasicAlgorithmTests
         string result5 = BasicAlgorithm.CreateS1S2S2S1String(s1_5, s2_5);
 
         // Assert
-        Assert.AreEqual("", result1);           
-        Assert.AreEqual("abba", result2);       
-        Assert.AreEqual("123456456123", result3); 
-        Assert.AreEqual("    ", result4);       
-        Assert.AreEqual("ABCABC", result5);     
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("abba", result2);
+        Assert.AreEqual("123456456123", result3);
+        Assert.AreEqual("    ", result4);
+        Assert.AreEqual("ABCABC", result5);
     }
 
     // Exercise 61 - Insert String into Middle of Another
@@ -4271,7 +4271,7 @@ public class BasicAlgorithmTests
 
         // Assert
         Assert.AreEqual("abXYZcd", result1);
-        Assert.AreEqual("1234", result2); 
+        Assert.AreEqual("1234", result2);
         Assert.AreEqual("**test**", result3);
         Assert.AreEqual("  mid  ", result4);
         Assert.AreEqual("AB123CD", result5);
@@ -4281,8 +4281,8 @@ public class BasicAlgorithmTests
     public void InsertIntoMiddle_WithNon4Length()
     {
         // Arrange
-        string outer1 = "abc", inner1 = "test"; 
-        string outer2 = "abcde", inner2 = "test"; 
+        string outer1 = "abc", inner1 = "test";
+        string outer2 = "abcde", inner2 = "test";
 
         // Act
         string result1 = BasicAlgorithm.InsertIntoMiddle(outer1, inner1);
@@ -4331,12 +4331,12 @@ public class BasicAlgorithmTests
         string result6 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input6);
 
         // Assert
-        Assert.AreEqual("ababab", result1);    
-        Assert.AreEqual("232323", result2);     
-        Assert.AreEqual("A", result3);          
-        Assert.AreEqual("", result4);           
-        Assert.AreEqual("ststst", result5);     
-        Assert.AreEqual("yzyzyz", result6);     
+        Assert.AreEqual("ababab", result1);
+        Assert.AreEqual("232323", result2);
+        Assert.AreEqual("A", result3);
+        Assert.AreEqual("", result4);
+        Assert.AreEqual("ststst", result5);
+        Assert.AreEqual("yzyzyz", result6);
     }
 
     [TestMethod]
@@ -4353,9 +4353,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.ThreeCopiesOfLastTwoChars(input3);
 
         // Assert
-        Assert.AreEqual("ngngng", result1);    
-        Assert.AreEqual("ghghgh", result2);    
-        Assert.AreEqual("ldldld", result3);    
+        Assert.AreEqual("ngngng", result1);
+        Assert.AreEqual("ghghgh", result2);
+        Assert.AreEqual("ldldld", result3);
     }
 
     // Exercise 63 - First Two Characters or Original String
@@ -4402,12 +4402,12 @@ public class BasicAlgorithmTests
         string result6 = BasicAlgorithm.FirstTwoCharsOrOriginal(input6);
 
         // Assert
-        Assert.AreEqual("", result1);           
-        Assert.AreEqual("ab", result2);         
-        Assert.AreEqual("12", result3);         
-        Assert.AreEqual("A", result4);          
-        Assert.AreEqual("  ", result5);         
-        Assert.AreEqual("te", result6);         
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("ab", result2);
+        Assert.AreEqual("12", result3);
+        Assert.AreEqual("A", result4);
+        Assert.AreEqual("  ", result5);
+        Assert.AreEqual("te", result6);
     }
 
     [TestMethod]
@@ -4424,9 +4424,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.FirstTwoCharsOrOriginal(input3);
 
         // Assert
-        Assert.AreEqual("pr", result1);     
-        Assert.AreEqual("ab", result2);     
-        Assert.AreEqual("He", result3);     
+        Assert.AreEqual("pr", result1);
+        Assert.AreEqual("ab", result2);
+        Assert.AreEqual("He", result3);
     }
 
     // Exercise 64 - First Half of Even-Length String
@@ -4443,8 +4443,8 @@ public class BasicAlgorithmTests
         string result2 = BasicAlgorithm.FirstHalfOfEvenString(input2);
 
         // Assert
-        Assert.AreEqual("Hello", result1); 
-        Assert.AreEqual("H", result2);  
+        Assert.AreEqual("Hello", result1);
+        Assert.AreEqual("H", result2);
     }
 
     [TestMethod]
@@ -4465,11 +4465,11 @@ public class BasicAlgorithmTests
         string result5 = BasicAlgorithm.FirstHalfOfEvenString(input5);
 
         // Assert
-        Assert.AreEqual("ab", result1);     
-        Assert.AreEqual("te", result2);     
-        Assert.AreEqual("123", result3);    
-        Assert.AreEqual("  ", result4);     
-        Assert.AreEqual("A", result5);      
+        Assert.AreEqual("ab", result1);
+        Assert.AreEqual("te", result2);
+        Assert.AreEqual("123", result3);
+        Assert.AreEqual("  ", result4);
+        Assert.AreEqual("A", result5);
     }
 
     [TestMethod]
@@ -4490,11 +4490,11 @@ public class BasicAlgorithmTests
         string result5 = BasicAlgorithm.FirstHalfOfEvenString(input5);
 
         // Assert
-        Assert.AreEqual("abc", result1);    
-        Assert.AreEqual("hello", result2);  
-        Assert.AreEqual("1", result3);      
-        Assert.AreEqual("A", result4);      
-        Assert.AreEqual("12345", result5);  
+        Assert.AreEqual("abc", result1);
+        Assert.AreEqual("hello", result2);
+        Assert.AreEqual("1", result3);
+        Assert.AreEqual("A", result4);
+        Assert.AreEqual("12345", result5);
     }
 
     [TestMethod]
@@ -4511,9 +4511,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.FirstHalfOfEvenString(input3);
 
         // Assert
-        Assert.AreEqual("", result1);           
-        Assert.AreEqual(" ", result2);          
-        Assert.AreEqual("programming", result3); 
+        Assert.AreEqual("", result1);
+        Assert.AreEqual(" ", result2);
+        Assert.AreEqual("programming", result3);
     }
 
     // Exercise 65 - Remove First and Last Character
@@ -4718,12 +4718,12 @@ public class BasicAlgorithmTests
         string result6 = BasicAlgorithm.MoveFirstTwoToEnd(input6);
 
         // Assert
-        Assert.AreEqual("ab", result1);     
-        Assert.AreEqual("cab", result2);    
-        Assert.AreEqual("a", result3);      
-        Assert.AreEqual("", result4);       
-        Assert.AreEqual("3412", result5);   
-        Assert.AreEqual("stte", result6);   
+        Assert.AreEqual("ab", result1);
+        Assert.AreEqual("cab", result2);
+        Assert.AreEqual("a", result3);
+        Assert.AreEqual("", result4);
+        Assert.AreEqual("3412", result5);
+        Assert.AreEqual("stte", result6);
     }
 
     [TestMethod]
@@ -4740,9 +4740,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.MoveFirstTwoToEnd(input3);
 
         // Assert
-        Assert.AreEqual("ogrammingpr", result1);     
-        Assert.AreEqual("cdefab", result2);          
-        Assert.AreEqual("lloWorldHe", result3);      
+        Assert.AreEqual("ogrammingpr", result1);
+        Assert.AreEqual("cdefab", result2);
+        Assert.AreEqual("lloWorldHe", result3);
     }
 
     // Exercise 69 - Move Last Two Characters to Start
@@ -4783,12 +4783,12 @@ public class BasicAlgorithmTests
         string result6 = BasicAlgorithm.MoveLastTwoToStart(input6);
 
         // Assert
-        Assert.AreEqual("ab", result1);     
-        Assert.AreEqual("bca", result2);    
-        Assert.AreEqual("a", result3);      
-        Assert.AreEqual("", result4);       
-        Assert.AreEqual("3412", result5);   
-        Assert.AreEqual("stte", result6);   
+        Assert.AreEqual("ab", result1);
+        Assert.AreEqual("bca", result2);
+        Assert.AreEqual("a", result3);
+        Assert.AreEqual("", result4);
+        Assert.AreEqual("3412", result5);
+        Assert.AreEqual("stte", result6);
     }
 
     [TestMethod]
@@ -4805,9 +4805,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.MoveLastTwoToStart(input3);
 
         // Assert
-        Assert.AreEqual("ngprogrammi", result1);    
-        Assert.AreEqual("efabcd", result2);         
-        Assert.AreEqual("ldHelloWor", result3);     
+        Assert.AreEqual("ngprogrammi", result1);
+        Assert.AreEqual("efabcd", result2);
+        Assert.AreEqual("ldHelloWor", result3);
     }
 
     // Exercise 70 - Remove First and Last Char
@@ -4851,12 +4851,12 @@ public class BasicAlgorithmTests
         string result6 = BasicAlgorithm.RemoveFirstAndLastChars(input6);
 
         // Assert
-        Assert.AreEqual("", result1);      
-        Assert.AreEqual("", result2);       
-        Assert.AreEqual("b", result3);      
-        Assert.AreEqual("bc", result4);     
-        Assert.AreEqual("es", result5);     
-        Assert.AreEqual("234", result6);    
+        Assert.AreEqual("", result1);
+        Assert.AreEqual("", result2);
+        Assert.AreEqual("b", result3);
+        Assert.AreEqual("bc", result4);
+        Assert.AreEqual("es", result5);
+        Assert.AreEqual("234", result6);
     }
 
     [TestMethod]
@@ -4873,9 +4873,9 @@ public class BasicAlgorithmTests
         string result3 = BasicAlgorithm.RemoveFirstAndLastChar(input3);
 
         // Assert
-        Assert.AreEqual("rogrammin", result1);  
-        Assert.AreEqual("ello Worl", result2);  
-        Assert.AreEqual("bcdefghij", result3);  
+        Assert.AreEqual("rogrammin", result1);
+        Assert.AreEqual("ello Worl", result2);
+        Assert.AreEqual("bcdefghij", result3);
     }
 
     // Exercise 71 - Two Middle Characters of Even-Length String
@@ -6597,5 +6597,778 @@ public class BasicAlgorithmTests
         Assert.AreEqual(7, result3);
         Assert.AreEqual(0, result4);
         Assert.AreEqual(150, result5);
+    }
+
+    // Exercise 111 - Sum Excluding 17
+
+    [TestMethod]
+    public void TestSumExcluding17()
+    {
+        // Arrange
+        int[] inputArray = { 1, 5, 7, 9, 10, 17 };
+
+        // Act
+        int result = BasicAlgorithm.SumExcluding17(inputArray);
+
+        // Assert
+        Assert.AreEqual(32, result);
+    }
+
+    // Exercise 112 - Sum Excluding Numbers Starting with 5 and 6
+
+    [TestMethod]
+    public void TestSumExcluding5And6Sequence()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 6, 1, 5, 6, 9, 10, 17, 5, 6 };
+        int[] inputArray2 = { 5, 6, 1, 5, 6, 9, 10, 17 };
+        int[] inputArray3 = { 1, 5, 6, 9, 10, 17, 5, 6 };
+        int[] inputArray4 = { 1, 5, 9, 10, 17, 5, 6 };
+        int[] inputArray5 = { 1, 5, 9, 10, 17, 5 };
+
+        // Act
+        int result1 = BasicAlgorithm.SumExcluding5And6Sequence(inputArray1);
+        int result2 = BasicAlgorithm.SumExcluding5And6Sequence(inputArray2);
+        int result3 = BasicAlgorithm.SumExcluding5And6Sequence(inputArray3);
+        int result4 = BasicAlgorithm.SumExcluding5And6Sequence(inputArray4);
+        int result5 = BasicAlgorithm.SumExcluding5And6Sequence(inputArray5);
+
+        // Assert
+        Assert.AreEqual(37, result1);
+        Assert.AreEqual(37, result2);
+        Assert.AreEqual(37, result3);
+        Assert.AreEqual(42, result4);
+        Assert.AreEqual(47, result5);
+    }
+
+    // Exercise 113 - Check for 5 Next to 5
+
+    [TestMethod]
+    public void TestCheckFor5NextTo5()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 5, 6, 9, 10, 17 };
+        int[] inputArray2 = { 1, 5, 5, 9, 10, 17 };
+        int[] inputArray3 = { 1, 5, 5, 9, 10, 17, 5, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.CheckFor5NextTo5(inputArray1);
+        bool result2 = BasicAlgorithm.CheckFor5NextTo5(inputArray2);
+        bool result3 = BasicAlgorithm.CheckFor5NextTo5(inputArray3);
+
+        // Assert
+        Assert.AreEqual(false, result1);
+        Assert.AreEqual(true, result2);
+        Assert.AreEqual(true, result3);
+    }
+
+    // Exercise 114 - Check for Both 5's and 7's in Array
+
+    [TestMethod]
+    public void TestCheckFor5And7()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 5, 6, 9, 10, 17 };
+        int[] inputArray2 = { 1, 4, 7, 9, 10, 17 };
+        int[] inputArray3 = { 1, 1, 2, 9, 10, 17 };
+
+        // Act
+        bool result1 = BasicAlgorithm.CheckFor5And7(inputArray1);
+        bool result2 = BasicAlgorithm.CheckFor5And7(inputArray2);
+        bool result3 = BasicAlgorithm.CheckFor5And7(inputArray3);
+
+        // Assert
+        Assert.AreEqual(false, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(false, result3);
+    }
+
+    // Exercise 115 - Sum of 5's Equals 15
+
+    [TestMethod]
+    public void TestSumOf5sEquals15()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 5, 6, 9, 10, 17 };
+        int[] inputArray2 = { 1, 5, 5, 5, 10, 17 };
+        int[] inputArray3 = { 1, 1, 5, 5, 5, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.SumOf5sEquals15(inputArray1);
+        bool result2 = BasicAlgorithm.SumOf5sEquals15(inputArray2);
+        bool result3 = BasicAlgorithm.SumOf5sEquals15(inputArray3);
+
+        // Assert
+        Assert.AreEqual(false, result1);
+        Assert.AreEqual(true, result2);
+        Assert.AreEqual(false, result3);
+    }
+
+    // Exercise 116 - Check If 3's Outnumber 5's
+
+    [TestMethod]
+    public void TestThreesOutnumberFives()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 5, 6, 9, 3, 3 };
+        int[] inputArray2 = { 1, 5, 5, 5, 10, 17 };
+        int[] inputArray3 = { 1, 3, 3, 5, 5, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.ThreesOutnumberFives(inputArray1);
+        bool result2 = BasicAlgorithm.ThreesOutnumberFives(inputArray2);
+        bool result3 = BasicAlgorithm.ThreesOutnumberFives(inputArray3);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(false, result3);
+    }
+
+    // Exercise 117 - Check If Array Contains 3 or 5
+
+    [TestMethod]
+    public void TestContains3Or5()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 5, 5, 5 };
+        int[] inputArray2 = { 3, 3, 3, 3 };
+        int[] inputArray3 = { 3, 3, 3, 5, 5, 5 };
+        int[] inputArray4 = { 1, 6, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Contains3Or5(inputArray1);
+        bool result2 = BasicAlgorithm.Contains3Or5(inputArray2);
+        bool result3 = BasicAlgorithm.Contains3Or5(inputArray3);
+        bool result4 = BasicAlgorithm.Contains3Or5(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(true, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(false, result4);
+    }
+
+    // Exercise 118 - Check If Array Contains No 3 or 5
+
+    [TestMethod]
+    public void TestContainsNo3Or5()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 5, 5, 5 };
+        int[] inputArray2 = { 3, 3, 3, 3 };
+        int[] inputArray3 = { 3, 3, 3, 5, 5, 5 };
+        int[] inputArray4 = { 1, 6, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.ContainsNo3Or5(inputArray1);
+        bool result2 = BasicAlgorithm.ContainsNo3Or5(inputArray2);
+        bool result3 = BasicAlgorithm.ContainsNo3Or5(inputArray3);
+        bool result4 = BasicAlgorithm.ContainsNo3Or5(inputArray4);
+
+        // Assert
+        Assert.AreEqual(false, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(false, result3);
+        Assert.AreEqual(true, result4);
+    }
+
+    // Exercise 119 - Check for 3 or 5 Next to Each Other
+
+    [TestMethod]
+    public void TestHas3Or5Adjacent()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 5, 5, 5 };
+        int[] inputArray2 = { 1, 2, 3, 4 };
+        int[] inputArray3 = { 3, 3, 5, 5, 5, 5 };
+        int[] inputArray4 = { 1, 5, 5, 7, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Has3Or5Adjacent(inputArray1);
+        bool result2 = BasicAlgorithm.Has3Or5Adjacent(inputArray2);
+        bool result3 = BasicAlgorithm.Has3Or5Adjacent(inputArray3);
+        bool result4 = BasicAlgorithm.Has3Or5Adjacent(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(true, result4);
+    }
+
+    // Exercise 120 - Check for Two 5's Adjacent or Separated by One
+
+    [TestMethod]
+    public void TestHasTwo5sAdjacentOrSeparated()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 1, 5, 5 };
+        int[] inputArray2 = { 1, 2, 3, 4 };
+        int[] inputArray3 = { 3, 3, 5, 5, 5, 5 };
+        int[] inputArray4 = { 1, 5, 5, 7, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.HasTwo5sAdjacentOrSeparated(inputArray1);
+        bool result2 = BasicAlgorithm.HasTwo5sAdjacentOrSeparated(inputArray2);
+        bool result3 = BasicAlgorithm.HasTwo5sAdjacentOrSeparated(inputArray3);
+        bool result4 = BasicAlgorithm.HasTwo5sAdjacentOrSeparated(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(true, result4);
+    }
+
+    // Exercise 121 - Check for 3 Before 5 in Array
+
+    [TestMethod]
+    public void TestHas3Before5()
+    {
+        // Arrange
+        int[] inputArray1 = { 3, 5, 1, 3, 7 };
+        int[] inputArray2 = { 1, 2, 3, 4 };
+        int[] inputArray3 = { 3, 3, 5, 5, 5, 5 };
+        int[] inputArray4 = { 2, 5, 5, 7, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Has3Before5(inputArray1);
+        bool result2 = BasicAlgorithm.Has3Before5(inputArray2);
+        bool result3 = BasicAlgorithm.Has3Before5(inputArray3);
+        bool result4 = BasicAlgorithm.Has3Before5(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(false, result4);
+    }
+
+    // Exercise 122 - Two Consecutive Even or Odd Values
+
+    [TestMethod]
+    public void TestHasTwoConsecutiveEvenOrOdd()
+    {
+        // Arrange
+        int[] inputArray1 = { 3, 5, 1, 3, 7 };
+        int[] inputArray2 = { 1, 2, 3, 4 };
+        int[] inputArray3 = { 3, 3, 5, 5, 5, 5 };
+        int[] inputArray4 = { 2, 4, 5, 6 };
+
+        // Act
+        bool result1 = BasicAlgorithm.HasTwoConsecutiveEvenOrOdd(inputArray1);
+        bool result2 = BasicAlgorithm.HasTwoConsecutiveEvenOrOdd(inputArray2);
+        bool result3 = BasicAlgorithm.HasTwoConsecutiveEvenOrOdd(inputArray3);
+        bool result4 = BasicAlgorithm.HasTwoConsecutiveEvenOrOdd(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(true, result4);
+    }
+
+    // Exercise 123 - Check for 5 Exactly Five Times Without Adjacent
+
+    [TestMethod]
+    public void TestHasFive5sNoAdjacent()
+    {
+        // Arrange
+        int[] inputArray1 = { 3, 5, 1, 5, 3, 5, 7, 5, 1, 5 };
+        int[] inputArray2 = { 3, 5, 5, 5, 5, 5, 5 };
+        int[] inputArray3 = { 3, 5, 2, 5, 4, 5, 7, 5, 8, 5 };
+        int[] inputArray4 = { 2, 4, 5, 5, 5, 5 };
+        int[] inputArray5 = { 3, 5, 5, 5, 5, 5, 5, 5, 5, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.HasFive5sNoAdjacent(inputArray1);
+        bool result2 = BasicAlgorithm.HasFive5sNoAdjacent(inputArray2);
+        bool result3 = BasicAlgorithm.HasFive5sNoAdjacent(inputArray3);
+        bool result4 = BasicAlgorithm.HasFive5sNoAdjacent(inputArray4);
+        bool result5 = BasicAlgorithm.HasFive5sNoAdjacent(inputArray5);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(false, result4);
+        Assert.AreEqual(false, result5);
+    }
+
+    // Exercise 124 - Check If Every 5 is Next to Another 5
+
+    [TestMethod]
+    public void TestEvery5NextToAnother5()
+    {
+        // Arrange
+        int[] inputArray1 = { 3, 5, 5, 3, 7 };
+        int[] inputArray2 = { 3, 5, 5, 4, 1, 5, 7 };
+        int[] inputArray3 = { 3, 5, 5, 5, 5, 5 };
+        int[] inputArray4 = { 2, 4, 5, 5, 6, 7, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.Every5NextToAnother5(inputArray1);
+        bool result2 = BasicAlgorithm.Every5NextToAnother5(inputArray2);
+        bool result3 = BasicAlgorithm.Every5NextToAnother5(inputArray3);
+        bool result4 = BasicAlgorithm.Every5NextToAnother5(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(false, result4);
+    }
+
+    // Exercise 125 - Check Equal Elements at Start and End
+
+    [TestMethod]
+    public void TestEqualElementsAtStartAndEnd()
+    {
+        // Arrange
+        int[] inputArray1 = { 3, 7, 5, 5, 3, 7 };
+        int[] inputArray2 = { 3, 7, 5, 5, 3, 7 };
+        int[] inputArray3 = { 3, 7, 5, 5, 3, 7, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.EqualElementsAtStartAndEnd(inputArray1, 2);
+        bool result2 = BasicAlgorithm.EqualElementsAtStartAndEnd(inputArray2, 3);
+        bool result3 = BasicAlgorithm.EqualElementsAtStartAndEnd(inputArray3, 3);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+    }
+
+    // Exercise 126 - Check for Three Increasing Adjacent Numbers
+
+    [TestMethod]
+    public void TestHasThreeIncreasingAdjacent()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 2, 3, 5, 3, 7 };
+        int[] inputArray2 = { 3, 7, 5, 5, 3, 7 };
+        int[] inputArray3 = { 3, 7, 5, 5, 6, 7, 5 };
+
+        // Act
+        bool result1 = BasicAlgorithm.HasThreeIncreasingAdjacent(inputArray1);
+        bool result2 = BasicAlgorithm.HasThreeIncreasingAdjacent(inputArray2);
+        bool result3 = BasicAlgorithm.HasThreeIncreasingAdjacent(inputArray3);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+    }
+
+    // Exercise 127 - Shift Elements Left in Array
+
+    [TestMethod]
+    public void TestShiftLeft()
+    {
+        // Arrange
+        int[] inputArray = { 10, 20, -30, -40, 50 };
+        int[] expected = { 20, -30, -40, 50, 10 };
+
+        // Act
+        int[] result = BasicAlgorithm.ShiftLeft(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 128 - Elements Before 5 in Array
+
+    [TestMethod]
+    public void TestElementsBefore5()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 5, 7 };
+        int[] expected = { 1, 2, 3 };
+
+        // Act
+        int[] result = BasicAlgorithm.ElementsBefore5(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 129 - Elements After 5 in Array
+
+    [TestMethod]
+    public void TestElementsAfter5()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 5, 7, 9, 11 };
+        int[] expected = { 7, 9, 11 };
+
+        // Act
+        int[] result = BasicAlgorithm.ElementsAfter5(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 130 - Shift Zeros to Left in Array
+
+    [TestMethod]
+    public void TestShiftZerosLeft()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 0, 3, 5, 7, 0, 9, 11 };
+        int[] expected = { 0, 0, 1, 2, 3, 5, 7, 9, 11 };
+
+        // Act
+        int[] result = BasicAlgorithm.ShiftZerosLeft(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 131 - Replace 5 with 0 and Shift Zeros Right
+
+    [TestMethod]
+    public void TestReplace5With0AndShiftRight()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 5, 3, 5, 7, 5, 9, 11 };
+        int[] expected = { 1, 2, 3, 7, 9, 11, 0, 0, 0 };
+
+        // Act
+        int[] result = BasicAlgorithm.Replace5With0AndShiftRight(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 132 - Shift Even Numbers Before Odd Numbers
+
+    [TestMethod]
+    public void TestShiftEvenBeforeOdd()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 5, 3, 5, 4, 6, 9, 11 };
+        int[] expected = { 2, 4, 6, 1, 5, 3, 5, 9, 11 };
+
+        // Act
+        int[] result = BasicAlgorithm.ShiftEvenBeforeOdd(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 133 - Check If Each Element ≥ Previous
+
+    [TestMethod]
+    public void TestIsEachElementGreaterOrEqual()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 1, 5, 5 };
+        int[] inputArray2 = { 1, 2, 3, 4 };
+        int[] inputArray3 = { 3, 3, 5, 5, 5, 5 };
+        int[] inputArray4 = { 1, 5, 5, 7, 8, 10 };
+
+        // Act
+        bool result1 = BasicAlgorithm.IsEachElementGreaterOrEqual(inputArray1);
+        bool result2 = BasicAlgorithm.IsEachElementGreaterOrEqual(inputArray2);
+        bool result3 = BasicAlgorithm.IsEachElementGreaterOrEqual(inputArray3);
+        bool result4 = BasicAlgorithm.IsEachElementGreaterOrEqual(inputArray4);
+
+        // Assert
+        Assert.AreEqual(false, result1);
+        Assert.AreEqual(true, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(true, result4);
+    }
+
+    // Exercise 134 - Check for Two 15's Next to Each Other
+
+    [TestMethod]
+    public void TestHasTwo15sNextToEachOther()
+    {
+        // Arrange
+        int[] inputArray1 = { 5, 5, 1, 15, 15 };
+        int[] inputArray2 = { 15, 2, 3, 4, 15 };
+        int[] inputArray3 = { 3, 3, 15, 15, 5, 5 };
+        int[] inputArray4 = { 1, 5, 15, 7, 8, 15 };
+
+        // Act
+        bool result1 = BasicAlgorithm.HasTwo15sNextToEachOther(inputArray1);
+        bool result2 = BasicAlgorithm.HasTwo15sNextToEachOther(inputArray2);
+        bool result3 = BasicAlgorithm.HasTwo15sNextToEachOther(inputArray3);
+        bool result4 = BasicAlgorithm.HasTwo15sNextToEachOther(inputArray4);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+        Assert.AreEqual(false, result4);
+    }
+
+    // Exercise 135 - Largest Average Between Array Halves
+
+    [TestMethod]
+    public void TestLargestAverageBetweenHalves()
+    {
+        // Arrange
+        int[] inputArray1 = { 1, 2, 3, 4, 6, 8 };
+        int[] inputArray2 = { 15, 2, 3, 4, 15, 11 };
+
+        // Act
+        int result1 = BasicAlgorithm.LargestAverageBetweenHalves(inputArray1);
+        int result2 = BasicAlgorithm.LargestAverageBetweenHalves(inputArray2);
+
+        // Assert
+        Assert.AreEqual(6, result1);
+        Assert.AreEqual(10, result2);
+    }
+
+    // Exercise 136 - Count Strings Matching Length
+
+    [TestMethod]
+    public void TestCountStringsWithLength()
+    {
+        // Arrange
+        string[] inputArray = { "a", "b", "bb", "c", "ccc" };
+        int targetLength = 1;
+
+        // Act
+        int result = BasicAlgorithm.CountStringsWithLength(inputArray, targetLength);
+
+        // Assert
+        Assert.AreEqual(3, result);
+    }
+
+    // Exercise 137 - First n Strings from String Array
+
+    [TestMethod]
+    public void TestFirstNStrings()
+    {
+        // Arrange
+        string[] inputArray = { "a", "b", "bb", "c", "ccc" };
+        int n = 3;
+        string[] expected = { "a", "b", "bb" };
+
+        // Act
+        string[] result = BasicAlgorithm.FirstNStrings(inputArray, n);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 138 - Strings Matching Given Length
+
+    [TestMethod]
+    public void TestStringsMatchingLength()
+    {
+        // Arrange
+        string[] inputArray = { "a", "aaa", "b", "bbb", "c", "ccc" };
+        int length = 3;
+        string[] expected = { "aaa", "bbb", "ccc" };
+
+        // Act
+        string[] result = BasicAlgorithm.StringsMatchingLength(inputArray, length);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 139 - Check If Number Contains 2
+
+    [TestMethod]
+    public void TestContainsDigit2()
+    {
+        // Arrange
+        int input1 = 123;
+        int input2 = 13;
+        int input3 = 222;
+
+        // Act
+        bool result1 = BasicAlgorithm.ContainsDigit2(input1);
+        bool result2 = BasicAlgorithm.ContainsDigit2(input2);
+        bool result3 = BasicAlgorithm.ContainsDigit2(input3);
+
+        // Assert
+        Assert.AreEqual(true, result1);
+        Assert.AreEqual(false, result2);
+        Assert.AreEqual(true, result3);
+    }
+
+    // Exercise 140 - Array of Odd Numbers from Given Length
+
+    [TestMethod]
+    public void TestOddNumbersFromArray()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 5, 7, 9, 10 };
+        int length = 3;
+        int[] expected = { 1, 3, 5 };
+
+        // Act
+        int[] result = BasicAlgorithm.OddNumbersFromArray(inputArray, length);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 141 - Multiply Each Integer by 3
+
+    [TestMethod]
+    public void TestMultiplyBy3()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 4 };
+        int[] expected = { 3, 6, 9, 12 };
+
+        // Act
+        int[] result = BasicAlgorithm.MultiplyBy3(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 142 - Cube Each Integer
+
+    [TestMethod]
+    public void TestCubeEachInteger()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 4 };
+        int[] expected = { 1, 8, 27, 64 };
+
+        // Act
+        int[] result = BasicAlgorithm.CubeEachInteger(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 143 - Add # at Start and End of Strings
+
+    [TestMethod]
+    public void TestAddHashToStartAndEnd()
+    {
+        // Arrange
+        string[] inputArray = { "1", "2", "3", "4" };
+        string[] expected = { "#1#", "#2#", "#3#", "#4#" };
+
+        // Act
+        string[] result = BasicAlgorithm.AddHashToStartAndEnd(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 144 - Repeat Strings Four Times
+
+    [TestMethod]
+    public void TestRepeatStringsFourTimes()
+    {
+        // Arrange
+        string[] inputArray = { "1", "2", "3", "4" };
+        string[] expected = { "1111", "2222", "3333", "4444" };
+
+        // Act
+        string[] result = BasicAlgorithm.RepeatStringsFourTimes(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 145 - (Value+2) * 5 for Each Integer
+
+    [TestMethod]
+    public void TestValuePlus2Times5()
+    {
+        // Arrange
+        int[] inputArray = { 1, 2, 3, 4 };
+        int[] expected = { 15, 20, 25, 30 };
+
+        // Act
+        int[] result = BasicAlgorithm.ValuePlus2Times5(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 146 - Rightmost Digits of Integers
+
+    [TestMethod]
+    public void TestRightmostDigits()
+    {
+        // Arrange
+        int[] inputArray = { 10, 22, 35, 41 };
+        int[] expected = { 0, 2, 5, 1 };
+
+        // Act
+        int[] result = BasicAlgorithm.RightmostDigits(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 147 - Convert Strings to Uppercase
+
+    [TestMethod]
+    public void TestConvertToUppercase()
+    {
+        // Arrange
+        string[] inputArray = { "Abc", "cdef", "js", "php" };
+        string[] expected = { "ABC", "CDEF", "JS", "PHP" };
+
+        // Act
+        string[] result = BasicAlgorithm.ConvertToUppercase(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 148 - Remove 'a' from Each String
+
+    [TestMethod]
+    public void TestRemoveAFromStrings()
+    {
+        // Arrange
+        string[] inputArray = { "abc", "cdaef", "js", "php" };
+        string[] expected = { "bc", "cdef", "js", "php" };
+
+        // Act
+        string[] result = BasicAlgorithm.RemoveAFromStrings(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 149 - Remove Integers Less Than 4
+
+    [TestMethod]
+    public void TestRemoveIntegersLessThan4()
+    {
+        // Arrange
+        int[] inputArray = { 0, -2, 1, 2, 3, 5, 4, 7, 8 };
+        int[] expected = { 0, -2, 1, 2, 3 };
+
+        // Act
+        int[] result = BasicAlgorithm.RemoveIntegersLessThan4(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
+    }
+
+    // Exercise 150 - Remove Integers Ending in 7
+
+    [TestMethod]
+    public void TestRemoveIntegersEndingWith7()
+    {
+        // Arrange
+        int[] inputArray = { 10, 22, 35, 47, 53, 67 };
+        int[] expected = { 10, 22, 35, 53 };
+
+        // Act
+        int[] result = BasicAlgorithm.RemoveIntegersEndingWith7(inputArray);
+
+        // Assert
+        CollectionAssert.AreEqual(expected, result);
     }
 }
