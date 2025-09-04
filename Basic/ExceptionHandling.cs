@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Globalization;
 using System.Net.Http;
+using System.Net;
 
 namespace Exercises
 {
-    public class ExceptionHandling
+    public static class ExceptionHandling
     {
         /* Exercise 1 - Write a C# program that prompts the user to input two numbers and divides them. 
        Handle an exception when the user enters non-numeric values.*/
@@ -30,10 +31,6 @@ namespace Exercises
             catch (FormatException)
             {
                 throw new FormatException("Non-numeric value entered.");
-            }
-            catch (OverflowException)
-            {
-                throw new OverflowException("Value is too large or too small.");
             }
         }
 
@@ -58,10 +55,6 @@ namespace Exercises
             {
                 throw new FormatException("Invalid input. Please enter an integer.");
             }
-            catch (OverflowException)
-            {
-                throw new OverflowException("Value is too large or too small for an integer.");
-            }
         }
 
         public class NegativeNumberException : Exception
@@ -78,22 +71,20 @@ namespace Exercises
                 throw new ArgumentException("File path cannot be null or empty.");
             }
 
-            using (var reader = new StreamReader(filePath))
+            try
             {
-                // File opened successfully
+                using (var reader = new StreamReader(filePath))
+                {
+                    // File opened successfully - using ensures closure
+                }
             }
-        }
-
-        public static string ReadFileContent(string filePath)
-        {
-            if (string.IsNullOrWhiteSpace(filePath))
+            catch (FileNotFoundException ex)
             {
-                throw new ArgumentException("File path cannot be null or empty.");
+                throw new FileNotFoundException($"File not found: {filePath}", ex);
             }
-
-            using (var reader = new StreamReader(filePath))
+            catch (DirectoryNotFoundException ex)
             {
-                return reader.ReadToEnd();
+                throw new DirectoryNotFoundException($"Directory not found: {Path.GetDirectoryName(filePath)}", ex);
             }
         }
 
@@ -103,25 +94,14 @@ namespace Exercises
         {
             if (number < 0 || number > 1000)
             {
-                throw new ArgumentOutOfRangeException("Number must be between 0 and 1000.");
+                throw new ArgumentOutOfRangeException(nameof(number), number, "Number must be between 0 and 1000.");
             }
         }
 
         public static void ValidateNumberInRange(string input)
-        {
-            try
-            {
+        {           
                 var number = Convert.ToInt32(input);
                 ValidateNumberInRange(number);
-            }
-            catch (FormatException)
-            {
-                throw new FormatException("Invalid input. Please enter an integer.");
-            }
-            catch (OverflowException)
-            {
-                throw new OverflowException("Value is too large or too small for an integer.");
-            }
         }
 
         /* Exercise 5 - Write a C# program that implements a method that takes an array of 
@@ -161,11 +141,6 @@ namespace Exercises
             }
 
             return int.Parse(input);
-        }
-
-        public static bool TryConvertToInt(string input, out int result)
-        {
-            return int.TryParse(input, out result);
         }
 
         /* Exercise 7 - Write a C# program that reads a list of integers from the user. 
@@ -210,16 +185,6 @@ namespace Exercises
             return numerator / denominator;
         }
 
-        public static double DivideNumbersDouble(int numerator, int denominator)
-        {
-            if (denominator == 0)
-            {
-                throw new DivideByZeroException("Division by zero is not allowed.");
-            }
-
-            return (double)numerator / denominator;
-        }
-
         /* Exercise 9 - Write a C# program that creates a method that reads a date from the user in the format "dd/mm/yyyy" 
         and converts it to a DateTime object. Handle an exception if the input format is invalid.*/
         public static DateTime ConvertToDate(string input)
@@ -236,11 +201,6 @@ namespace Exercises
         public static bool TryConvertToDate(string input, out DateTime result)
         {
             result = DateTime.MinValue;
-
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return false;
-            }
 
             var format = "dd/MM/yyyy";
             return DateTime.TryParseExact(input, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
@@ -274,33 +234,6 @@ namespace Exercises
             {
                 throw new FormatException("Invalid input. Please input a valid number.");
             }
-            catch (OverflowException)
-            {
-                throw new OverflowException("Value is too large or too small.");
-            }
-        }
-
-        public static bool TryCalculateSquareRoot(string input, out double result)
-        {
-            result = 0;
-
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return false;
-            }
-
-            if (!double.TryParse(input, out var number))
-            {
-                return false;
-            }
-
-            if (number < 0)
-            {
-                return false;
-            }
-
-            result = Math.Sqrt(number);
-            return true;
         }
 
         /* Exercise 11 - Write a C# program that creates a method that takes a string as input and converts it to uppercase. 
@@ -312,25 +245,7 @@ namespace Exercises
                 throw new NullReferenceException("Input string is null.");
             }
 
-            if (string.IsNullOrEmpty(input))
-            {
-                throw new ArgumentException("Input string is null or empty.");
-            }
-
             return input.ToUpper();
-        }
-
-        public static bool TryConvertToUppercase(string input, out string result)
-        {
-            result = null;
-
-            if (input == null || string.IsNullOrEmpty(input))
-            {
-                return false;
-            }
-
-            result = input.ToUpper();
-            return true;
         }
 
         /* Exercise 12 - Write a C# program that creates a method that calculates the factorial of a given number. 
@@ -355,46 +270,6 @@ namespace Exercises
             return factorial;
         }
 
-        public static long CalculateFactorialLong(int number)
-        {
-            if (number < 0)
-            {
-                throw new ArgumentException("Number must be non-negative.");
-            }
-
-            long factorial = 1;
-
-            for (int i = 1; i <= number; i++)
-            {
-                checked
-                {
-                    factorial *= i;
-                }
-            }
-
-            return factorial;
-        }
-
-        public static bool TryCalculateFactorial(int number, out int result)
-        {
-            result = 0;
-
-            if (number < 0)
-            {
-                return false;
-            }
-
-            try
-            {
-                result = CalculateFactorial(number);
-                return true;
-            }
-            catch (OverflowException)
-            {
-                return false;
-            }
-        }
-
         /* Exercise 13 - Write a C# program that reads a list of URLs from the user and downloads the content of each URL. 
         Handle the exception if any URL is inaccessible.*/
         public static string DownloadContent(string url)
@@ -404,65 +279,15 @@ namespace Exercises
                 throw new ArgumentException("URL cannot be null or empty.");
             }
 
-            if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
-            {
-                throw new ArgumentException("Invalid URL format.");
-            }
-
             using (var webClient = new WebClient())
             {
                 try
                 {
-                    return webClient.DownloadString(uri);
+                    return webClient.DownloadString(url);
                 }
                 catch (WebException ex)
                 {
-                    throw new WebException($"Error accessing URL '{url}': {ex.Message}", ex);
-                }
-            }
-        }
-
-        public static List<string> DownloadContents(List<string> urls)
-        {
-            var results = new List<string>();
-
-            foreach (var url in urls)
-            {
-                try
-                {
-                    var content = DownloadContent(url);
-                    results.Add($"Success: {url}\nContent: {content}\n");
-                }
-                catch (Exception ex)
-                {
-                    results.Add($"Error: {url} - {ex.Message}");
-                }
-            }
-
-            return results;
-        }
-
-        public static async Task<string> DownloadContentAsync(string url)
-        {
-            if (string.IsNullOrWhiteSpace(url))
-            {
-                throw new ArgumentException("URL cannot be null or empty.");
-            }
-
-            if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
-            {
-                throw new ArgumentException("Invalid URL format.");
-            }
-
-            using (var webClient = new WebClient())
-            {
-                try
-                {
-                    return await webClient.DownloadStringTaskAsync(uri);
-                }
-                catch (WebException ex)
-                {
-                    throw new WebException($"Error accessing URL '{url}': {ex.Message}", ex);
+                    throw new WebException($"Error accessing URL: {ex.Message}", ex);
                 }
             }
         }
