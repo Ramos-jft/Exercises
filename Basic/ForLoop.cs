@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 
 namespace Exercises
 {
@@ -903,6 +904,857 @@ namespace Exercises
         }
 
         // Exercise 51 - Write a program in C# Sharp to convert an octal number to decimal without using an array.
+        public static string ConvertOctalToDecimal(string octalNumber)
+        {
+            if (string.IsNullOrEmpty(octalNumber))
+                return "Invalid input";
 
+            int dec = 0;
+            int power = 1;
+
+            for (int i = octalNumber.Length - 1; i >= 0; i--)
+            {
+                char digitChar = octalNumber[i];
+
+                if (digitChar < '0' || digitChar > '7')
+                    return "Invalid octal number";
+
+                int digit = digitChar - '0';
+                dec += digit * power;
+                power *= 8;
+            }
+
+            return $"The Octal Number : {octalNumber}\nThe equivalent Decimal Number : {dec}";
+        }
+
+        // Exercise 52 - Write a C# Sharp program to find the sum of the Geometric Progress series.
+        public static string CalculateGPSeries(int firstTerm, int numberOfTerms, int commonRatio)
+        {
+            var series = "";
+            double sum = 0;
+            double currentTerm = firstTerm;
+
+            for (int i = 0; i < numberOfTerms; i++)
+            {
+                series += $"{currentTerm} ";
+                sum += currentTerm;
+                currentTerm *= commonRatio;
+            }
+
+            double lastTerm = firstTerm * Math.Pow(commonRatio, numberOfTerms - 1);
+
+            return string.Format(CultureInfo.InvariantCulture,
+             "The numbers for the G.P. series:\n{0}\nThe tn terms of G.P. : {1:F6}\nThe Sum of the G.P. series : {2:F6}",
+             series.Trim(), lastTerm, sum);
+        }
+
+        // Exercise 53 - Write a program in C# Sharp to convert a binary number to octal.
+        public static string ConvertBinaryToOctal(string binaryNumber)
+        {
+            if (string.IsNullOrEmpty(binaryNumber))
+                return "Invalid input";
+
+            foreach (char c in binaryNumber)
+            {
+                if (c != '0' && c != '1')
+                    return "Invalid binary number";
+            }
+
+            int dec = 0;
+            int power = 1;
+
+            for (int i = binaryNumber.Length - 1; i >= 0; i--)
+            {
+                if (binaryNumber[i] == '1')
+                    dec += power;
+                power *= 2;
+            }
+
+            int ocno = 0;
+            int i2 = 1;
+
+            for (int j = dec; j > 0; j = j / 8)
+            {
+                ocno = ocno + (j % 8) * i2;
+                i2 = i2 * 10;
+            }
+
+            return string.Format(CultureInfo.InvariantCulture,
+                "The Binary Number : {0}\nThe equivalent Octal Number : {1}",
+                binaryNumber, ocno);
+        }
+
+        // Exercise 54 -  Write a program in C# Sharp to convert an octal number into binary.
+        public static string ConvertOctalToBinary(string octalNumber)
+        {
+            if (string.IsNullOrEmpty(octalNumber))
+                return "Invalid input";
+
+            foreach (char c in octalNumber)
+            {
+                if (c < '0' || c > '7')
+                    return "Invalid octal number";
+            }
+
+            int dec = 0;
+            int power = 1;
+
+            for (int i = octalNumber.Length - 1; i >= 0; i--)
+            {
+                int digit = octalNumber[i] - '0';
+                dec += digit * power;
+                power *= 8;
+            }
+
+            string binary = "";
+
+            for (int j = dec; j > 0; j = j / 2)
+            {
+                binary = (j % 2) + binary;
+            }
+
+            if (binary == "") binary = "0";
+
+            return string.Format(CultureInfo.InvariantCulture,
+                "The Octal Number : {0}\nThe equivalent Binary Number : {1}",
+                octalNumber, binary);
+        }
+
+        // Exercise 55 - Write a program in C# Sharp to convert a decimal number to hexadecimal.
+        public static string ConvertDecimalToHexadecimal(int decimalNumber)
+        {
+            if (decimalNumber == 0)
+                return "The equivalent Hexadecimal Number : 0";
+
+            string hex = "";
+            int temp = decimalNumber;
+
+            while (temp > 0)
+            {
+                int remainder = temp % 16;
+
+                if (remainder < 10)
+                    hex = remainder + hex;
+                else
+                    hex = (char)(remainder + 55) + hex;
+
+                temp /= 16;
+            }
+
+            return string.Format(CultureInfo.InvariantCulture,
+                "The equivalent Hexadecimal Number : {0}", hex);
+        }
+
+        // Exercise 56 - Write a program in C# Sharp to check whether a number can be expressed as the sum of two prime numbers.
+        public static string CheckSumOfTwoPrimes(int number)
+        {
+            if (number < 4)
+                return $"{number} can not be expressed as the sum of two prime numbers.";
+
+            string result = "";
+            bool found = false;
+
+            for (int i = 2; i <= number / 2; i++)
+            {
+                if (IsPrimeNumber(i) && IsPrimeNumber(number - i))
+                {
+                    result += $"{number} = {i} + {number - i}\n";
+                    found = true;
+                }
+            }
+
+            if (!found)
+                return $"{number} can not be expressed as the sum of two prime numbers.";
+
+            return result.Trim();
+        }
+
+        private static bool IsPrime1(int n)
+        {
+            if (n < 2) return false;
+            if (n == 2) return true;
+            if (n % 2 == 0) return false;
+
+            for (int i = 3; i * i <= n; i += 2)
+            {
+                if (n % i == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        // Exercise 57 - Write a program in C# Sharp to print a string in reverse order.
+        public static string ReverseString(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return "Reversed string is: ";
+
+            string reversed = "";
+
+            for (int i = input.Length - 1; i >= 0; i--)
+            {
+                reversed += input[i];
+            }
+
+            return string.Format(CultureInfo.InvariantCulture,
+                "Reversed string is: {0}", reversed);
+        }
+
+        // Exercise 58 - Write a C# Sharp program to display an alphabet pattern like A with an asterisk.
+        public static string DisplayPatternA()
+        {
+            string pattern = "";
+
+            for (int row = 0; row < 8; row++)
+            {
+                for (int column = 0; column < 7; column++)
+                {
+                    if (((column == 1 || column == 5) && row != 0) ||
+                        ((row == 0 || row == 3) && (column > 1 && column < 5)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 59 - Write a C# Sharp program to display an alphabet pattern like B with an asterisk.
+        public static string DisplayPatternB()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 5 ||
+                       ((row == 0 || row == 3 || row == 6) && (column > 1 && column < 5)) ||
+                       (column == 1 && (row != 0 && row != 3 && row != 6)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 60 - Write a C# Sharp program to display an alphabet pattern like C with an asterisk.
+        public static string DisplayPatternC()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 1 && (row > 0 && row < 6)) ||
+                        ((row == 0 || row == 6) && (column > 1 && column < 5)) ||
+                        (column == 5 && (row == 1 || row == 5)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 61 - Write a C# Sharp program to display an alphabet pattern like D with an asterisk.
+        public static string DisplayPatternD()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 ||
+                        ((row == 0 || row == 6) && (column > 1 && column < 5)) ||
+                        (column == 5 && (row != 0 && row != 6)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 62 - Write a C# Sharp program to display an alphabet pattern like E with an asterisk.
+        public static string DisplayPatternE()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 ||
+                        ((row == 0 || row == 6) && (column > 1 && column < 6)) ||
+                        (row == 3 && column > 1 && column < 5))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 63 - Write a C# Sharp program to display an alphabet pattern like F with an asterisk.
+        public static string DisplayPatternF()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 ||
+                        (row == 0 && column > 1 && column < 6) ||
+                        (row == 3 && column > 1 && column < 5))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 64 - Write a C# Sharp program to display an alphabet pattern like G with an asterisk.
+        public static string DisplayPatternG()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 1 && row != 0 && row != 6) ||
+                        ((row == 0 || row == 6) && column > 1 && column < 5) ||
+                        (row == 3 && column > 2 && column < 6) ||
+                        (column == 5 && row != 0 && row != 2 && row != 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 65 - Write a C# Sharp program to display an alphabet pattern like H with an asterisk.
+        public static string DisplayPatternH()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 1 || column == 5) || (row == 3 && column > 1 && column < 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 66 - Write a C# Sharp program to display an alphabet pattern like I with an asterisk.
+        public static string DisplayPatternI()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 3 || (row == 0 && column > 0 && column < 6) || (row == 6 && column > 0 && column < 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 67 - Write a C# Sharp program to display an alphabet pattern like J with an asterisk.
+        public static string DisplayPatternJ()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 4 && row != 6) || (row == 0 && column > 2 && column < 6) || (row == 6 && column == 3) || (row == 5 && column == 2))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 68 - Write a C# Sharp program to display an alphabet pattern like K with an asterisk.
+        public static string DisplayPatternK()
+        {
+            string pattern = "";
+            int j = 5, i = 0;
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 || ((row == column + 1) && column != 0))
+                    {
+                        pattern += "*";
+                    }
+                    else if (row == i && column == j)
+                    {
+                        pattern += "*";
+                        i = i + 1;
+                        j = j - 1;
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 69 - Write a C# Sharp program to display an alphabet pattern like L with an asterisk.
+        public static string DisplayPatternL()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 || (row == 6 && column != 0 && column < 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 70 - Write a C# Sharp program to display an alphabet pattern like M with an asterisk.
+        public static string DisplayPatternM()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 || column == 5 ||
+                        (row == 2 && (column == 2 || column == 4)) ||
+                        (row == 3 && column == 3))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 71 - Write a C# Sharp program to display an alphabet pattern like N with an asterisk.
+        public static string DisplayPatternN()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 || column == 5 || (row == column && column != 0 && column != 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 72 - Write a C# Sharp program to display an alphabet pattern like O with an asterisk.
+        public static string DisplayPatternO()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && row != 0 && row != 6) || ((row == 0 || row == 6) && column > 1 && column < 5))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 73 - Write a C# Sharp program to display an alphabet pattern like P with an asterisk.
+        public static string DisplayPatternP()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 1 || ((row == 0 || row == 3) && column > 0 && column < 5) || ((column == 5 || column == 1) && (row == 1 || row == 2)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 74 - Write a C# Sharp program to display an alphabet pattern like Q with an asterisk.
+        public static string DisplayPatternQ()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 1 && row != 0 && row != 6) ||
+                        (row == 0 && column > 1 && column < 5) ||
+                        (column == 5 && row != 0 && row != 5) ||
+                        (row == 6 && column > 1 && column < 4) ||
+                        (column == row - 1 && row > 3))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 75 - Write a C# Sharp program to display an alphabet pattern like R with an asterisk.
+        public static string DisplayPatternR()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if ((column == 1) ||
+                        ((row == 0 || row == 3) && column > 1 && column < 5) ||
+                        (column == 5 && row != 0 && row < 3) ||
+                        (column == row - 1 && row > 2))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 76 - Write a C# Sharp program to display an alphabet pattern like S with an asterisk.
+        public static string DisplayPatternS()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((row == 0 || row == 3 || row == 6) && column > 1 && column < 5) ||
+                        (column == 1 && (row == 1 || row == 2 || row == 6)) ||
+                        (column == 5 && (row == 0 || row == 4 || row == 5)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 77 - Write a C# Sharp program to display an alphabet pattern like T with an asterisk.
+        public static string DisplayPatternT()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (column == 3 || (row == 0 && column > 0 && column < 6))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 78 - Write a C# Sharp program to display an alphabet pattern like U with an asterisk.
+        public static string DisplayPatternU()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && row != 6) || (row == 6 && column > 1 && column < 5))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 79 - Write a C# Sharp program to display an alphabet pattern like V with an asterisk.
+        public static string DisplayPatternV()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && row < 5) || (row == 6 && column == 3) || (row == 5 && (column == 2 || column == 4)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+
+        // Exercise 80 - Write a C# Sharp program to display an alphabet pattern like W with an asterisk.
+        public static string DisplayPatternW()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && row < 6) || ((row == 5 || row == 4) && column == 3) || (row == 6 && (column == 2 || column == 4)))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 81 - Write a C# Sharp program to display an alphabet pattern like X with an asterisk.
+        public static string DisplayPatternX()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && (row > 4 || row < 2)) || row == column && column > 0 && column < 6 || (column == 2 && row == 4) || (column == 4 && row == 2))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 82 - Write a C# Sharp program to display an alphabet pattern like Y with an asterisk.
+        public static string DisplayPatternY()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((column == 1 || column == 5) && row < 2) || row == column && column > 0 && column < 4 || (column == 4 && row == 2) || ((column == 3) && row > 3))
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
+
+        // Exercise 83 - Write a C# Sharp program to display an alphabet pattern like Z with an asterisk.
+        public static string DisplayPatternZ()
+        {
+            string pattern = "";
+
+            for (int row = 0; row <= 6; row++)
+            {
+                for (int column = 0; column <= 6; column++)
+                {
+                    if (((row == 0 || row == 6) && column >= 0 && column <= 6) || row + column == 6)
+                    {
+                        pattern += "*";
+                    }
+                    else
+                    {
+                        pattern += " ";
+                    }
+                }
+                pattern += "\n";
+            }
+
+            return pattern;
+        }
     }
 }
