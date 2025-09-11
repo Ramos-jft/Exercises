@@ -9,28 +9,12 @@ public class BasicAlgorithmTests
     // Exercise 1 - Triple Sum for Equal Integers
 
     [TestMethod]
-    public void TripleSumForEqualIntegers_DifferentValues_ReturnsSum()
+    [DataRow(1, 2, 3)]
+    [DataRow(3, 2, 5)]
+    [DataRow(-1, 1, 0)]
+    [DataRow(5, 7, 12)]
+    public void TripleSumForEqualIntegers_DifferentValues_ReturnsSum(int a, int b, int expected)
     {
-        // Arrange
-        int a = 1;
-        int b = 2;
-        int expected = 3;
-
-        // Act
-        int result = BasicAlgorithm.TripleSumForEqualIntegers(a, b);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void TripleSumForEqualIntegers_DifferentValues2_ReturnsSum()
-    {
-        // Arrange
-        int a = 3;
-        int b = 2;
-        int expected = 5;
-
         // Act
         int result = BasicAlgorithm.TripleSumForEqualIntegers(a, b);
 
@@ -548,68 +532,13 @@ public class BasicAlgorithmTests
     // Exercise 5 - Add 'if' to String if Absent
 
     [TestMethod]
-    public void AddIfToString_StartsWithIf_ReturnsUnchanged()
+    [DataRow("if else", "if else")]
+    [DataRow("else", "if else")]
+    [DataRow("IF statement", "IF statement")]
+    [DataRow("", "if")]
+    [DataRow(null, "if")]
+    public void AddIfToString_StartsWithIf_ReturnsUnchanged(string input, string expected)
     {
-        // Arrange
-        string input = "if else";
-        string expected = "if else";
-
-        // Act
-        string result = BasicAlgorithm.AddIfToString(input);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void AddIfToString_DoesNotStartWithIf_AddsIfPrefix()
-    {
-        // Arrange
-        string input = "else";
-        string expected = "if else";
-
-        // Act
-        string result = BasicAlgorithm.AddIfToString(input);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void AddIfToString_UpperCaseIf_ReturnsUnchanged()
-    {
-        // Arrange
-        string input = "IF statement";
-        string expected = "IF statement";
-
-        // Act
-        string result = BasicAlgorithm.AddIfToString(input);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void AddIfToString_EmptyString_ReturnsIf()
-    {
-        // Arrange
-        string input = "";
-        string expected = "if";
-
-        // Act
-        string result = BasicAlgorithm.AddIfToString(input);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
-    public void AddIfToString_NullString_ReturnsIf()
-    {
-        // Arrange
-        string input = null;
-        string expected = "if";
-
         // Act
         string result = BasicAlgorithm.AddIfToString(input);
 

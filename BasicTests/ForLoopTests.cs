@@ -3137,5 +3137,345 @@ public class ForLoopTests
     }
 
     // Exercise 51 - Write a program in C# Sharp to convert an octal number to decimal without using an array.
+    [TestMethod]
+    [DataRow("745", "The Octal Number : 745\nThe equivalent Decimal Number : 485")]
+    [DataRow("5", "The Octal Number : 5\nThe equivalent Decimal Number : 5")]
+    [DataRow("10", "The Octal Number : 10\nThe equivalent Decimal Number : 8")]
+    [DataRow("77", "The Octal Number : 77\nThe equivalent Decimal Number : 63")]
+    [DataRow("0", "The Octal Number : 0\nThe equivalent Decimal Number : 0")]
+    [DataRow("", "Invalid input")]
+    [DataRow("89", "Invalid octal number")]
+    [DataRow("A7", "Invalid octal number")]
+    public void ConvertOctalToDecimal_ValidOctal_ReturnsCorrectDecimal(string input, string expected)
+    {
+        var result = ForLoop.ConvertOctalToDecimal(input);
+        result.Should().Be(expected);
+    }
 
+    // Exercise 52 - Write a C# Sharp program to find the sum of the Geometric Progress series.
+    [TestMethod]
+    [DataRow(1, 5, 2, "The numbers for the G.P. series:\n1 2 4 8 16\nThe tn terms of G.P. : 16.000000\nThe Sum of the G.P. series : 31.000000")]
+    [DataRow(1, 5, 10, "The numbers for the G.P. series:\n1 10 100 1000 10000\nThe tn terms of G.P. : 10000.000000\nThe Sum of the G.P. series : 11111.000000")]
+    [DataRow(3, 4, 2, "The numbers for the G.P. series:\n3 6 12 24\nThe tn terms of G.P. : 24.000000\nThe Sum of the G.P. series : 45.000000")]
+    [DataRow(2, 3, 3, "The numbers for the G.P. series:\n2 6 18\nThe tn terms of G.P. : 18.000000\nThe Sum of the G.P. series : 26.000000")]
+    public void CalculateGPSeries_ValidInput_ReturnsCorrectResult(int firstTerm, int numberOfTerms, int commonRatio, string expected)
+    {
+        var result = ForLoop.CalculateGPSeries(firstTerm, numberOfTerms, commonRatio);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 53 - Write a program in C# Sharp to convert a binary number to octal.
+    [TestMethod]
+    [DataRow("1001", "The Binary Number : 1001\nThe equivalent Octal Number : 11")]
+    [DataRow("110101", "The Binary Number : 110101\nThe equivalent Octal Number : 65")]
+    [DataRow("1010", "The Binary Number : 1010\nThe equivalent Octal Number : 12")]
+    [DataRow("1111", "The Binary Number : 1111\nThe equivalent Octal Number : 17")]
+    [DataRow("1", "The Binary Number : 1\nThe equivalent Octal Number : 1")]
+    [DataRow("0", "The Binary Number : 0\nThe equivalent Octal Number : 0")]
+    [DataRow("", "Invalid input")]
+    [DataRow("102", "Invalid binary number")]
+    [DataRow("abc", "Invalid binary number")]
+    public void ConvertBinaryToOctal_ValidBinary_ReturnsCorrectOctal(string input, string expected)
+    {
+        var result = ForLoop.ConvertBinaryToOctal(input);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 54 -  Write a program in C# Sharp to convert an octal number into binary.
+    [TestMethod]
+    [DataRow("11", "The Octal Number : 11\nThe equivalent Binary Number : 1001")]
+    [DataRow("45", "The Octal Number : 45\nThe equivalent Binary Number : 100101")]
+    [DataRow("7", "The Octal Number : 7\nThe equivalent Binary Number : 111")]
+    [DataRow("1", "The Octal Number : 1\nThe equivalent Binary Number : 1")]
+    [DataRow("0", "The Octal Number : 0\nThe equivalent Binary Number : 0")]
+    [DataRow("", "Invalid input")]
+    [DataRow("89", "Invalid octal number")]
+    [DataRow("A7", "Invalid octal number")]
+    public void ConvertOctalToBinary_ValidOctal_ReturnsCorrectBinary(string input, string expected)
+    {
+        var result = ForLoop.ConvertOctalToBinary(input);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 55 - Write a program in C# Sharp to convert a decimal number to hexadecimal.
+    [TestMethod]
+    [DataRow(79, "The equivalent Hexadecimal Number : 4F")]
+    [DataRow(1015, "The equivalent Hexadecimal Number : 3F7")]
+    [DataRow(255, "The equivalent Hexadecimal Number : FF")]
+    [DataRow(16, "The equivalent Hexadecimal Number : 10")]
+    [DataRow(0, "The equivalent Hexadecimal Number : 0")]
+    [DataRow(10, "The equivalent Hexadecimal Number : A")]
+    [DataRow(15, "The equivalent Hexadecimal Number : F")]
+    [DataRow(4096, "The equivalent Hexadecimal Number : 1000")]
+    public void ConvertDecimalToHexadecimal_ValidDecimal_ReturnsCorrectHexadecimal(int input, string expected)
+    {
+        var result = ForLoop.ConvertDecimalToHexadecimal(input);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 56 - Write a program in C# Sharp to check whether a number can be expressed as the sum of two prime numbers.
+    [TestMethod]
+    [DataRow(16, "16 = 3 + 13\n16 = 5 + 11")]
+    [DataRow(50, "50 = 3 + 47\n50 = 7 + 43\n50 = 13 + 37\n50 = 19 + 31")]
+    [DataRow(4, "4 = 2 + 2")]
+    [DataRow(10, "10 = 3 + 7\n10 = 5 + 5")]
+    [DataRow(3, "3 can not be expressed as the sum of two prime numbers.")]
+    [DataRow(1, "1 can not be expressed as the sum of two prime numbers.")]
+    [DataRow(2, "2 can not be expressed as the sum of two prime numbers.")]
+    [DataRow(11, "11 can not be expressed as the sum of two prime numbers.")]
+    [DataRow(100, "100 = 3 + 97\n100 = 11 + 89\n100 = 17 + 83\n100 = 29 + 71\n100 = 41 + 59\n100 = 47 + 53")]
+    public void CheckSumOfTwoPrimes_ValidNumber_ReturnsCorrectResult(int input, string expected)
+    {
+        var result = ForLoop.CheckSumOfTwoPrimes(input);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 57 - Write a program in C# Sharp to print a string in reverse order.
+    [TestMethod]
+    [DataRow("Welcome", "Reversed string is: emocleW")]
+    [DataRow("W3RESOURCE", "Reversed string is: ECRUOSER3W")]
+    [DataRow("Hello", "Reversed string is: olleH")]
+    [DataRow("A", "Reversed string is: A")]
+    [DataRow("", "Reversed string is: ")]
+    [DataRow("12345", "Reversed string is: 54321")]
+    [DataRow("C# Sharp", "Reversed string is: prahS #C")]
+    public void ReverseString_ValidInput_ReturnsReversedString(string input, string expected)
+    {
+        var result = ForLoop.ReverseString(input);
+        result.Should().Be(expected);
+    }
+
+    // Exercise 58 - Write a C# Sharp program to display an alphabet pattern like A with an asterisk.
+    [TestMethod]
+    public void DisplayPatternA_ReturnsCorrectAPattern()
+    {
+        var expected = "  ***  \n *   * \n *   * \n ***** \n *   * \n *   * \n *   * \n *   * \n";
+        var result = ForLoop.DisplayPatternA();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 59 - Write a C# Sharp program to display an alphabet pattern like B with an asterisk.
+    [TestMethod]
+    public void DisplayPatternB_ReturnsCorrectBPattern()
+    {
+        var expected = "  **** \n *   * \n *   * \n  **** \n *   * \n *   * \n  **** \n";
+        var result = ForLoop.DisplayPatternB();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 60 - Write a C# Sharp program to display an alphabet pattern like C with an asterisk.
+    [TestMethod]
+    public void DisplayPatternC_ReturnsCorrectCPattern()
+    {
+        var expected = "  ***  \n *   * \n *     \n *     \n *     \n *   * \n  ***  \n";
+        var result = ForLoop.DisplayPatternC();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 61 - Write a C# Sharp program to display an alphabet pattern like D with an asterisk.
+    [TestMethod]
+    public void DisplayPatternD_ReturnsCorrectDPattern()
+    {
+        var expected = " ****  \n *   * \n *   * \n *   * \n *   * \n *   * \n ****  \n";
+        var result = ForLoop.DisplayPatternD();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 62 - Write a C# Sharp program to display an alphabet pattern like E with an asterisk.
+    [TestMethod]
+    public void DisplayPatternE_ReturnsCorrectEPattern()
+    {
+        var expected = " ***** \n *     \n *     \n ****  \n *     \n *     \n ***** \n";
+        var result = ForLoop.DisplayPatternE();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 63 - Write a C# Sharp program to display an alphabet pattern like F with an asterisk.
+    [TestMethod]
+    public void DisplayPatternF_ReturnsCorrectFPattern()
+    {
+        var expected = " ***** \n *     \n *     \n ****  \n *     \n *     \n *     \n";
+        var result = ForLoop.DisplayPatternF();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 64 - Write a C# Sharp program to display an alphabet pattern like G with an asterisk.
+    [TestMethod]
+    public void DisplayPatternG_ReturnsCorrectGPattern()
+    {
+        var expected = "  ***  \n *   * \n *     \n * *** \n *   * \n *   * \n  ***  \n";
+        var result = ForLoop.DisplayPatternG();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 65 - Write a C# Sharp program to display an alphabet pattern like H with an asterisk.
+    [TestMethod]
+    public void DisplayPatternH_ReturnsCorrectHPattern()
+    {
+        var expected = " *   * \n *   * \n *   * \n ***** \n *   * \n *   * \n *   * \n";
+        var result = ForLoop.DisplayPatternH();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 66 - Write a C# Sharp program to display an alphabet pattern like I with an asterisk.
+    [TestMethod]
+    public void DisplayPatternI_ReturnsCorrectIPattern()
+    {
+        var expected = " ***** \n   *   \n   *   \n   *   \n   *   \n   *   \n ***** \n";
+        var result = ForLoop.DisplayPatternI();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 67 - Write a C# Sharp program to display an alphabet pattern like J with an asterisk.
+    [TestMethod]
+    public void DisplayPatternJ_ReturnsCorrectJPattern()
+    {
+        var expected = "   *** \n    *  \n    *  \n    *  \n    *  \n  * *  \n   *   \n";
+        var result = ForLoop.DisplayPatternJ();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 68 - Write a C# Sharp program to display an alphabet pattern like K with an asterisk.
+    [TestMethod]
+    public void DisplayPatternK_ReturnsCorrectKPattern()
+    {
+        var expected = " *   * \n *  *  \n * *   \n **    \n * *   \n *  *  \n *   * \n";
+        var result = ForLoop.DisplayPatternK();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 69 - Write a C# Sharp program to display an alphabet pattern like L with an asterisk.
+    [TestMethod]
+    public void DisplayPatternL_ReturnsCorrectLPattern()
+    {
+        var expected = " *     \n *     \n *     \n *     \n *     \n *     \n ***** \n";
+        var result = ForLoop.DisplayPatternL();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 70 - Write a C# Sharp program to display an alphabet pattern like M with an asterisk.
+    [TestMethod]
+    public void DisplayPatternM_ReturnsCorrectMPattern()
+    {
+        var expected = " *   * \n *   * \n ** ** \n * * * \n *   * \n *   * \n *   * \n";
+        var result = ForLoop.DisplayPatternM();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 71 - Write a C# Sharp program to display an alphabet pattern like N with an asterisk.
+    [TestMethod]
+    public void DisplayPatternN_ReturnsCorrectNPattern()
+    {
+        var expected = " *   * \n *   * \n **  * \n * * * \n *  ** \n *   * \n *   * \n";
+        var result = ForLoop.DisplayPatternN();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 72 - Write a C# Sharp program to display an alphabet pattern like O with an asterisk.
+    [TestMethod]
+    public void DisplayPatternO_ReturnsCorrectOPattern()
+    {
+        var expected = "  ***  \n *   * \n *   * \n *   * \n *   * \n *   * \n  ***  \n";
+        var result = ForLoop.DisplayPatternO();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 73 - Write a C# Sharp program to display an alphabet pattern like P with an asterisk.
+    [TestMethod]
+    public void DisplayPatternP_ReturnsCorrectPPattern()
+    {
+        var expected = " ****  \n *   * \n *   * \n ****  \n *     \n *     \n *     \n";
+        var result = ForLoop.DisplayPatternP();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 74 - Write a C# Sharp program to display an alphabet pattern like Q with an asterisk.
+    [TestMethod]
+    public void DisplayPatternQ_ReturnsCorrectQPattern()
+    {
+        var expected = "  ***  \n *   * \n *   * \n *   * \n * * * \n *  *  \n  ** * \n";
+        var result = ForLoop.DisplayPatternQ();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 75 - Write a C# Sharp program to display an alphabet pattern like R with an asterisk.
+    [TestMethod]
+    public void DisplayPatternR_ReturnsCorrectRPattern()
+    {
+        var expected = " ****  \n *   * \n *   * \n ****  \n * *   \n *  *  \n *   * \n";
+        var result = ForLoop.DisplayPatternR();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 76 - Write a C# Sharp program to display an alphabet pattern like S with an asterisk.
+    [TestMethod]
+    public void DisplayPatternS_ReturnsCorrectSPattern()
+    {
+        var expected = "  **** \n *     \n *     \n  ***  \n     * \n     * \n ****  \n";
+        var result = ForLoop.DisplayPatternS();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 77 - Write a C# Sharp program to display an alphabet pattern like T with an asterisk.
+    [TestMethod]
+    public void DisplayPatternT_ReturnsCorrectTPattern()
+    {
+        var expected = " ***** \n   *   \n   *   \n   *   \n   *   \n   *   \n   *   \n";
+        var result = ForLoop.DisplayPatternT();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 78 - Write a C# Sharp program to display an alphabet pattern like U with an asterisk.
+    [TestMethod]
+    public void DisplayPatternU_ReturnsCorrectUPattern()
+    {
+        var expected = " *   * \n *   * \n *   * \n *   * \n *   * \n *   * \n  ***  \n";
+        var result = ForLoop.DisplayPatternU();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 79 - Write a C# Sharp program to display an alphabet pattern like V with an asterisk.
+    [TestMethod]
+    public void DisplayPatternV_ReturnsCorrectVPattern()
+    {
+        var expected = " *   * \n *   * \n *   * \n *   * \n *   * \n  * *  \n   *   \n";
+        var result = ForLoop.DisplayPatternV();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 80 - Write a C# Sharp program to display an alphabet pattern like W with an asterisk.
+    [TestMethod]
+    public void DisplayPatternW_ReturnsCorrectWPattern()
+    {
+        var expected = " *   * \n *   * \n *   * \n *   * \n * * * \n * * * \n  * *  \n";
+        var result = ForLoop.DisplayPatternW();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 81 - Write a C# Sharp program to display an alphabet pattern like X with an asterisk.
+    [TestMethod]
+    public void DisplayPatternX_ReturnsCorrectXPattern()
+    {
+        var expected = " *   * \n *   * \n  * *  \n   *   \n  * *  \n *   * \n *   * \n";
+        var result = ForLoop.DisplayPatternX();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 82 - Write a C# Sharp program to display an alphabet pattern like Y with an asterisk.
+    [TestMethod]
+    public void DisplayPatternY_ReturnsCorrectYPattern()
+    {
+        var expected = " *   * \n *   * \n  * *  \n   *   \n   *   \n   *   \n   *   \n";
+        var result = ForLoop.DisplayPatternY();
+        result.Should().Be(expected);
+    }
+
+    // Exercise 83 - Write a C# Sharp program to display an alphabet pattern like Z with an asterisk.
+    [TestMethod]
+    public void DisplayPatternZ_ReturnsCorrectZPattern()
+    {
+        var expected = "*******\n     * \n    *  \n   *   \n  *    \n *     \n*******\n";
+        var result = ForLoop.DisplayPatternZ();
+        result.Should().Be(expected);
+    }
 }
